@@ -7,9 +7,16 @@
 !*.clang-tidy
 
 !*.txt
-!*.TXT
 
 !*.cpp
 !*.hpp
+
+!.revision
+
+# for reviews
+!.review_id
+readme.txt
+
 !makefile
 !.rules.mk
+!*.sh

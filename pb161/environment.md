@@ -11,6 +11,18 @@ description: |
 Most likely WSL, VM or VPS. If you consider setting up either of those PITA, then
 VSCode + SSH to _aisa_ might be the best option for you.
 
+:::caution VSCode @ aisa
+
+Be careful when using VSCode on aisa, most notably:
+
+1. VSCode can leave lingering processes running in the background that can „eat
+   up“ your quota for running processes.
+   AFAIK UNIX team has implemented some periodic clean up of those.
+2. Disk quota can be also affected, because of the C/C++ extension toolkit that
+   has a cache for IntelliSense.
+
+:::
+
 Either of those will be linux distros, so jump to [next section](#linux).
 
 ### Linux
@@ -72,12 +84,6 @@ to the JetBrains IDEs.
 I recommend you using some basic versioning for your code, even though you submit
 only the sources on _aisa_. There are specific reasons why I suggest it:
 
-- once you submit the sources for evaluation, there is no way of getting previous
-  submissions
-
-  i.e. if you introduce new bugs between submissions, you cannot compare two of
-  them to pinpoint the bug, this can be easily resolved by _git tags_
-
 - if you build a _commit, tag and submit_ habit, you might be able to address
   some of the smaller problems in your sources even before submission; more info
   in the [pre-commit section](#pre-commit)
@@ -88,23 +94,18 @@ skeletons on your default branch, since _frag_ on _aisa_ automatically downloads
 everything that is not present and by that can create conflicts when switching
 branches.
 
+:::tip Commit conventions
+
+When creating smaller and well defined commits, you can more easily argue about
+correctness of your implementation and also identify bugs, since they are better
+contained.
+
+:::
+
 Since frag creates a lot of support files (majority of them are dotfiles, i.e.
 hidden files), I recommend you to use following
-[gitignore](/files/pb161/environment/gitignore) configuration that should cover most of
-the scenarios.
-
-### Reviews on merge requests
-
-It might be harder to resolve, explain and/or address notes from the review if you
-get back your source code with notes all over the place, to help with this I offer
-you reviews on merge requests in GitLab.
-
-It allows me to comment on your source code with an option for you to reply, so
-that we can clear any misunderstandings and vague comments if they arise.
-
-Since I expect most of you to not require this, it might take some time for me
-to implement tool that would allow it, since the reviews shall be still submitted
-through _aisa_.
+[gitignore](pathname:///files/pb161/environment/gitignore) configuration that
+should cover most of the scenarios.
 
 ### pre-commit ([link](https://pre-commit.com/))
 
@@ -124,6 +125,18 @@ In case of formatting and linting, there are already existing hooks (there is a
 list of supported ones on the page), but there is also an option for you setting
 it up yourself (it is just a matter of specifying command and files it should run
 on).
+
+:::tip Formatting
+
+For formatting you can the following [git hook](https://github.com/pre-commit/mirrors-clang-format#using-clang-format-with-pre-commit).
+
+This hook follows the formatting conventions defined by the `.clang-format` file
+that is looked up recursively all the way to the root of the filesystem, therefore
+it is ideal to keep it in the root of the git repository.
+
+You can look up the different codestyles [here](https://gitlab.fi.muni.cz/pb071/codestyles).
+
+:::
 
 ## Testing
 
