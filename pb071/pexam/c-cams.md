@@ -1,4 +1,5 @@
 ---
+slug: cams
 title: Practice exam C
 description: |
   Stalking cars…
@@ -24,9 +25,9 @@ description: |
 
 Your task is to write a program `cams` that will be processing input from the
 cams that are capable of identifying license plates on the cars and then
-evaluate the queries on the given data. Your contributions to the society are
+print out summary based on the input data. Your contributions to the society are
 very much appreciated and may (or may not) be used for (each or none) of the
-following purposes:
+following purposes[^1]:
 
 * stalking people leaving and coming back home,
 * retroactively making people pay for the parking,
@@ -34,32 +35,19 @@ following purposes:
 * tracking people that don't pay tolls, or
 * convict employees leaving the work prematurely.
 
-## Format of the input files
+## Format of the input file
 
-Input for your program consists of the data from the cameras and queries. You
-will be **always** given the data from the cameras as a path to a file, whereas
-user should be able to specify `-` (i.e. `stdin`) as the path to queries.
-
-:::tip Validation of data
-
-For the sake of simplicity (and partially relieving the time pressure), you
-**are not** required to validate the dates you are given on the input (e.g. leap
-years, days in months, etc.).
-
-This is caused by the fact that you will be given just a timestamp that you
-**don't** need to process in any (other than suggested ways for debugging).
-
-:::
-
-### Data from the cameras
+Input for your program consists of the data from the cameras. You will be given
+the data from the cameras as a path to a file and user should also be able to
+specify `-` (i.e. `stdin`) as the path.
 
 Each “scan” (i.e. reading) of the cameras consists of the following data:
 
 * _camera ID_:  non-negative integer identifying a camera
 * _plate_:  string of unknown length that can consist of any characters apart
   from whitespace
-* _timestamp_: timedate of the scan as an unsigned integer (represented as a
-  UNIX time)
+* _timestamp_: date and time of the scan as an unsigned integer (represented as
+  a UNIX time)
 
   :::tip
 
@@ -74,7 +62,7 @@ And they are compiled into one reading such as:
     camera_ID: plate timestamp
 
 There should be always **at least one** space in between each part of the
-reading. Reading are separated by the commas, which may, but don't have to, be
+reading. Readings are separated by the commas, which may, but don't have to, be
 accompanied by whitespace around.
 
 #### Examples
@@ -87,66 +75,42 @@ Few examples of the data from the cameras follow
 11: EL9-987 1679541338 ,2 :  Foo-666 1683170082,42: YourMum 1683170082,
 42: TryToCatchMe 1671602419   ,    1234: TryToCatchMe 1671602419,
 19: ABC-12-34 1664659649, 69:YouShould-not-pLaCe-4ny-expectations%on^the(input 1680307994,
-9 : 9B9-161 1665416417     , 10: 1a1-999 1671602419,1:lmao 1633078256
+9 : 9B9-161 1665416417     , 10: 1a1-999 1671602419,1:lmao 1633078256,
+16: ABC-12-34 1664609012
 ```
-
-### Queries
-
-Querying the processed data is done by providing a license plate. You can expect
-that the license plates are separated by `\n` (newline, also known as
-_ňjůlajn_) **with no other whitespace around**.
-
-#### Examples
-
-Few examples of the queries follow
-
-    ABC-12-34
-    TryToCatchMe
-    Foo-666
-    EL9-987
-
 
 ## Format of the output
 
 :::info
 
-All the examples above consider using data from the first example of the input.
+All the examples consider using data from the example of the input.
 
 :::
 
-You may encounter these situations (and handle them in the following order):
-1. License plate was not found
+You are expected to print out the dates and cameras that has captured the
+license plate for each of them (in a sorted fashion).
 
-   ```
-   404-not-found
-   *** 404-not-found ***
-      License plate was not found.
-   ```
-1. License plate was found
+If there are multiple scans present and the timespan (i.e. time difference
+between the scans is bigger than 60 minutes, you should separate them by a
+newline). For example:
 
-   In such case, you are expected to print out the dates and cameras that has
-   captured the license plate.
+```
+*** ABC-12-34 ***
+   25: Fri Oct  1 10:50:56 2021
 
-   If there are multiple scans present and the timespan (i.e. time difference
-   between the scans is bigger than 60 minutes, you are to separate them by a
-   newline).
+   10: Sat Oct  1 09:18:32 2022
+   16: Sat Oct  1 09:23:32 2022
 
-   ```
-   ABC-12-34
-   *** ABC-12-34 ***
-      25: Fri Oct  1 10:50:56 2021
-      10: Sat Oct  1 09:18:32 2022
+   19: Sat Oct  1 23:27:29 2022
+```
 
-      19: Sat Oct  1 23:27:29 2022
-   ```
+:::tip
 
-   :::tip
+Since you are given the timestamp in a `time_t` compatible type on UN\*X, you
+can safely use `ctime(3)` for printing the timestamp as a _human readable_ time
+when outputting the date and time.
 
-   Since you are given the timestamp in a `time_t` compatible type on UN\*X, you
-   can safely use `ctime` for printing the timestamp as a _human readable_ time
-   when outputting the date and time.
-
-   :::
+:::
 
 
 :::tip
@@ -161,36 +125,37 @@ of the output.
 You can also have a look at example usage of your program. We can run your
 program from the shell like
 
-    $ ./cams example_1.txt -
+    $ ./cams example_1.txt
 
-And then provide the queries, since we specified `-` as the file for the queries
+And it will produce an output:
 
-    > ABC-12-34
     *** ABC-12-34 ***
        25: Fri Oct  1 10:50:56 2021
+    
        10: Sat Oct  1 09:18:32 2022
-
+       16: Sat Oct  1 09:23:32 2022
+    
        19: Sat Oct  1 23:27:29 2022
-
-    > NonExistentLicensePlate
-    *** NonExistentLicensePlate ***
-       License plate was not found.
-
-    > EL9-987
+    
     *** EL9-987 ***
        11: Thu Mar 23 04:15:38 2023
-
-    > TryToCatchMe
+    
+    *** Foo-666 ***
+       2: Thu May  4 05:14:42 2023
+    
     *** TryToCatchMe ***
        42: Wed Dec 21 07:00:19 2022
        42: Wed Dec 21 07:00:19 2022
        1234: Wed Dec 21 07:00:19 2022
-
-:::info
-
-Lines prefixed with `> ` in the example above represent the user input.
-
-:::
+    
+    *** XYZ-98-76 ***
+       289: Mon Oct 10 17:40:17 2022
+    
+    *** YouShould-not-pLaCe-4ny-expectations%on^the(input ***
+       69: Sat Apr  1 02:13:14 2023
+    
+    *** YourMum ***
+       42: Thu May  4 05:14:42 2023
 
 ## Requirements and notes
 
@@ -207,3 +172,5 @@ Lines prefixed with `> ` in the example above represent the user input.
   management) should be handled in **the same way** as they were in the
   homeworks and seminars.
 * Your program **must free** all the resources before exiting.
+
+[^1]: Subject to NDA.
