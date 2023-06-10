@@ -1,0 +1,262 @@
+---
+title: On the rules of the red-black tree
+description: |
+  Shower thoughts on the rules of the red-black tree.
+tags:
+- red-black trees
+- balanced trees
+---
+
+## Introduction
+
+Have you ever thought about the red-black tree rules in more depth? Why are they
+formulated the way they are? How come they keep the tree balanced? Let's go through
+each of the red-black tree rules and try to change, break and contemplate about
+them.
+
+We expect that you are familiar with the following set of the rules[^1]:
+1. Every node is either red or black.
+2. The root is black.
+3. Every leaf (`nil`) is black.
+4. If a node is red, then both its children are black.
+5. For each node, all simple paths from the node to descendant leaves contain the
+   same number of black nodes.
+
+Each section will go into _reasonable_ details of each rule.
+
+## 1ª Every node is either red or black.
+
+OK… This one is very simple. It is just a definition and is used in all other
+rules. Not much to talk about here. Or is there?
+
+### Do I really need the nodes to be explicitly colored?
+
+The answer is no. Balancing of the red-black trees is “enforced” by the 4th and
+5th rule in the enumeration above. There are many ways you can avoid using colors.
+
+#### Black height
+
+We mentioned the 4th and 5th rule and that it enforces the balancing. What does
+it mean for us?
+
+Well, we definitely do not have to use the colors, which even as a _boolean_ flag
+would take at least 1 byte of space (and usually even more), cause… well, it is
+easier for the CPU to work with words rather than single bits.
+
+We could use the black height, couldn't we? It would mean more memory used, cause
+it should be ideally big and unsigned. Can we tell the color of a node from the
+black height? Of course we can, if my child has the same black height as I do,
+it means that there was no black node added on the path between us and therefore
+my child would be colored red.
+
+Example of a red-black tree that keeps count of black nodes on paths to the
+leaves follows:
+
+![Red-black tree with black height](/files/ib002/rb-trees/rules/rb_height_light.svg#gh-light-mode-only)![Red-black tree with black height](/files/ib002/rb-trees/rules/rb_height_dark.svg#gh-dark-mode-only)
+
+We mark the _black heights_ in superscript. You can see that all leaves have the
+black height equal to $1$. Let's take a look at some of the interesting cases:
+
+* If we take a look at the node with $\text{key} = 9$, we can see that it is
+  coloured red and its black height is 1, because it is a leaf.
+
+  Let's look at its parent (node with $\text{key} = 8$). On its left side it has
+  `nil` and on its right side the $9$. And its black height is still $1$, cause
+  except for the `nil` leaves, there are no other black nodes.
+
+  We can clearly see that if a node has the same black height as its parent, it
+  is a red node.
+
+* Now let's take a look at the root with $\text{key} = 3$. It has a black height
+  of 3. Both of its children are black nodes and have black height of 2.
+  
+  We can see that if a node has its height 1 lower than its parent, it is a black
+  node.
+  
+  The reasoning behind it is rather simple, we count the black nodes all the way
+  to the leaves, therefore if my parent has a higher black height, it means that
+  on the path from me to my parent there is a black node, but the only node added
+  is me, therefore I must be black.
+
+#### Isomorphic trees
+
+One of the other ways to avoid using color is storing the red-black tree in some
+isomorphic tree. The structure of 2-3-4 tree allows us to avoid using the color
+completely. This is a bit different approach, cause we would be basically using
+different tree, so we keep this note in just as a “hack”.
+
+## 2ª The root is black.
+
+This rule might seem like a very important one, but overall is not. You can safely
+omit this rule, but you also need to deal with the consequences.
+
+Let's refresh our memory with the algorithm of _insert fixup_:
+```
+WHILE z.p.color == Red
+  IF z.p == z.p.p.left
+    y = z.p.p.right
+
+    IF y.color == Red
+      z.p.color = Black
+      y.color = Black
+      z.p.p.color = Red
+      z = z.p.p
+    ELSE
+      IF z == z.p.right
+        z = z.p
+        Left-Rotate(T, z)
+      z.p.color = Black
+      z.p.p.color = Red
+      Right-Rotate(T, z.p.p)
+  ELSE (same as above with “right” and “left” exchanged)
+
+T.root.color = Black
+```
+
+:::tip
+
+If you have tried to implement any of the more complex data structures, such as
+red-black trees, etc., in a statically typed language that also checks you for
+`NULL`-correctness (e.g. _mypy_ or even C# with nullable reference types), you
+might have run into numerous issues in the cases where you are 100% sure that you
+cannot obtain `NULL` because of the invariants, but the static type checking
+doesn't know that.
+
+The issue we hit with the _insert fixup_ is very similar.
+
+:::
+
+You might not realize the issue at the first sight, but the algorithm described
+with the pseudocode above expects that the root of the red-black tree is black by
+both relying on the invariant in the algorithm and afterwards by enforcing the
+black root property.
+
+If we decide to omit this condition, we need to address it in the pseudocodes
+accordingly.
+
+| Usual algorithm with black root | Allowing red root |
+| :-----------------------------: | :---------------: |
+| ![1ª insertion](/files/ib002/rb-trees/rules/red-root/br_0_light.svg#gh-light-mode-only)![1ª insertion](/files/ib002/rb-trees/rules/red-root/br_0_dark.svg#gh-dark-mode-only) | ![1ª insertion](/files/ib002/rb-trees/rules/red-root/rr_0_light.svg#gh-light-mode-only)![1ª insertion](/files/ib002/rb-trees/rules/red-root/rr_0_dark.svg#gh-dark-mode-only) |
+| ![2ª insertion](/files/ib002/rb-trees/rules/red-root/br_1_light.svg#gh-light-mode-only)![2ª insertion](/files/ib002/rb-trees/rules/red-root/br_1_dark.svg#gh-dark-mode-only) | ![2ª insertion](/files/ib002/rb-trees/rules/red-root/rr_1_light.svg#gh-light-mode-only)![2ª insertion](/files/ib002/rb-trees/rules/red-root/rr_1_dark.svg#gh-dark-mode-only) |
+| ![3ª insertion](/files/ib002/rb-trees/rules/red-root/br_2_light.svg#gh-light-mode-only)![3ª insertion](/files/ib002/rb-trees/rules/red-root/br_2_dark.svg#gh-dark-mode-only) | ![3ª insertion](/files/ib002/rb-trees/rules/red-root/rr_2_light.svg#gh-light-mode-only)![3ª insertion](/files/ib002/rb-trees/rules/red-root/rr_2_dark.svg#gh-dark-mode-only) |
+| ![4ª insertion](/files/ib002/rb-trees/rules/red-root/br_3_light.svg#gh-light-mode-only)![4ª insertion](/files/ib002/rb-trees/rules/red-root/br_3_dark.svg#gh-dark-mode-only) | ![4ª insertion](/files/ib002/rb-trees/rules/red-root/rr_3_light.svg#gh-light-mode-only)![4ª insertion](/files/ib002/rb-trees/rules/red-root/rr_3_dark.svg#gh-dark-mode-only) |
+| ![5ª insertion](/files/ib002/rb-trees/rules/red-root/br_4_light.svg#gh-light-mode-only)![5ª insertion](/files/ib002/rb-trees/rules/red-root/br_4_dark.svg#gh-dark-mode-only) | ![5ª insertion](/files/ib002/rb-trees/rules/red-root/rr_4_light.svg#gh-light-mode-only)![5ª insertion](/files/ib002/rb-trees/rules/red-root/rr_4_dark.svg#gh-dark-mode-only) |
+| ![6ª insertion](/files/ib002/rb-trees/rules/red-root/br_5_light.svg#gh-light-mode-only)![6ª insertion](/files/ib002/rb-trees/rules/red-root/br_5_dark.svg#gh-dark-mode-only) | ![6ª insertion](/files/ib002/rb-trees/rules/red-root/rr_5_light.svg#gh-light-mode-only)![6ª insertion](/files/ib002/rb-trees/rules/red-root/rr_5_dark.svg#gh-dark-mode-only) |
+| ![7ª insertion](/files/ib002/rb-trees/rules/red-root/br_6_light.svg#gh-light-mode-only)![7ª insertion](/files/ib002/rb-trees/rules/red-root/br_6_dark.svg#gh-dark-mode-only) | ![7ª insertion](/files/ib002/rb-trees/rules/red-root/rr_6_light.svg#gh-light-mode-only)![7ª insertion](/files/ib002/rb-trees/rules/red-root/rr_6_dark.svg#gh-dark-mode-only) |
+| ![8ª insertion](/files/ib002/rb-trees/rules/red-root/br_7_light.svg#gh-light-mode-only)![8ª insertion](/files/ib002/rb-trees/rules/red-root/br_7_dark.svg#gh-dark-mode-only) | ![8ª insertion](/files/ib002/rb-trees/rules/red-root/rr_7_light.svg#gh-light-mode-only)![8ª insertion](/files/ib002/rb-trees/rules/red-root/rr_7_dark.svg#gh-dark-mode-only) |
+| ![9ª insertion](/files/ib002/rb-trees/rules/red-root/br_8_light.svg#gh-light-mode-only)![9ª insertion](/files/ib002/rb-trees/rules/red-root/br_8_dark.svg#gh-dark-mode-only) | ![9ª insertion](/files/ib002/rb-trees/rules/red-root/rr_8_light.svg#gh-light-mode-only)![9ª insertion](/files/ib002/rb-trees/rules/red-root/rr_8_dark.svg#gh-dark-mode-only) |
+
+## 3ª Every leaf (`nil`) is black.
+
+Now, this rule is a funny one. What does this imply and can I interpret this in
+some other way? Let's go through some of the possible ways I can look at this and
+how would they affect the other rules and balancing.
+
+We will experiment with the following tree:
+![Red-black tree](/files/ib002/rb-trees/rules/rb_light.svg#gh-light-mode-only)![Red-black tree](/files/ib002/rb-trees/rules/rb_dark.svg#gh-dark-mode-only)
+
+We should start by counting the black nodes from root to the `nil` leaves based
+on the rules. We have multiple similar paths, so we will pick only the interesting
+ones.
+
+1. What happens if we do not count the `nil` leaves?
+2. What happens if we consider leaves the nodes with _no descendants_, i.e. both
+   of node's children are `nil`?
+3. What happens if we do not count the `nil` leaves, but consider nodes with at
+   least one `nil` descendant as leaves?
+
+| path                      | black nodes | 1ª idea | 2ª idea | 3ª idea |
+| ------------------------: | ----------: | ------: | ------: | ------: |
+| `3 → 1 → 0 → nil`         | 4           | 3       | 4       | 3       |
+| `3 → 5 → 7 → 8 → nil`     | 4           | 3       | -       | 3       |
+| `3 → 5 → 7 → 8 → 9 → nil` | 4           | 3       | 4       | 3       |
+
+First idea is very easy to execute and it is also very easy to argue about its
+correctness. It is correct, because we just subtract one from each of the paths.
+This affects **all** paths and therefore results in global decrease by one.
+
+Second idea is a bit more complicated. We count the `nil`s, so the count is $4$
+as it should be. However, there is one difference. Second path no longer satisfies
+the condition of a _leaf_. Technically it relaxes the 5th rule, because we leave
+out some of the nodes. We should probably avoid that.
+
+:::caution
+
+With the second idea, you may also feel that we are “bending” the rules a bit,
+especially the definition of the “leaf” nodes.
+
+Given the definition of the red-black tree, where `nil` is considered to be an
+external node, we have decided that bending it a bit just to stir a thought about
+it won't hurt anybody. :wink:
+
+:::
+
+## 4ª If a node is red, then both its children are black.
+
+This rule might seem rather silly on the first look, but there are 2 important
+functions:
+
+1. it allows the algorithms to _“notice”_ that something went wrong (i.e. the
+   tree needs to be rebalanced), and
+2. it holds the balancing and height of the tree _“in check”_ (with the help of
+   the 5th rule).
+
+When we have a look at the algorithms that are used for fixing up the red-black
+tree after an insertion or deletion, we will notice that all the algorithms need
+is the color of the node. 
+
+> How come it is the only thing that we need?
+> How come such naïve thing can be enough?
+
+Let's say we perform an insertion into the tree… We go with the usual and pretty
+primitive insertion into the binary-search tree and then, if needed, we “fix up”
+broken invariants. _How can that be enough?_ With each insertion and deletion we
+maintain the invariants, therefore if we break them with one operation, there's
+only one path on which the invariants were _felled_. If we know that rest of the
+tree is correct, it allows us to fix the issues just by propagating it to the
+root and _abusing_ the siblings (which are, of course, correct red-black
+subtrees) to fix or at least partially mitigate the issues and propagate them
+further.
+
+Let's assume that we do not enforce this rule, you can see how it breaks the
+balancing of the tree below.
+
+| Enforcing this rule | Omitting this rule |
+| :-----------------: | :----------------: |
+| ![correct](/files/ib002/rb-trees/rules/red-node-black-children/correct_light.svg#gh-light-mode-only)![correct](/files/ib002/rb-trees/rules/red-node-black-children/correct_dark.svg#gh-dark-mode-only) | ![incorrect](/files/ib002/rb-trees/rules/red-node-black-children/incorrect_light.svg#gh-light-mode-only)![incorrect](/files/ib002/rb-trees/rules/red-node-black-children/incorrect_dark.svg#gh-dark-mode-only) |
+
+We can create a **big** subtree with only red nodes and **even** when keeping
+the rest of the rules maintained, it will break the time complexity. It stops us
+from “hacking” the black height requirement laid by the 5th rule.
+
+## 5ª For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
+
+As it was mentioned, with the 4th rule they hold the balancing of the red-black
+tree.
+
+:::tip
+
+An important observation here is the fact that the red-black tree is a
+**height**-balanced tree.
+
+:::
+
+Enforcing this rule (together with the 4th rule) keeps the tree balanced:
+1. 4th rule makes sure we can't “hack” this requirement.
+2. This rule ensures that we have “similar”[^2] length to each of the leaves.
+
+:::tip AVL tree
+
+You might have heard about an _AVL tree_ before. It is the first self-balanced
+tree to be ever introduced and works in a very similar nature as the red-black
+tree, the only difference is that it does not deal with the _black height_, but
+the height in general.
+
+If you were to compare AVL with the red-black tree, you can say that AVL is much
+more strict while red-black tree can still maintain the same asymptotic time
+complexity for the operations, but having more relaxed rules.
+
+:::
+
+[^1]: CORMEN, Thomas. Introduction to algorithms. Cambridge, Mass: MIT Press, 2009. isbn 9780262033848.
+[^2]: red nodes still exist
