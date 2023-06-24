@@ -27,7 +27,7 @@ const FeatureList = [
     description: (
       <>
         This content can be found as a source at{" "}
-        <a href="https://gitlab.com/mfocko/kb">GitLab</a> or{" "}
+        <a href="https://gitlab.com/mfocko/blog">GitLab</a> or{" "}
         <a href="https://gitlab.fi.muni.cz/xfocko/kb">FI GitLab</a>. And you can
         find it deployed on {" "}
         <a href="https://fi.muni.cz/~xfocko/kb">aisa</a> or{" "}

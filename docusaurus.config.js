@@ -23,7 +23,7 @@ class Subject {
         path: this.subject,
         routeBasePath: this.subject,
         sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://gitlab.com/mfocko/kb/tree/main",
+        editUrl: "https://gitlab.com/mfocko/blog/tree/main",
         remarkPlugins: [math],
         rehypePlugins: [katex],
       },
@@ -98,7 +98,7 @@ const config = {
           type: 'all',
           copyright: `Copyright © ${new Date().getFullYear()} Matej Focko.`,
         },
-        editUrl: "https://gitlab.com/mfocko/kb/tree/main",
+        editUrl: "https://gitlab.com/mfocko/blog/tree/main",
         remarkPlugins: [math],
         rehypePlugins: [katex],
       },
@@ -176,7 +176,7 @@ const config = {
             items: [
               {
                 label: "GitLab",
-                href: "https://gitlab.com/mfocko/kb",
+                href: "https://gitlab.com/mfocko/blog",
               },
               {
                 label: "GitLab FI",
