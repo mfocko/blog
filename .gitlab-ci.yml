@@ -11,8 +11,8 @@ test:
   - URL=http://localhost BASE_URL=/ yarn build
   except:
     - main
-  tags:
-    - shared-fi
+  # tags:
+  #   - shared-fi
 
 deploy:
   stage: deploy
@@ -30,5 +30,5 @@ deploy:
   - make deploy-poincare
   only:
     - main
-  tags:
-    - shared-fi
+  # tags:
+  #   - shared-fi
