@@ -443,7 +443,7 @@ though :) Let's go through the details.
 #### `Default` trait
 
 For the first time and twice I had a need to have a default value for my types,
-enumerations in this case. Rust offers a very nice trait[^4] that is described
+enumerations in this case. Rust offers a very nice trait[^1] that is described
 as:
 
 > A trait for giving a type a useful default value.
@@ -451,7 +451,7 @@ as:
 I guess it sums it up nicely. The more interesting part about this is the fact
 that you can use the _macro machinery_ to save yourself some typing. If you have
 enumeration of which the default value doesn't bear any parameter, you can just
-do[^5]:
+do[^2]:
 
 ```rust
 #[derive(Default)]
@@ -466,18 +466,13 @@ enum Color {
 #### Abusing negation
 
 If you want to use a _unary minus_ operator on your own type, you can implement
-a `Neg` trait[^6]. I was dealing with a binary tree and needed a way how to look
+a `Neg` trait[^3]. I was dealing with a binary tree and needed a way how to look
 at the other side, so I have just implemented the negation for flipping between
 left and right :smile:
 
-[^1]: Copy-pasting might be a relaxing thing to do, but you can also discover
-nasty stuff about your PC. See [this Reddit post and the comment].
-[^2]: [GitHub profile](https://github.com/martinjonas)
-[^3]: Even though you can use it even for libraries, but handling errors from
-libraries using `anyhow` is nasty… You will be the stinky one ;)
-[^4]: [`Default`](https://doc.rust-lang.org/std/default/trait.Default.html) docs
-[^5]: Pardon my example from the graph algorithms ;)
-[^6]: [`Neg`](https://doc.rust-lang.org/std/ops/trait.Neg.html) docs
+[^1]: [`Default`](https://doc.rust-lang.org/std/default/trait.Default.html) docs
+[^2]: Pardon my example from the graph algorithms ;)
+[^3]: [`Neg`](https://doc.rust-lang.org/std/ops/trait.Neg.html) docs
 
 [_Advent of Code_]: https://adventofcode.com
 [`itertools`]: https://crates.io/crates/itertools
