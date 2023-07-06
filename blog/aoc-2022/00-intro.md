@@ -3,11 +3,7 @@ title: Advent of Code '22 in Rust
 description: Preparing for Advent of Code '22.
 date: 2022-12-14T21:45
 slug: aoc-2022/intro
-authors:
-- name: Matej Focko
-  title: "a.k.a. @mf"
-  url: https://gitlab.com/mfocko
-  image_url: https://github.com/mfocko.png
+authors: mf
 tags:
 - aoc-2022
 - advent-of-code

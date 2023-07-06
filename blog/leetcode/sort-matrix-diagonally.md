@@ -3,11 +3,7 @@ title: Sort the matrix diagonally
 description: Compiler assisted development.
 date: 2023-03-04T23:15
 slug: leetcode/sort-diagonally
-authors:
-- name: Matej Focko
-  title: "a.k.a. @mf"
-  url: https://gitlab.com/mfocko
-  image_url: https://github.com/mfocko.png
+authors: mf
 tags:
 - cpp
 - leetcode

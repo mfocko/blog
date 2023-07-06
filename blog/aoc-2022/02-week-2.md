@@ -3,11 +3,7 @@ title: 2nd week of Advent of Code '22 in Rust
 description: Surviving second week in Rust.
 date: 2022-12-25T23:15
 slug: aoc-2022/2nd-week
-authors:
-- name: Matej Focko
-  title: "a.k.a. @mf"
-  url: https://gitlab.com/mfocko
-  image_url: https://github.com/mfocko.png
+authors: mf
 tags:
 - aoc-2022
 - advent-of-code
