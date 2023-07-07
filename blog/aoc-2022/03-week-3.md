@@ -5,8 +5,8 @@ date: 2023-07-06T21:00
 slug: aoc-2022/3rd-week
 authors: mf
 tags:
-- aoc-2022
 - advent-of-code
+- advent-of-code-2022
 - rust
 hide_table_of_contents: false
 ---
