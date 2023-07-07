@@ -450,6 +450,48 @@ let next_positions = |p| {
 };
 ```
 
+#### Min-heap
+
+In this case I had a need to use the priority queue taking the elements with the
+lowest cost as the prioritized ones. Rust only offers you the [`BinaryHeap`] and
+that is a max-heap. One of the ways how to achieve a min-heap is to put the
+elements in wrapped in a [`Reverse`] (as is even showed in the linked [docs of
+the `BinaryHeap`]). However the wrapping affects the type of the heap and also
+popping the most prioritized elements yields values wrapped in the `Reverse`.
+
+For this purpose I have just taken the max-heap and wrapped it as a whole in a
+separate structure providing just the desired methods:
+```rust
+use std::cmp::{Ord, Reverse};
+use std::collections::BinaryHeap;
+
+pub struct MinHeap<T> {
+    heap: BinaryHeap<Reverse<T>>,
+}
+
+impl<T: Ord> MinHeap<T> {
+    pub fn new() -> MinHeap<T> {
+        MinHeap {
+            heap: BinaryHeap::new(),
+        }
+    }
+
+    pub fn push(&mut self, item: T) {
+        self.heap.push(Reverse(item))
+    }
+
+    pub fn pop(&mut self) -> Option<T> {
+        self.heap.pop().map(|Reverse(x)| x)
+    }
+}
+
+impl<T: Ord> Default for MinHeap<T> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+```
+
 Rest is just the algorithm implementation which is not that interesting.
 
 ## [Day 25: Full of Hot Air](https://adventofcode.com/2022/day/25)
@@ -592,3 +634,6 @@ See you next year! Maybe in Rust, maybe not :upside_down_face:
 
 [_Advent of Code_]: https://adventofcode.com
 [_A\*_]: https://en.wikipedia.org/wiki/A*_search_algorithm
+[`BinaryHeap`]: https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html
+[`Reverse`]: https://doc.rust-lang.org/std/cmp/struct.Reverse.html
+[docs of the `BinaryHeap`]: https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html#min-heap
