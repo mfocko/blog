@@ -592,6 +592,8 @@ And for the tests:
 
 Let's wrap the whole thing up! Keeping in mind both AoC and the Rust…
 
+![Finished advent calendar :smile:](/img/blog/aoc-2022/04-week-4/calendar.png)
+
 ### Advent of Code
 
 This year was quite fun, even though most of the solutions and posts came in
