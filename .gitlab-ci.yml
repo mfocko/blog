@@ -68,7 +68,7 @@ build:aisa:
 
 deploy:poincare:
   stage: deploy
-  needs: build:poincare
+  needs: [build:poincare]
 
   extends: .deploy
 
@@ -84,7 +84,7 @@ deploy:poincare:
 
 deploy:aisa:
   stage: deploy
-  needs: build:aisa
+  needs: [build:aisa]
 
   extends: .deploy
 
