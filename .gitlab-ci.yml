@@ -1,3 +1,25 @@
+.build:
+  before_script:
+    # Handle the Yarn
+    - echo 'yarn-offline-mirror ".yarn-cache/"' >> .yarnrc
+    - echo 'yarn-offline-mirror-pruning true' >> .yarnrc
+    - yarn install --frozen-lockfile --no-progress
+
+    # Install the dependencies for alpine
+    - apk update && apk add make graphviz zip
+
+.deploy:
+  before_script:
+    # Install the dependencies for alpine
+    - apk update && apk add make openssh rsync
+
+    # Prepare environment for SSH
+    - mkdir -p ~/.ssh
+    - ln -s $SSH_CONFIG ~/.ssh/config
+    - ln -s $SSH_KEY ~/.ssh/id_ed25519
+    - ln -s $SSH_KNOWN_HOSTS ~/.ssh/known_hosts
+    - chmod 600 ~/.ssh/config ~/.ssh/id_ed25519 ~/.ssh/known_hosts
+
 default:
   image: node:current-alpine3.15
 
@@ -8,46 +30,50 @@ default:
     paths:
       - .yarn-cache/
 
-  before_script:
-    # Handle the Yarn
-    - echo 'yarn-offline-mirror ".yarn-cache/"' >> .yarnrc
-    - echo 'yarn-offline-mirror-pruning true' >> .yarnrc
-    - yarn install --frozen-lockfile --no-progress
-
-    # Install the dependencies for alpine
-    - apk update && apk add make graphviz zip openssh rsync
-
-    # Prepare environment for SSH
-    - mkdir -p ~/.ssh
-    - ln -s $SSH_CONFIG ~/.ssh/config
-    - ln -s $SSH_KEY ~/.ssh/id_ed25519
-    - ln -s $SSH_KNOWN_HOSTS ~/.ssh/known_hosts
-    - chmod 600 ~/.ssh/config ~/.ssh/id_ed25519 ~/.ssh/known_hosts
-
 stages:
   - build
   - deploy
 
-build:
+build:poincare:
   stage: build
+
+  extends: .build
 
   script:
     # Regenerate the static files
     - make regenerate-dots
     - make regenerate-zips
 
-    # Run a mock build to enable faster rebuild
-    - URL=http://localhost BASE_URL=/ yarn run build
+    - URL="https://blog.mfocko.xyz" BASE_URL="/" yarn run build
 
   artifacts:
     paths:
       - "build/"
 
-deploy 1/2:
-  stage: deploy
+build:aisa:
+  stage: build
+
+  extends: .build
 
   script:
-    - make deploy-poincare
+    # Regenerate the static files
+    - make regenerate-dots
+    - make regenerate-zips
+
+    - URL="https://fi.muni.cz" BASE_URL="~xfocko/kb/" yarn run build
+
+  artifacts:
+    paths:
+      - "build/"
+
+deploy:poincare:
+  stage: deploy
+  needs: build:poincare
+
+  extends: .deploy
+
+  script:
+    - rsync -avzrlpptv --delete build/ poincare:~/public_html/blog/
 
   artifacts:
     paths:
@@ -56,11 +82,14 @@ deploy 1/2:
   only:
     - main
 
-deploy 2/2:
+deploy:aisa:
   stage: deploy
+  needs: build:aisa
+
+  extends: .deploy
 
   script:
-    - make deploy-aisa
+    - rsync -avzrlpptv --delete build/ aisa:~/public_html/kb/
 
   artifacts:
     paths:
