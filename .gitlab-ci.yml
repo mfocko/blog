@@ -1,34 +1,71 @@
 image: node:current-alpine3.15
 
+cache:
+  key:
+    files:
+    - yarn.lock
+  paths:
+    - .yarn-cache/
+
 stages:
-  - test
+  - build
   - deploy
 
-# test:
-#   stage: test
-#   script:
-#   - yarn install
-#   - URL=http://localhost BASE_URL=/ yarn build
-#   except:
-#     - main
-#   # tags:
-#   #   - shared-fi
+build:
+  stage: build
 
-deploy:
+  script:
+  # Handle the Yarn
+  - echo 'yarn-offline-mirror ".yarn-cache/"' >> .yarnrc
+  - echo 'yarn-offline-mirror-pruning true' >> .yarnrc
+  - yarn install --frozen-lockfile --no-progress
+
+  # Install the dependencies for alpine
+  - apk update && apk add make graphviz zip openssh rsync
+
+  # Regenerate the static files
+  - make regenerate-dots
+  - make regenerate-zips
+
+  # Run a mock build to enable faster rebuild
+  - URL=http://localhost BASE_URL=/ yarn run build
+
+  artifacts:
+    paths:
+    - "build/"
+
+deploy 1/2:
   stage: deploy
+
   script:
   - mkdir -p ~/.ssh
   - ln -s $SSH_CONFIG ~/.ssh/config
   - ln -s $SSH_KEY ~/.ssh/id_ed25519
   - ln -s $SSH_KNOWN_HOSTS ~/.ssh/known_hosts
   - chmod 600 ~/.ssh/config ~/.ssh/id_ed25519 ~/.ssh/known_hosts
-  - apk update && apk add make graphviz zip openssh rsync
-  - yarn install
-  - make regenerate-dots
-  - make regenerate-zips
-  - make deploy-aisa
   - make deploy-poincare
+
+  artifacts:
+    paths:
+    - "build/"
+
   only:
-    - main
-  # tags:
-  #   - shared-fi
+  - main
+
+deploy 2/2:
+  stage: deploy
+
+  script:
+  - mkdir -p ~/.ssh
+  - ln -s $SSH_CONFIG ~/.ssh/config
+  - ln -s $SSH_KEY ~/.ssh/id_ed25519
+  - ln -s $SSH_KNOWN_HOSTS ~/.ssh/known_hosts
+  - chmod 600 ~/.ssh/config ~/.ssh/id_ed25519 ~/.ssh/known_hosts
+  - make deploy-aisa
+
+  artifacts:
+    paths:
+    - "build/"
+
+  only:
+  - main
