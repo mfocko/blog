@@ -7,9 +7,10 @@ const FeatureList = [
     title: "About Me",
     description: (
       <p>
-        I'm working in Red Hat in the <a href="https://github.com/packit">Packit
-          team</a> and studying at <a href="https://fi.muni.cz">FI MUNI</a> while
-        also tutoring some courses there.
+        I'm working in Red Hat in the{" "}
+        <a href="https://github.com/packit">Packit team</a> and studying at{" "}
+        <a href="https://fi.muni.cz">FI MUNI</a> while also tutoring some
+        courses there.
       </p>
     ),
   },
@@ -23,15 +24,17 @@ const FeatureList = [
     ),
   },
   {
-    title: "This web",
+    title: "Mastodon",
     description: (
       <>
-        This content can be found as a source at{" "}
-        <a href="https://gitlab.com/mfocko/blog">GitLab</a> or{" "}
-        <a href="https://gitlab.fi.muni.cz/xfocko/kb">FI GitLab</a>. And you can
-        find it deployed on {" "}
-        <a href="https://fi.muni.cz/~xfocko/kb">aisa</a> or{" "}
-        <a href="https://blog.mfocko.xyz">poincare</a>.
+        Feel free to contact me on any of the following Mastodon accounts:{" "}
+        <a rel="me" href="https://fosstodon.org/@m4tt_314">
+          Fosstodon
+        </a>{" "}
+        or{" "}
+        <a rel="me" href="https://hachyderm.io/@m4tt_314">
+          Hachyderm.io
+        </a>
       </>
     ),
   },
