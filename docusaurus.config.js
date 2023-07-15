@@ -44,7 +44,7 @@ class Subject {
     return {
       label: `${this.subject.toUpperCase()}: ${this.description}`,
       to: this.subject,
-    }
+    };
   }
 }
 
@@ -87,15 +87,15 @@ const config = {
   ],
 
   plugins: [
-    ...subjects.map(s => s.docs()),
+    ...subjects.map((s) => s.docs()),
     [
-      '@docusaurus/plugin-content-blog',
+      "@docusaurus/plugin-content-blog",
       {
-        id: 'blog',
-        routeBasePath: 'blog',
-        path: './blog',
+        id: "blog",
+        routeBasePath: "blog",
+        path: "./blog",
         feedOptions: {
-          type: 'all',
+          type: "all",
           copyright: `Copyright © ${new Date().getFullYear()} Matej Focko.`,
         },
         editUrl: "https://gitlab.com/mfocko/blog/tree/main",
@@ -121,7 +121,7 @@ const config = {
       navbar: {
         title: "mf",
         items: [
-          ...subjects.map(s => s.navbar()),
+          ...subjects.map((s) => s.navbar()),
           {
             to: "blog",
             position: "right",
@@ -135,7 +135,7 @@ const config = {
         links: [
           {
             title: "Additional materials for φ courses",
-            items: subjects.map(s => s.footer()),
+            items: subjects.map((s) => s.footer()),
           },
           {
             title: "Social #1",
@@ -168,8 +168,8 @@ const config = {
               {
                 label: "Ko-fi",
                 href: "https://ko-fi.com/m4tt_314",
-              }
-            ]
+              },
+            ],
           },
           {
             title: "Source of this web",
@@ -182,8 +182,8 @@ const config = {
                 label: "GitLab FI",
                 href: "https://gitlab.fi.muni.cz/xfocko/kb",
               },
-            ]
-          }
+            ],
+          },
         ],
       },
       prism: {
@@ -205,11 +205,12 @@ const config = {
       docs: {
         sidebar: {
           hideable: true,
-        }
+        },
       },
       mermaid: {
         options: {
-          fontFamily: "Iosevka,'Iosevka Term','Cascadia Code','JetBrains Mono','Fira Code',monospace",
+          fontFamily:
+            "Iosevka,'Iosevka Term','Cascadia Code','JetBrains Mono','Fira Code',monospace",
         },
       },
     }),
@@ -217,9 +218,7 @@ const config = {
   markdown: {
     mermaid: true,
   },
-  themes: [
-    '@docusaurus/theme-mermaid',
-  ],
+  themes: ["@docusaurus/theme-mermaid"],
 };
 
 module.exports = config;
