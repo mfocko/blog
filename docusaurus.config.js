@@ -135,8 +135,21 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Matej Focko.`,
         links: [
           {
-            title: "Additional materials for φ courses",
-            items: subjects.map((s) => s.footer()),
+            title: "Git",
+            items: [
+              {
+                label: "GitHub",
+                href: "https://github.com/mfocko",
+              },
+              {
+                label: "GitLab",
+                href: "https://gitlab.com/mfocko",
+              },
+              {
+                label: "Gitea (self-hosted)",
+                href: "https://git.mfocko.xyz/mfocko",
+              },
+            ],
           },
           {
             title: "Social #1",
@@ -146,12 +159,12 @@ const config = {
                 href: "https://www.linkedin.com/in/mfocko/",
               },
               {
-                label: "GitHub",
-                href: "https://github.com/mfocko",
+                label: "Fosstodon",
+                href: "https://fosstodon.org/@m4tt_314",
               },
               {
-                label: "GitLab",
-                href: "https://gitlab.com/mfocko",
+                label: "Hachyderm.io",
+                href: "https://hachyderm.io/@m4tt_314",
               },
             ],
           },
@@ -169,19 +182,6 @@ const config = {
               {
                 label: "Ko-fi",
                 href: "https://ko-fi.com/m4tt_314",
-              },
-            ],
-          },
-          {
-            title: "Source of this web",
-            items: [
-              {
-                label: "GitLab",
-                href: "https://gitlab.com/mfocko/blog",
-              },
-              {
-                label: "GitLab FI",
-                href: "https://gitlab.fi.muni.cz/xfocko/kb",
               },
             ],
           },
