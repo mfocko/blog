@@ -96,7 +96,7 @@ const config = {
         path: "./blog",
         feedOptions: {
           type: "all",
-          copyright: `Copyright © ${new Date().getFullYear()} Matej Focko.`,
+          description: "mf's blog",
         },
         editUrl: "https://gitlab.com/mfocko/blog/tree/main",
         remarkPlugins: [math],
