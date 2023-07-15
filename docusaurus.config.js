@@ -23,6 +23,7 @@ class Subject {
         path: this.subject,
         routeBasePath: this.subject,
         sidebarPath: require.resolve("./sidebars.js"),
+        showLastUpdateTime: true,
         editUrl: "https://gitlab.com/mfocko/blog/tree/main",
         remarkPlugins: [math],
         rehypePlugins: [katex],
