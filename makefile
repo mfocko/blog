@@ -1,20 +1,35 @@
-dev: regenerate-dots regenerate-zips
+OUTPUT_DIR=public
+
+# Development
+dev: assets
 	URL=http://localhost BASE_URL=/ yarn run start --no-open
 
-deploy-aisa:
-	URL="https://fi.muni.cz" BASE_URL="~xfocko/kb/" yarn run build
-	rsync -avzrlpptv --delete build/ aisa:~/public_html/kb/
+# Build the webpage
+build-aisa: assets
+	URL="https://fi.muni.cz" BASE_URL="~xfocko/kb/" yarn run build --out-dir $(OUTPUT_DIR)
 
-deploy-poincare:
-	URL="https://blog.mfocko.xyz" BASE_URL="/" yarn run build
-	rsync -avzrlpptv --delete build/ poincare:~/public_html/blog/
+build-poincare: assets
+	URL="https://blog.mfocko.xyz" BASE_URL="/" yarn run build --out-dir $(OUTPUT_DIR)
 
-deploy: regenerate-dots regenerate-zips deploy-aisa deploy-poincare
+# Upload the built webpage
+deploy-aisa: build-aisa
+	rsync -avzrlpptv --delete $(OUTPUT_DIR)/ aisa:~/public_html/kb/
 
+deploy-poincare: build-poincare
+	rsync -avzrlpptv --delete $(OUTPUT_DIR)/ poincare:~/public_html/blog/
+
+# Build assets that are generated from the git, but not version-controlled
+assets: regenerate-dots regenerate-zips
+
+# Regenerates dotfiles that are rendered to SVG
 regenerate-dots:
 	sh regenerate-dots.sh
 
+# Regenerates ZIP files with static content, e.g. source files
 regenerate-zips:
 	sh regenerate-zips.sh
 
-.PHONY: deploy-aisa deploy-poincare regenerate-dots regenerate-zips
+# Deploys
+deploy: deploy-aisa deploy-poincare
+
+.PHONY: dev deploy-aisa deploy-poincare assets regenerate-dots regenerate-zips
