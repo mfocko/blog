@@ -1,99 +1,123 @@
-.build:
-  before_script:
-    # Handle the Yarn
-    - echo 'yarn-offline-mirror ".yarn-cache/"' >> .yarnrc
-    - echo 'yarn-offline-mirror-pruning true' >> .yarnrc
-    - yarn install --frozen-lockfile --no-progress
+image: node:current-alpine3.15
 
-    # Install the dependencies for alpine
-    - apk update && apk add make graphviz zip
+cache:
+  key:
+    files:
+      - yarn.lock
+  paths:
+    - .yarn-cache/
 
-.deploy:
-  before_script:
-    # Install the dependencies for alpine
-    - apk update && apk add make openssh rsync
+before_script:
+  - echo 'yarn-offline-mirror ".yarn-cache/"' >> .yarnrc
+  - echo 'yarn-offline-mirror-pruning true' >> .yarnrc
+  - yarn install --frozen-lockfile --no-progress
+  - apk update && apk add make graphviz zip
 
-    # Prepare environment for SSH
-    - mkdir -p ~/.ssh
-    - ln -s $SSH_CONFIG ~/.ssh/config
-    - ln -s $SSH_KEY ~/.ssh/id_ed25519
-    - ln -s $SSH_KNOWN_HOSTS ~/.ssh/known_hosts
-    - chmod 600 ~/.ssh/config ~/.ssh/id_ed25519 ~/.ssh/known_hosts
-
-default:
-  image: node:current-alpine3.15
-
-  cache:
-    key:
-      files:
-        - yarn.lock
-    paths:
-      - .yarn-cache/
-
-stages:
-  - build
-  - deploy
-
-build:poincare:
-  stage: build
-
-  extends: .build
-
+pages:
   script:
-    # Regenerate the static files
-    - make regenerate-dots
-    - make regenerate-zips
-
-    - URL="https://blog.mfocko.xyz" BASE_URL="/" yarn run build
-
+    - make assets
+    - make build-poincare
   artifacts:
     paths:
-      - "build/"
+      - public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+# .build:
+#   before_script:
+#     # Handle the Yarn
+#     - echo 'yarn-offline-mirror ".yarn-cache/"' >> .yarnrc
+#     - echo 'yarn-offline-mirror-pruning true' >> .yarnrc
+#     - yarn install --frozen-lockfile --no-progress
 
-build:aisa:
-  stage: build
+#     # Install the dependencies for alpine
+#     - apk update && apk add make graphviz zip
 
-  extends: .build
+# .deploy:
+#   before_script:
+#     # Install the dependencies for alpine
+#     - apk update && apk add make openssh rsync
 
-  script:
-    # Regenerate the static files
-    - make regenerate-dots
-    - make regenerate-zips
+#     # Prepare environment for SSH
+#     - mkdir -p ~/.ssh
+#     - ln -s $SSH_CONFIG ~/.ssh/config
+#     - ln -s $SSH_KEY ~/.ssh/id_ed25519
+#     - ln -s $SSH_KNOWN_HOSTS ~/.ssh/known_hosts
+#     - chmod 600 ~/.ssh/config ~/.ssh/id_ed25519 ~/.ssh/known_hosts
 
-    - URL="https://fi.muni.cz" BASE_URL="~xfocko/kb/" yarn run build
+# default:
+#   image: node:current-alpine3.15
 
-  artifacts:
-    paths:
-      - "build/"
+#   cache:
+#     key:
+#       files:
+#         - yarn.lock
+#     paths:
+#       - .yarn-cache/
 
-deploy:poincare:
-  stage: deploy
-  needs: [build:poincare]
+# stages:
+#   - build
+#   - deploy
 
-  extends: .deploy
+# build:poincare:
+#   stage: build
 
-  script:
-    - rsync -avzrlpptv --delete build/ poincare:~/public_html/blog/
+#   extends: .build
 
-  artifacts:
-    paths:
-      - "build/"
+#   script:
+#     # Regenerate the static files
+#     - make regenerate-dots
+#     - make regenerate-zips
 
-  only:
-    - main
+#     - URL="https://blog.mfocko.xyz" BASE_URL="/" yarn run build
 
-deploy:aisa:
-  stage: deploy
-  needs: [build:aisa]
+#   artifacts:
+#     paths:
+#       - "build/"
 
-  extends: .deploy
+# build:aisa:
+#   stage: build
 
-  script:
-    - rsync -avzrlpptv --delete build/ aisa:~/public_html/kb/
+#   extends: .build
 
-  artifacts:
-    paths:
-      - "build/"
+#   script:
+#     # Regenerate the static files
+#     - make regenerate-dots
+#     - make regenerate-zips
 
-  only:
-    - main
+#     - URL="https://fi.muni.cz" BASE_URL="~xfocko/kb/" yarn run build
+
+#   artifacts:
+#     paths:
+#       - "build/"
+
+# deploy:poincare:
+#   stage: deploy
+#   needs: [build:poincare]
+
+#   extends: .deploy
+
+#   script:
+#     - rsync -avzrlpptv --delete build/ poincare:~/public_html/blog/
+
+#   artifacts:
+#     paths:
+#       - "build/"
+
+#   only:
+#     - main
+
+# deploy:aisa:
+#   stage: deploy
+#   needs: [build:aisa]
+
+#   extends: .deploy
+
+#   script:
+#     - rsync -avzrlpptv --delete build/ aisa:~/public_html/kb/
+
+#   artifacts:
+#     paths:
+#       - "build/"
+
+#   only:
+#     - main
