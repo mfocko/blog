@@ -30,7 +30,7 @@
 }
 
 pre, code, kbd, var, tt {
-  font-family: Iosevka, 'Iosevka Term', 'Cascadia Code', 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: 'Iosevka', 'Cascadia Code', 'JetBrains Mono', 'Fira Code', 'Hack Nerd Font', monospace;
 }
 
 [data-theme='light'] img[src$='#gh-dark-mode-only'],

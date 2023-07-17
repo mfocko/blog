@@ -81,7 +81,10 @@ const config = {
         docs: false,
         blog: false,
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: [
+            require.resolve("./src/css/custom.css"),
+            require.resolve("./src/css/Hack Nerd Font.css"),
+          ],
         },
       }),
     ],
