@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Cascadia Code PL";
+    src: url("/fonts/CascadiaCodePL.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Cascadia Code PL";
+    font-style: italic;
+    src: url("/fonts/CascadiaCodePLItalic.woff2") format("woff2");
+}

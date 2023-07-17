@@ -83,6 +83,7 @@ const config = {
         theme: {
           customCss: [
             require.resolve("./src/css/custom.css"),
+            require.resolve("./src/css/cascadia_code.css"),
           ],
         },
       }),
@@ -116,11 +117,11 @@ const config = {
         "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
       crossorigin: "anonymous",
     },
-    {
-      href: "https://cdn.jsdelivr.net/npm/hack-font/build/web/hack.min.css",
-      type: "text/css",
-      crossorigin: "anonymous",
-    }
+    // {
+    //   href: "https://cdn.jsdelivr.net/npm/hack-font/build/web/hack.min.css",
+    //   type: "text/css",
+    //   crossorigin: "anonymous",
+    // },
   ],
 
   themeConfig:
