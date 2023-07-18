@@ -22,7 +22,7 @@ backtracking can be even without anything else at your hand.
 ### Environment
 
 You are given a robot that is present in a maze and is looking for an exit. Maze
-consists of different walls and exit is marked with a single so-called „beeper“.
+consists of different walls and exit is marked with a single so-called “beeper”.
 
 Walking into a wall results in a permanent damage of the robot.
 
@@ -37,7 +37,7 @@ You can control the robot using the following interface:
     - notice that you are not given `turn_right` or `turn_around`, but feel free
       to implement them yourself
   - `robot.pick_beeper()` and opposite operation `robot.put_beeper()` — that
-    allows you to either pick or put „beeper“ from or onto the current position
+    allows you to either pick or put “beeper” from or onto the current position
 - queries — you can use them to check the current state of the robot and its
   surroundings
   - `robot.beepers_present()` — to check if there are any beepers at the robot's
@@ -157,7 +157,7 @@ the ZIP-file, you can there:
 ## Solution
 
 Solution to this problem will be released as a second part, so that you can try
-it out by yourself without any influence of „example solution“.
+it out by yourself without any influence of “example solution”.
 
 If you want to get any feedback, feel free to mail me your solution (including
 all the steps that lead to your final solution, if you wish to get feedback on

@@ -4,7 +4,7 @@ title: Introduction
 slug: /
 ---
 
-In this part you can find „random“ additional materials I have written over the
+In this part you can find “random” additional materials I have written over the
 course of teaching _Algorithms and data structures I_.
 
 It is a various mix of stuff that may have been produced as a follow-up on some

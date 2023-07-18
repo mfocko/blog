@@ -30,10 +30,10 @@ Though I prefer to use only one language.
 For this year I have been deciding between _Rust_, _C++_ and _Pascal_ or _Ada_.
 
 I have tried Rust last year and have survived with it for 3 days and then gave
-up and switched to _Kotlin_, which was pretty good given it is „Java undercover“.
+up and switched to _Kotlin_, which was pretty good given it is “Java undercover”.
 I pretty much like the ideas behind Rust, I am not sure about the whole cult and
 implementation of those ideas though. After some years with C/C++, I would say
-that Rust feels _too safe_ for my taste and tries to „_punish me_“ even for the
+that Rust feels _too safe_ for my taste and tries to “_punish me_” even for the
 most trivial things.
 
 C++ is a very robust, but also comes with a wide variety of options providing you
@@ -67,7 +67,7 @@ export RUST_LOG=trace
 ```
 
 And for the one of the most obnoxious things ever, we will use a script to download
-the inputs instead of „_clicking, opening and copying to a file_“[^1]. There is
+the inputs instead of “_clicking, opening and copying to a file_”[^1]. There is
 no need to be _fancy_, so we will adjust Python script by Martin[^2].
 ```py
 #!/usr/bin/env python3
@@ -124,7 +124,7 @@ year: 2022
 
 ### Libraries
 
-Looking at the list of the libraries, I have chosen „a lot“ of them. Let's walk
+Looking at the list of the libraries, I have chosen “a lot” of them. Let's walk
 through each of them.
 
 [`tracing`] and [`tracing-subscriber`] are the crates that can be used for tracing
@@ -150,11 +150,11 @@ during runtime.
 
 [`itertools`] provides some nice extensions to the iterators from the `std`.
 
-### My own „library“
+### My own “library”
 
 When creating the crate for this year's Advent of Code, I have chosen a library
 type. Even though standard library is huge, some things might not be included and
-also we can follow _KISS_. I have 2 modules that my „library“ exports, one for
+also we can follow _KISS_. I have 2 modules that my “library” exports, one for
 parsing and one for 2D vector (that gets used quite often during Advent of Code).
 
 Key part is, of course, processing the input and my library exports following
@@ -232,7 +232,7 @@ fn parse_input(path: &str) -> Input {
 }
 ```
 
-This „parser“ will take a path to the file, just in case we would like to run the
+This “parser” will take a path to the file, just in case we would like to run the
 sample instead of input.
 
 OK, so now we can write a `main` function that will take all of the pieces and

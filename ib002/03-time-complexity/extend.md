@@ -16,7 +16,7 @@ Each year there is a lot of confusion regarding time complexity of the `extend` 
 
 ## Technicalities
 
-At the beginning we should clear some of the „myths“ regarding extending of the lists. There is a common misunderstanding regarding differences between `a += b`, `a.extend(b)` and `a + b`.
+At the beginning we should clear some of the “myths” regarding extending of the lists. There is a common misunderstanding regarding differences between `a += b`, `a.extend(b)` and `a + b`.
 
 - `a.extend(b)` - adds all elements from `b` to `a`.
 

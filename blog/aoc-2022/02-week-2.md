@@ -36,10 +36,10 @@ way:
 
 :::caution
 
-I'm getting familiar with Rust and starting to „abuse“ it… While doing so, I'm
-also uncovering some „features“ that I don't really like. Therefore I will mark
-all of my rants with _thicc_ **«↯»** mark and will try to „lock“ them into their
-own „box of hell“.
+I'm getting familiar with Rust and starting to “abuse” it… While doing so, I'm
+also uncovering some “features” that I don't really like. Therefore I will mark
+all of my rants with _thicc_ **«↯»** mark and will try to “lock” them into their
+own “box of hell”.
 
 :::
 
@@ -121,7 +121,7 @@ Let's split it in multiple parts:
   borrow checker validates all of the _borrows_ (or references), so we need to
   specify that our returned value has _the same lifetime_ as the vector we have
   taken by a reference, i.e. returned reference must live at least as long as the
-  `v`. This way we can „be sure“ that the returned reference is valid.
+  `v`. This way we can “be sure” that the returned reference is valid.
 
 ##### Issues
 
@@ -149,7 +149,7 @@ behind syntactic sugar of `container[idx]`.
 However, implementing of traits is not allowed for _external_ types, i.e. types
 that you haven't defined yourself. This means that you can implement indexing
 over containers that you have implemented yourself, but you cannot use your own
-types for indexing „built-in“ types.
+types for indexing “built-in” types.
 
 Another part of this rabbit hole is trait `SliceIndex<T>` that is of a relevance
 because of
@@ -294,7 +294,7 @@ visited with the rope's tail.
 
 By this day, I have come to a conclusion that current skeleton for each day
 generates a lot of boilerplate. And even though it can be easily copied, it's
-just a waste of space and unnecessary code. Let's „simplify“ this (on one end
+just a waste of space and unnecessary code. Let's “simplify” this (on one end
 while creating monster on the other end). I've gone through what we need in the
 preparations for the AoC. Let's sum up our requirements:
 - parsing
@@ -415,8 +415,8 @@ macro_rules! test_sample {
 ```
 
 We have used it in a similar way as macros in C/C++, one of the things that we
-can use to our advantage is defining „type“ of the parameters for the macro. All
-parameters have their name prefixed with `$` sign and you can define various „forms“
+can use to our advantage is defining “type” of the parameters for the macro. All
+parameters have their name prefixed with `$` sign and you can define various “forms”
 of your macro. Let's go through it!
 
 We have following parameters:
@@ -821,7 +821,7 @@ which I haven't managed to be able to parse. And that's how I got rid of the err
 :::note
 
 If I were to use 2D-indexing over `[C; N]` slices, I'd probably just go with the
-copy-paste, cause the cost of this „monstrosity“ outweighs the benefits of no DRY.
+copy-paste, cause the cost of this “monstrosity” outweighs the benefits of no DRY.
 
 :::
 

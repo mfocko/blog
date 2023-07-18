@@ -33,7 +33,7 @@ By having a look at the graph we started from, we can see that we have a path �
 
 ## Proof by contradiction
 
-Let's keep the same graph, but break the lower bound, i.e. I have gotten a lower bound $2$, but „there must be a shorter path“! ;)
+Let's keep the same graph, but break the lower bound, i.e. I have gotten a lower bound $2$, but “there must be a shorter path”! ;)
 
 Now the more important question, is there a shorter path in that graph? The answer is no, there's no shorter path than the one with length $2$. So what can we do about it? We'll add an edge to have a shorter path. Now we have gotten a lower bound of $2$, which means the only shorter path we can construct has $1$ edge and that is ‹$e, h$› (no intermediary vertices). Let's do this!
 

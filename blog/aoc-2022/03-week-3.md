@@ -201,7 +201,7 @@ cubes.
 
 This day is kinda interesting, because it shows how easily you can complicate the
 problem and also how much can you screw yourself over with the optimization and
-„smart“ approach.
+“smart” approach.
 
 For the first part you need to find the surface area of an obsidian that is
 approximated by cubes. Now, that is a very easy thing to do, just keep the track
@@ -209,7 +209,7 @@ of already added cubes, and check if the newly added cube touches any face of an
 other cube. Simple, and with a `BTreeSet` relatively efficient way to do it.
 
 However the second part lets you on a secret that there may be some surface area
-from the „inside“ too and you want to know only the one from the outside of the
+from the “inside” too and you want to know only the one from the outside of the
 obsidian. I have seen some solutions later, but if you check your data, you might
 notice that the bounding box of all the cubes isn't that big at all. Therefore I
 chose to pre-construct the box beforehand, fill in the cubes and then just run a
@@ -246,7 +246,7 @@ to realize that this is the issue.
 ### Solution
 
 I have tried implementing a circular linked list for this… and I have failed
-miserably. To be fair, I still have no clue why. It was „fun“ to play around with
+miserably. To be fair, I still have no clue why. It was “fun” to play around with
 the `Rc<RefCell<T>>`. In the end I failed on _wrong answer_. I have also encountered
 a rather interesting issue with `.borrow_mut()` method being used on `Rc<RefCell<T>>`.
 

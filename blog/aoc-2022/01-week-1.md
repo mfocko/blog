@@ -221,7 +221,7 @@ the third set, it has just the values themselves, without any references.
 
 It may seem as a very weird decision, but in fact it makes some sense… It allows
 you to do intersection of items that may not be possible to copy. Overall this is
-a „tax“ for having a borrow checker ~~drilling your ass~~ having your back and
+a “tax” for having a borrow checker ~~drilling your ass~~ having your back and
 making sure you're not doing something naughty that may cause an **undefined**
 **behavior**.
 
@@ -347,7 +347,7 @@ directories that take a lot of space and should be deleted.
 
 ### Solution
 
-We need to „_build_“ a file system from the input that is given in a following form:
+We need to “_build_” a file system from the input that is given in a following form:
 ```
 $ cd /
 $ ls
@@ -377,7 +377,7 @@ $ ls
 There are few ways in which you can achieve this and also you can assume some
 preconditions, but why would we do that, right? :)
 
-You can „slap“ this in either [`HashMap`] or [`BTreeMap`] and call it a day.
+You can “slap” this in either [`HashMap`] or [`BTreeMap`] and call it a day.
 And that would be boring…
 
 :::tip
@@ -478,8 +478,8 @@ dynamically allocated memory. Specifically:
   `Rc<RefCell<T>>`
 
 Now, in Rust it is a bit more complicated, because the type that represents the
-„shared pointer“ is `Rc<T>`. What `RefCell<T>` does is making sure that there is
-only one „owner“ of a mutable reference at a time (and dynamically, as opposed
+“shared pointer” is `Rc<T>`. What `RefCell<T>` does is making sure that there is
+only one “owner” of a mutable reference at a time (and dynamically, as opposed
 to the `Cell<T>`).
 
 Therefore to be precise and correct about the equivalents of `std::shared_ptr<T>`

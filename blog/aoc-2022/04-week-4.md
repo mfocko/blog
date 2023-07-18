@@ -502,7 +502,7 @@ Playing around with a numbers in a _special_ base.
 
 :::
 
-Getting flashbacks to the _IB111 Foundations of Programming_… Very nice „problem“
+Getting flashbacks to the _IB111 Foundations of Programming_… Very nice “problem”
 with a rather easy solution, as the last day always seems to be.
 
 ### Solution
