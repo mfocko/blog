@@ -62,10 +62,12 @@ const subjects = [
 const config = {
   title: "mf",
   tagline: "blog and additional materials for courses at φ",
+
   url: process.env.URL,
   baseUrl: process.env.BASE_URL,
-  onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
+
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "throw",
   favicon: "img/favicon.ico",
 
   i18n: {
