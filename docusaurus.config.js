@@ -222,6 +222,13 @@ const config = {
             "Iosevka,'Iosevka Term','Cascadia Code','JetBrains Mono','Fira Code',monospace",
         },
       },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: "0VXRFPR4QF",
+        // Public API key: it is safe to commit it
+        apiKey: "9d4d452117cfaaae3e51b9568e22aa16",
+        indexName: "mfocko",
+      },
     }),
 
   markdown: {
