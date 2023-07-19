@@ -20,12 +20,12 @@ const talks: TalkMetadata[] = [
             {
                 name: "DevConf.cz",
                 location: "Brno, Czechia",
-                date: new Date(2023, 6, 17),
+                date: new Date(2023, 5, 17),
             },
             {
                 name: "DevConf.cz Mini",
                 location: "Brno, Czechia",
-                date: new Date(2023, 3, 31),
+                date: new Date(2023, 2, 31),
             },
         ],
         recordingURL: "https://www.youtube.com/watch?v=FxhXzgxWO18",
