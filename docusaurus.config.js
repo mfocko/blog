@@ -84,7 +84,7 @@ const config = {
         blog: false,
         theme: {
           customCss: [
-            require.resolve("./src/css/custom.css"),
+            require.resolve("./src/css/custom.scss"),
             require.resolve("./src/css/cascadia_code.css"),
           ],
         },
@@ -109,6 +109,7 @@ const config = {
         rehypePlugins: [katex],
       },
     ],
+    "docusaurus-plugin-sass",
   ],
 
   stylesheets: [
