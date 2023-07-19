@@ -139,6 +139,10 @@ const config = {
             label: "Contributions",
           },
           {
+            to: "talks",
+            label: "Talks",
+          },
+          {
             to: "blog",
             position: "right",
             label: "Blog",
