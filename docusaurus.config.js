@@ -36,7 +36,6 @@ class Subject {
       type: "doc",
       docId: `${this.subject}-intro`,
       docsPluginId: this.subject,
-      position: "left",
       label: `${this.subject.toUpperCase()}: ${this.description}`,
     };
   }
@@ -133,7 +132,11 @@ const config = {
       navbar: {
         title: "mf",
         items: [
-          ...subjects.map((s) => s.navbar()),
+          {
+            type: "dropdown",
+            label: "Additional FI MU materials",
+            items: subjects.map((s) => s.navbar()),
+          },
           {
             to: "contributions",
             label: "Contributions",
