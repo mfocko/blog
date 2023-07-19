@@ -135,6 +135,10 @@ const config = {
         items: [
           ...subjects.map((s) => s.navbar()),
           {
+            to: "contributions",
+            label: "Contributions",
+          },
+          {
             to: "blog",
             position: "right",
             label: "Blog",
