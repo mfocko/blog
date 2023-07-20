@@ -7,6 +7,8 @@ tags:
 - balanced trees
 ---
 
+import ThemedSVG from "@site/src/components/ThemedSVG";
+
 ## Introduction
 
 Have you ever thought about the red-black tree rules in more depth? Why are they
@@ -52,7 +54,10 @@ my child would be colored red.
 Example of a red-black tree that keeps count of black nodes on paths to the
 leaves follows:
 
-![Red-black tree with black height](/files/ib002/rb-trees/rules/rb_height_light.svg#gh-light-mode-only)![Red-black tree with black height](/files/ib002/rb-trees/rules/rb_height_dark.svg#gh-dark-mode-only)
+<ThemedSVG
+  source="/files/ib002/rb-trees/rules/rb_height"
+  alt="Red-black tree with black height"
+/>
 
 We mark the _black heights_ in superscript. You can see that all leaves have the
 black height equal to $1$. Let's take a look at some of the interesting cases:
@@ -134,6 +139,7 @@ black root property.
 If we decide to omit this condition, we need to address it in the pseudocodes
 accordingly.
 
+{/* TODO: Switch to the themed SVG */}
 | Usual algorithm with black root | Allowing red root |
 | :-----------------------------: | :---------------: |
 | ![1ª insertion](/files/ib002/rb-trees/rules/red-root/br_0_light.svg#gh-light-mode-only)![1ª insertion](/files/ib002/rb-trees/rules/red-root/br_0_dark.svg#gh-dark-mode-only) | ![1ª insertion](/files/ib002/rb-trees/rules/red-root/rr_0_light.svg#gh-light-mode-only)![1ª insertion](/files/ib002/rb-trees/rules/red-root/rr_0_dark.svg#gh-dark-mode-only) |
@@ -153,7 +159,7 @@ some other way? Let's go through some of the possible ways I can look at this an
 how would they affect the other rules and balancing.
 
 We will experiment with the following tree:
-![Red-black tree](/files/ib002/rb-trees/rules/rb_light.svg#gh-light-mode-only)![Red-black tree](/files/ib002/rb-trees/rules/rb_dark.svg#gh-dark-mode-only)
+<ThemedSVG source="/files/ib002/rb-trees/rules/rb" />
 
 We should start by counting the black nodes from root to the `nil` leaves based
 on the rules. We have multiple similar paths, so we will pick only the interesting
@@ -221,9 +227,18 @@ further.
 Let's assume that we do not enforce this rule, you can see how it breaks the
 balancing of the tree below.
 
-| Enforcing this rule | Omitting this rule |
-| :-----------------: | :----------------: |
-| ![correct](/files/ib002/rb-trees/rules/red-node-black-children/correct_light.svg#gh-light-mode-only)![correct](/files/ib002/rb-trees/rules/red-node-black-children/correct_dark.svg#gh-dark-mode-only) | ![incorrect](/files/ib002/rb-trees/rules/red-node-black-children/incorrect_light.svg#gh-light-mode-only)![incorrect](/files/ib002/rb-trees/rules/red-node-black-children/incorrect_dark.svg#gh-dark-mode-only) |
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="enforcing" label="Enforcing this rule">
+    <ThemedSVG source="/files/ib002/rb-trees/rules/red-node-black-children/correct" />
+  </TabItem>
+
+  <TabItem value="omitting" label="Omitting this rule">
+    <ThemedSVG source="/files/ib002/rb-trees/rules/red-node-black-children/incorrect" />
+  </TabItem>
+</Tabs>
 
 We can create a **big** subtree with only red nodes and **even** when keeping
 the rest of the rules maintained, it will break the time complexity. It stops us

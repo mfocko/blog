@@ -10,6 +10,8 @@ tags:
 - recursion
 ---
 
+import ThemedSVG from "@site/src/components/ThemedSVG";
+
 ## Introduction
 
 Each year there is a lot of confusion regarding time complexity of the `extend` operation on the lists in Python. I will introduce two specific examples from previous year and also will try to explain it on one of the possible implementations of `extend` operation.
@@ -83,7 +85,10 @@ As we could observe in the example above, `extend` iterates over all of the elem
 
 Consider constructing of this list:
 
-![Rendered construction of the list](/files/ib002/extend/construction_light.svg#gh-light-mode-only)![Rendered construction of the list](/files/ib002/extend/construction_dark.svg#gh-dark-mode-only)
+<ThemedSVG
+  source="/files/ib002/extend/construction"
+  alt="Rendered construction of the list"
+/>
 
 Let us assume that you extend the result with the list that you get from the recursive call.
 
