@@ -26,7 +26,12 @@
   --ifm-color-primary-lightest: #69bcf5;
 }
 
-pre, code, kbd, var, tt {
+pre,
+code,
+kbd,
+var,
+tt,
+text {
   font-family: 'Iosevka', 'Cascadia Code PL', 'JetBrains Mono', 'Fira Code', 'Hack', monospace;
 }
 
@@ -34,12 +39,15 @@ pre, code, kbd, var, tt {
 [data-theme='dark'] code,
 [data-theme='dark'] kbd,
 [data-theme='dark'] var,
-[data-theme='dark'] tt {
+[data-theme='dark'] tt,
+[data-theme='dark'] text {
   font-weight: 350;
 }
 
 [data-theme='light'] img[src$='#gh-dark-mode-only'],
-[data-theme='dark'] img[src$='#gh-light-mode-only'] {
+[data-theme='dark'] img[src$='#gh-light-mode-only'],
+[data-theme="light"] .dark-mode-only,
+[data-theme="dark"] .light-mode-only {
   display: none;
 }
 
