@@ -8,3 +8,21 @@
     font-style: italic;
     src: url("/fonts/CascadiaCodePLItalic.woff2") format("woff2");
 }
+
+[data-theme='light'] pre,
+[data-theme='light'] code,
+[data-theme='light'] kbd,
+[data-theme='light'] var,
+[data-theme='light'] tt,
+[data-theme='light'] text {
+    font-weight: 350;
+}
+
+[data-theme='dark'] pre,
+[data-theme='dark'] code,
+[data-theme='dark'] kbd,
+[data-theme='dark'] var,
+[data-theme='dark'] tt,
+[data-theme='dark'] text {
+    font-weight: 300;
+}
