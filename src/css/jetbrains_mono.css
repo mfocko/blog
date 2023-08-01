@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono[wght].woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: italic;
+    src: url("/fonts/JetBrainsMono-Italic[wght].woff2") format("woff2");
+}
+
+[data-theme='dark'] pre,
+[data-theme='dark'] code,
+[data-theme='dark'] kbd,
+[data-theme='dark'] var,
+[data-theme='dark'] tt,
+[data-theme='dark'] text {
+    font-weight: 350;
+}
+

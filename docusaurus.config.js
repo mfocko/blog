@@ -84,7 +84,7 @@ const config = {
         theme: {
           customCss: [
             require.resolve("./src/css/custom.scss"),
-            require.resolve("./src/css/cascadia_code.css"),
+            require.resolve("./src/css/jetbrains_mono.css"),
           ],
         },
       }),
