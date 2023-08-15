@@ -2,6 +2,8 @@
 title: Environment
 description: |
   Suggestions for setting up a local environment for C++ course.
+last_update:
+  date: 2023-02-18
 ---
 
 ## Required tools per OS

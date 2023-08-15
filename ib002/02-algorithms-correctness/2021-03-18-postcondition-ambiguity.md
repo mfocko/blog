@@ -1,4 +1,5 @@
 ---
+id: postcondition-ambiguity
 title: Vague postconditions and proving correctness of algorithms
 description: |
   Debugging and testing with precise postconditions.
@@ -7,6 +8,8 @@ tags:
 - testing
 - postconditions
 - sorting
+last_update:
+  date: 2021-03-18
 ---
 
 ## Introduction

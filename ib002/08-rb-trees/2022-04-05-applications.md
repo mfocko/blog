@@ -1,4 +1,5 @@
 ---
+id: applications
 title: Použití červeno-černých stromů
 description: |
   Ukázka použití červeno-černých stromů v standardních knižnicích známých jazyků.
@@ -6,6 +7,8 @@ tags:
 - balanced trees
 - red-black trees
 - applications
+last_update:
+  date: 2022-04-05
 ---
 
 ## Použití

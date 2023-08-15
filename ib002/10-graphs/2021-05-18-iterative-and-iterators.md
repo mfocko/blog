@@ -1,4 +1,5 @@
 ---
+id: iterative-and-iterators
 title: Iterative algorithms via iterators
 description: |
   Iterative DFS using iterators.
@@ -7,6 +8,8 @@ tags:
 - graphs
 - iterators
 - iterative
+last_update:
+  date: 2021-05-18
 ---
 
 ## Introduction

@@ -3,6 +3,8 @@ slug: cams
 title: Practice exam C
 description: |
   Stalking cars…
+last_update:
+  date: 2023-05-07
 ---
 
 # Watching Cams

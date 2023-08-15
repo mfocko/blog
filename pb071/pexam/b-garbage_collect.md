@@ -3,6 +3,8 @@ slug: garbage_collect
 title: Practice exam B
 description: |
   Garbage everywhere…
+last_update:
+  date: 2023-05-08
 ---
 
 # Garbage Collection
