@@ -250,7 +250,7 @@ approach.
 :::info Greedy algorithms
 
 _Greedy algorithms_ can be described as algorithms that decide the action on the
-most optimal option at the moment.
+optimal option at the moment.
 
 :::
 
