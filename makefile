@@ -19,17 +19,17 @@ deploy-poincare: build-poincare
 	rsync -avzrlpptv --delete $(OUTPUT_DIR)/ poincare:~/public_html/blog/
 
 # Build assets that are generated from the git, but not version-controlled
-assets: regenerate-dots regenerate-zips
+assets: regenerate-dots regenerate-archives
 
 # Regenerates dotfiles that are rendered to SVG
 regenerate-dots:
 	sh regenerate-dots.sh
 
-# Regenerates ZIP files with static content, e.g. source files
-regenerate-zips:
-	sh regenerate-zips.sh
+# Regenerates archives with static content, e.g. source files
+regenerate-archives:
+	sh regenerate-archives.sh
 
 # Deploys
 deploy: deploy-aisa deploy-poincare
 
-.PHONY: dev deploy-aisa deploy-poincare assets regenerate-dots regenerate-zips
+.PHONY: dev deploy-aisa deploy-poincare assets regenerate-dots regenerate-archives

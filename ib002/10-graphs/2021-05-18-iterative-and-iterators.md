@@ -14,7 +14,7 @@ last_update:
 
 ## Introduction
 
-- [Source code used later on.](pathname:///files/ib002/iterative-and-iterators/)
+- [Source code used later on.](pathname:///files/ib002/graphs/iterative-and-iterators.tar.gz)
 
 As we have talked on the seminar, iterative approach to implementing DFS is not very intuitive and is a very easy way how to create an incorrect implementation.
 

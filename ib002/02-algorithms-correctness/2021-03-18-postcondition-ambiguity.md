@@ -14,7 +14,7 @@ last_update:
 
 ## Introduction
 
-[Source code](pathname:///files/ib002/postcondition-ambiguity/test_sort.py) used later on.
+[Source code](pathname:///files/ib002/algorithms-correctness/postcondition-ambiguity/test_sort.py) used later on.
 
 ## Implementation of select sort from the exercises
 

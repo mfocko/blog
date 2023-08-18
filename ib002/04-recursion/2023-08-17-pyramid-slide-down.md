@@ -695,7 +695,7 @@ successor and represents the way we can enhance the existing implementation.
 :::info source
 
 You can find source code referenced in the text
-[here](pathname:///files/ib002/recursion/pyramid-slide-down/).
+[here](pathname:///files/ib002/recursion/pyramid-slide-down.tar.gz).
 
 :::
 

@@ -20,8 +20,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# ignore generated zips
-static/files/**/*.zip
+# ignore generated archives
+static/files/**/*.tar.gz
+static/files/**/*.tar.bz2
 
 # ignore generated SVGs
 static/files/**/*.svg
