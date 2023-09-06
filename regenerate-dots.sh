@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FONT="'Iosevka', 'Cascadia Code PL', 'JetBrains Mono', 'Fira Code', 'Hack', monospace"
+FONT="'JetBrains Mono', 'Iosevka', 'Cascadia Code PL', 'Fira Code', 'Hack', monospace"
 
 for pic in $(find ./static/files -name '*.dot' -print); do
     SVG_NAME=".$(echo $pic | cut -d'.' -f2)"
