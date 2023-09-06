@@ -15,7 +15,6 @@ before_script:
 
 pages:
   script:
-    - make assets
     - make build-poincare
   artifacts:
     paths:
