@@ -9,14 +9,12 @@ export default function ThemedSVG(props): JSX.Element {
 
     return (
         <>
-            <embed
+            <img
                 className={clsx("light-mode-only", parentClassName, styles.themed_svg)}
-                type="image/svg+xml"
                 src={`${source}_light.svg`}
             />
-            <embed
+            <img
                 className={clsx("dark-mode-only", parentClassName, styles.themed_svg)}
-                type="image/svg+xml"
                 src={`${source}_dark.svg`}
             />
         </>
