@@ -24,4 +24,4 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build website
-        run: URL="https://blog.mfocko.xyz" BASE_URL="/" yarn run build
+        run: yarn run build

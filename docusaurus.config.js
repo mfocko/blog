@@ -62,8 +62,9 @@ const config = {
   title: "mf",
   tagline: "blog and additional materials for courses at φ",
 
-  url: process.env.URL,
-  baseUrl: process.env.BASE_URL,
+  url: "https://blog.mfocko.xyz",
+  baseUrl: "/",
+  trailingSlash: true,
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
