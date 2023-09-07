@@ -3,11 +3,11 @@
 FONT="'Cascadia Code PL', 'JetBrains Mono', 'Iosevka', 'Fira Code', 'Hack', monospace"
 
 for pic in $(find ./static/files -name '*.dot' -print); do
-    SVG_NAME=".$(echo $pic | cut -d'.' -f2)"
+    PNG_NAME=".$(echo $pic | cut -d'.' -f2)"
 
     # light mode
-    dot $pic -Tsvg -Gfontname="$FONT" -Nfontname="$FONT" -Efontname="$FONT" > ${SVG_NAME}_light.svg
+    dot $pic -Tpng -Gfontname="$FONT" -Nfontname="$FONT" -Efontname="$FONT" > ${PNG_NAME}_light.png
 
     # dark mode
-    dot $pic -Tsvg -Gfontname="$FONT" -Nfontname="$FONT" -Efontname="$FONT" -Gbgcolor="#1b1b1d" -Gcolor="white" -Gfontcolor="white" -Nfillcolor="none" -Ncolor="white" -Nfontcolor="white" -Efillcolor="none" -Ecolor="white" -Efontcolor="white" > ${SVG_NAME}_dark.svg
+    dot $pic -Tpng -Gfontname="$FONT" -Nfontname="$FONT" -Efontname="$FONT" -Gbgcolor="#1b1b1d" -Gcolor="white" -Gfontcolor="white" -Nfillcolor="none" -Ncolor="white" -Nfontcolor="white" -Efillcolor="none" -Ecolor="white" -Efontcolor="white" > ${PNG_NAME}_dark.png
 done;
