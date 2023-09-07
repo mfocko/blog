@@ -21,8 +21,10 @@ yarn-debug.log*
 yarn-error.log*
 
 # ignore generated archives
+static/files/**/*.zip
 static/files/**/*.tar.gz
 static/files/**/*.tar.bz2
 
 # ignore generated SVGs
 static/files/**/*.svg
+static/files/**/*.png
