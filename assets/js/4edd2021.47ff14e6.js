@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[5975],{1705:a=>{a.exports=JSON.parse('{"label":"cpp","permalink":"/blog/tags/cpp","allTagsPath":"/blog/tags","count":1}')}}]);

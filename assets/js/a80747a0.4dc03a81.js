@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[5824],{4464:e=>{e.exports=JSON.parse('{"label":"advent-of-code-2022","permalink":"/blog/tags/advent-of-code-2022","allTagsPath":"/blog/tags","count":5}')}}]);

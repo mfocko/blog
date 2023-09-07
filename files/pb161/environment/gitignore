@@ -1,0 +1,22 @@
+*
+
+!*/
+
+!*.gitignore
+!*.clang-format
+!*.clang-tidy
+
+!*.txt
+
+!*.cpp
+!*.hpp
+
+!.revision
+
+# for reviews
+!.review_id
+readme.txt
+
+!makefile
+!.rules.mk
+!*.sh
