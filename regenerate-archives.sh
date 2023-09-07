@@ -5,6 +5,8 @@ echo "[INFO] Removing pre-existing archives"
 find ./static/files -name '*.tar.gz' -exec rm {} \;
 find ./static/files -name '*.tar.bz2' -exec rm {} \;
 
+ROOT_DIR=$PWD
+
 for relative_path in $(find ./static/files -name '.archive' -print); do
     echo;
 
@@ -20,5 +22,5 @@ for relative_path in $(find ./static/files -name '.archive' -print); do
     echo "[INFO] Compressing $base.tar.bz2"
     tar caf $base.tar.bz2 $all_files
 
-    cd - &> /dev/null
+    cd $ROOT_DIR
 done;
