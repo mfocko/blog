@@ -5,6 +5,20 @@ import Contribution, { ContributionMetadata } from "../components/contributions/
 
 const contributions: ContributionMetadata[] = [
     {
+      title: "tmt",
+      description: (<p>
+        The `tmt` tool provides a user-friendly way to work with tests. You can
+        comfortably create new tests, safely and easily run tests across different
+        environments, review test results, debug test code and enable tests in the
+        CI using a consistent and concise config.
+      </p>),
+      contribution: (<p>
+        Just a smallish contribution to the docs related to the changes implemented
+        on the Packit side.
+      </p>),
+      repoURL: "https://github.com/teemtee/tmt",
+    },
+    {
         title: "Fedora Infrastructure Ansible",
         description: (<p>
             Collection of Ansible playbooks that powers the Fedora Infrastructure.
