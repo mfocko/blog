@@ -64,6 +64,10 @@ const config = {
 
   url: "https://blog.mfocko.xyz",
   baseUrl: "/",
+
+  // GitHub Pages deployment config.
+  organizationName: "mfocko",
+  projectName: "blog",
   trailingSlash: true,
 
   onBrokenLinks: "throw",
