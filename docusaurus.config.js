@@ -1,8 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/vsLight");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const {themes} = require("prism-react-renderer");
+const lightCodeTheme = themes.vsLight;
+const darkCodeTheme = themes.dracula;
 
 const math = require("remark-math");
 const katex = require("rehype-katex");
@@ -226,6 +227,7 @@ const config = {
           "java",
           "nix",
           "pascal",
+          "python",
           "ruby",
           "rust",
         ],
