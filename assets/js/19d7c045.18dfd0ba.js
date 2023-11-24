@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[4637],{7772:e=>{e.exports=JSON.parse('{"label":"advent-of-code","permalink":"/blog/tags/advent-of-code","allTagsPath":"/blog/tags","count":5}')}}]);
