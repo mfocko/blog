@@ -58,6 +58,15 @@ const subjects = [
   new Docs("cpp", "C++"),
 ];
 
+const fallbackMapping = [
+  { new: "algorithms", old: ["ib002"] },
+  { new: "functional", old: ["ib015"] },
+  { new: "automata", old: ["ib110"] },
+  { new: "foundations", old: ["ib111"] },
+  { new: "c", old: ["pb071"] },
+  { new: "cpp", old: ["pb161"] },
+];
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "mf",
@@ -115,6 +124,22 @@ const config = {
       },
     ],
     "docusaurus-plugin-sass",
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        createRedirects(existingPath) {
+          for (let mapping of fallbackMapping) {
+            if (existingPath.includes(`/${mapping.new}/`)) {
+              return mapping.old.map((old) =>
+                existingPath.replace(`/${mapping.new}/`, `/${old}/`)
+              );
+            }
+          }
+
+          return undefined; // no redirect created
+        },
+      },
+    ],
   ],
 
   stylesheets: [
