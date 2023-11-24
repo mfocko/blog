@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const {themes} = require("prism-react-renderer");
+const { themes } = require("prism-react-renderer");
 const lightCodeTheme = themes.vsLight;
 const darkCodeTheme = themes.dracula;
 
@@ -10,9 +10,9 @@ const katex = require("rehype-katex");
 
 require("dotenv").config();
 
-class Subject {
-  constructor(subject, description) {
-    this.subject = subject;
+class Docs {
+  constructor(path, description) {
+    this.path = path;
     this.description = description;
   }
 
@@ -20,9 +20,9 @@ class Subject {
     return [
       "@docusaurus/plugin-content-docs",
       {
-        id: this.subject,
-        path: this.subject,
-        routeBasePath: this.subject,
+        id: this.path,
+        path: this.path,
+        routeBasePath: this.path,
         sidebarPath: require.resolve("./sidebars.js"),
         showLastUpdateTime: true,
         editUrl: "https://github.com/mfocko/blog/tree/main",
@@ -35,27 +35,27 @@ class Subject {
   navbar() {
     return {
       type: "doc",
-      docId: `${this.subject}-intro`,
-      docsPluginId: this.subject,
-      label: `${this.subject.toUpperCase()}: ${this.description}`,
+      docId: `${this.path}-intro`,
+      docsPluginId: this.path,
+      label: `${this.description}`,
     };
   }
 
   footer() {
     return {
-      label: `${this.subject.toUpperCase()}: ${this.description}`,
-      to: this.subject,
+      label: `${this.description}`,
+      to: this.path,
     };
   }
 }
 
 const subjects = [
-  new Subject("ib002", "Algorithms"),
-  // new Subject("ib015", "Non-imperative programming"),
-  // new Subject("ib110", "Introduction to informatics"),
-  // new Subject("ib111", "Foundations of programming"),
-  new Subject("pb071", "C"),
-  new Subject("pb161", "C++"),
+  new Docs("algorithms", "Algorithms"),
+  // new Docs("functional", "Non-imperative programming"),
+  // new Docs("automata", "Formal languages and automata"),
+  // new Docs("foundations", "Foundations of programming"),
+  new Docs("c", "C"),
+  new Docs("cpp", "C++"),
 ];
 
 /** @type {import('@docusaurus/types').Config} */
