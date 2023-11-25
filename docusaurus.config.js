@@ -2,8 +2,8 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const { themes } = require("prism-react-renderer");
-const lightCodeTheme = themes.vsLight;
-const darkCodeTheme = themes.dracula;
+const lightCodeTheme = themes.oneLight;
+const darkCodeTheme = themes.oneDark;
 
 const math = require("remark-math");
 const katex = require("rehype-katex");
