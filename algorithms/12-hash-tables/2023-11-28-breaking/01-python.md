@@ -12,7 +12,7 @@ last_update:
   date: 2023-11-28
 ---
 
-## Breaking the Hash Table in Python
+# Breaking the Hash Table in Python
 
 Our language of choice for bringing the worst out of the hash table is _Python_.
 
