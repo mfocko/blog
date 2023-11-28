@@ -1,5 +1,6 @@
 ---
 id: python
+slug: /hash-tables/breaking/python
 title: Breaking Python
 description: |
   Actually getting the worst-case time complexity in Python.

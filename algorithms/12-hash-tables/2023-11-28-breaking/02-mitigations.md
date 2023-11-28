@@ -1,5 +1,6 @@
 ---
 id: mitigations
+slug: /hash-tables/breaking/mitigations
 title: Possible Mitigations
 description: |
   Talking about the ways how to prevent the attacks on the hash table.
