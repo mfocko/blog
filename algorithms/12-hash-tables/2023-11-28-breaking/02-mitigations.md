@@ -89,6 +89,36 @@ static uint64_t splitmix64(uint64_t x) {
 
 As you can see, this definitely doesn't do identity on the integers :smile:
 
+Another example would be
+[`HashMap::hash()`](https://github.com/openjdk/jdk/blob/dc256fbc6490f8163adb286dbb7380c10e5e1e06/src/java.base/share/classes/java/util/HashMap.java#L320-L339)
+function in Java:
+
+```java
+/**
+ * Computes key.hashCode() and spreads (XORs) higher bits of hash
+ * to lower.  Because the table uses power-of-two masking, sets of
+ * hashes that vary only in bits above the current mask will
+ * always collide. (Among known examples are sets of Float keys
+ * holding consecutive whole numbers in small tables.)  So we
+ * apply a transform that spreads the impact of higher bits
+ * downward. There is a tradeoff between speed, utility, and
+ * quality of bit-spreading. Because many common sets of hashes
+ * are already reasonably distributed (so don't benefit from
+ * spreading), and because we use trees to handle large sets of
+ * collisions in bins, we just XOR some shifted bits in the
+ * cheapest possible way to reduce systematic lossage, as well as
+ * to incorporate impact of the highest bits that would otherwise
+ * never be used in index calculations because of table bounds.
+ */
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
+
+You can notice that they try to include the upper bits of the hash by using
+`XOR`, this would render our attack in the previous part helpless.
+
 ## Combining both
 
 Can we make it better? Of course! Use multiple mitigations at the same time. In
