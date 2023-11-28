@@ -145,13 +145,13 @@ regards to the insertion phase.
 If we were to compare the _always conflicting_ one with the first one, we can
 see that insertion took over 7× longer and lookups almost 9× longer.
 
-You can have a look at the code [here](path:///files/algorithms/hash-tables/breaking/benchmark.py).
+You can have a look at the code [here](pathname:///files/algorithms/hash-tables/breaking/benchmark.py).
 
 ## Comparing with the tree
 
 :::danger
 
-Source code can be found [here](path:///files/algorithms/hash-tables/breaking/benchmark.cpp).
+Source code can be found [here](pathname:///files/algorithms/hash-tables/breaking/benchmark.cpp).
 
 _Viewer discretion advised._
 
