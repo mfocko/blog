@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[5430],{1387:a=>{a.exports=JSON.parse('{"label":"red-hat","permalink":"/blog/tags/red-hat","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
