@@ -5,6 +5,42 @@ import Talk, { TalkMetadata } from "../components/talks/Talk";
 
 const talks: TalkMetadata[] = [
   {
+    title: "Shift Left Testing with Packit and Testing Farm",
+    description: (
+      <>
+        <p>
+          In today's fast-paced software development landscape, ensuring the
+          quality and reliability of upstream contributions is crucial. The
+          traditional approach of testing at the end of the development cycle is
+          no longer sufficient. To address this challenge, we present "Shift
+          Left Your Testing with Packit and Testing Farm", a talk that
+          introduces two powerful tools designed to simplify and enhance the
+          testing process for the upstream contributions.
+        </p>
+
+        <p>
+          Packit and Testing Farm provide a dead simple way to build and test
+          your upstream contributions against both public or internal Red Hat
+          testing infrastructure. In this talk, we will explore the capabilities
+          of both tools and demonstrate how they can be seamlessly integrated
+          into your development workflow.
+        </p>
+
+        <p>
+          In addition to the current capabilities, we will share our plans for
+          Packit and Testing.
+        </p>
+      </>
+    ),
+    events: [
+      {
+        name: "QEcamp23",
+        location: "virtual",
+        date: new Date(2023, 10, 19),
+      },
+    ],
+  },
+  {
     title: "Packit: RPM integration, all in one",
     description: (
       <>
