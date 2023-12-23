@@ -1,5 +1,6 @@
 ---
-id: karel-1
+id: karel
+slug: /recursion/karel
 title: Recursion and backtracking with Robot Karel
 description: |
   A problem with too many restrictions.
