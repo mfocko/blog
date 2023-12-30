@@ -7,7 +7,7 @@ description: |
 tags:
   - java
   - greedy
-last_updated:
+last_update:
   date: 2023-08-17
 ---
 

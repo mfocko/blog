@@ -12,7 +12,7 @@ tags:
   - dynamic-programming
   - top-down-dp
   - bottom-up-dp
-last_updated:
+last_update:
   date: 2023-08-17
 ---
 
