@@ -8,7 +8,7 @@ tags:
   - java
   - recursion
   - exponential
-last_updated:
+last_update:
   date: 2023-08-17
 ---
 
