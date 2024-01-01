@@ -162,7 +162,8 @@ std::ostream& operator<<(std::ostream& os, const graph& g) {
 
 :::info Source code
 
-**TODO** link the sources
+You can find all the source code referenced in this series
+[here](pathname:///files/algorithms/paths/bf-to-astar.tar.gz).
 
 :::
 
