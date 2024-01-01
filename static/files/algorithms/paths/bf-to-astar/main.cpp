@@ -30,5 +30,12 @@ auto main() -> int {
   std::cout << "Vortex cost: " << g.vortex_cost() << "\n";
   std::cout << "Graph:\n" << g;
 
+  // finding the distances from the bottom left corner to the 2 rows above
+  auto cost = bf_finite(g, std::make_pair(1, 9), std::make_pair(1, 7));
+  std::cout << "[Finite BF] Cost: " << cost << "\n";
+
+  auto distances = bellman_ford(g, std::make_pair(1, 9));
+  std::cout << "[Bellman-Ford] Cost: " << distances[7][1] << "\n";
+
   return 0;
 }
