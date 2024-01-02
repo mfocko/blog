@@ -10,6 +10,7 @@ tags:
 - bellman ford
 - dynamic programming
 - dijkstra
+- greedy
 - a star
 last_update:
   date: 2024-01-01
