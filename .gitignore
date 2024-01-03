@@ -28,3 +28,6 @@ static/files/**/*.tar.bz2
 # ignore generated SVGs
 static/files/**/*.svg
 static/files/**/*.png
+
+# ignore the VSCode crap
+/.vscode
