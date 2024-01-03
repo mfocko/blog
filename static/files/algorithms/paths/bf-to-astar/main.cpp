@@ -40,5 +40,11 @@ auto main() -> int {
   distances = dijkstra(g, std::make_pair(1, 9));
   std::cout << "[Dijkstra] Cost: " << distances[7][1] << "\n";
 
+  distances = astar(g, std::make_pair(1, 9), [](const auto& u) {
+    auto [x, y] = u;
+    return std::abs(1 - x) + std::abs(7 - y);
+  });
+  std::cout << "[A*] Cost: " << distances[7][1] << "\n";
+
   return 0;
 }
