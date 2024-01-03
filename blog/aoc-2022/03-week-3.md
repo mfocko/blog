@@ -5,9 +5,9 @@ date: 2023-07-06T21:00
 slug: aoc-2022/3rd-week
 authors: mf
 tags:
-- advent-of-code
-- advent-of-code-2022
-- rust
+  - advent-of-code
+  - advent-of-code-2022
+  - rust
 hide_table_of_contents: false
 ---
 
@@ -51,6 +51,7 @@ underlying data structure.
 
 Here you can see a rather short snippet from the solution that allows you to
 “index” the graph:
+
 ```rust
 impl Index<&str> for Graph {
     type Output = Vertex;
@@ -78,6 +79,7 @@ different ways the work can be split.
 
 Being affected by _functional programming brain damage_:tm:, I have chosen to
 do this part by function that returns an iterator over the possible ways:
+
 ```rust
 fn pairings(
     valves: &BTreeSet<String>,
@@ -123,6 +125,7 @@ iterate through the positions that can actually collide with the wall or other
 piece.
 
 To get the desired behaviour, you can just compose few smaller functions:
+
 ```rust
 fn occupied(shape: &[Vec<char>]) -> impl Iterator<Item = Position> + '_ {
     shape.iter().enumerate().flat_map(|(y, row)| {
@@ -140,12 +143,12 @@ fn occupied(shape: &[Vec<char>]) -> impl Iterator<Item = Position> + '_ {
 In the end, we get relative positions which we can adjust later when given the
 specific positions from iterator. You can see some interesting parts in this:
 
-* `.enumerate()` allows us to get both the indices (coordinates) and the line
+- `.enumerate()` allows us to get both the indices (coordinates) and the line
   or, later on, the character itself,
-* `.flat_map()` flattens the iterator, i.e. when we return another iterator,
+- `.flat_map()` flattens the iterator, i.e. when we return another iterator,
   they just get chained instead of iterating over iterators (which sounds pretty
   disturbing, doesn't it?),
-* and finally `.filter_map()` which is pretty similar to the “basic” `.map()`
+- and finally `.filter_map()` which is pretty similar to the “basic” `.map()`
   with a one, key, difference that it expects the items of an iterator to be
   mapped to an `Option<T>` from which it ignores nothing (as in `None` :wink:)
   and also unwraps the values from `Some(…)`.
@@ -156,6 +159,7 @@ In the solution we cycle through both Tetris-like shapes that fall down and the
 jets that move our pieces around. Initially I have implemented my own infinite
 iterator that just yields the indices. It is a very simple, yet powerful, piece
 of code:
+
 ```rust
 struct InfiniteIndex {
     size: usize,
@@ -188,7 +192,7 @@ right away in the constructor of my structure and the iterators would borrow
 both the jets and shapes which would introduce a lifetime dependency into the
 structure.
 
-## [Day 18: Boiling Boulders](https://adventofcode.com/2022/day/18) 
+## [Day 18: Boiling Boulders](https://adventofcode.com/2022/day/18)
 
 :::info tl;dr
 
@@ -253,6 +257,7 @@ a rather interesting issue with `.borrow_mut()` method being used on `Rc<RefCell
 #### `.borrow_mut()`
 
 Consider the following snippet of the code (taken from the documentation):
+
 ```rust
 use std::cell::{RefCell, RefMut};
 use std::collections::HashMap;
@@ -289,6 +294,7 @@ It is a very primitive example for `Rc<RefCell<T>>` and mutable borrow.
 
 If you uncomment the 4th line with `use std::borrow::BorrowMut;`, you cannot
 compile the code anymore, because of
+
 ```
    Compiling playground v0.0.1 (/playground)
 error[E0308]: mismatched types
@@ -349,8 +355,9 @@ method. OK, but how can we call it on the `Rc<T>`? Easily! `Rc<T>` implements
 `T` objects. If we read on _`Deref` coercion_, we can see the following:
 
 > If `T` implements `Deref<Target = U>`, …:
-> * …
-> * `T` implicitly implements all the (immutable) methods of the type `U`.
+>
+> - …
+> - `T` implicitly implements all the (immutable) methods of the type `U`.
 
 What is the requirement for the `.borrow_mut()` on `RefCell<T>`? Well, it needs
 `&self`, so the `Deref` implements the `.borrow_mut()` for the `Rc<RefCell<T>>`.
@@ -360,6 +367,7 @@ What is the requirement for the `.borrow_mut()` on `RefCell<T>`? Well, it needs
 I have not been able to find a lot on this trait. My guess is that it provides a
 method instead of a syntactic sugar (`&mut x`) for the mutable borrow. And also
 it provides default implementations for the types:
+
 ```rust
 impl BorrowMut<str> for String
 
@@ -390,6 +398,7 @@ Now the question is why did it break the code… My first take was that the type
 the `use` overrides it with the default, which is true **in a sense**. However
 there is no _specialized_ implementation. Let's have a look at the trait and the
 type signature on the `RefCell<T>`:
+
 ```rust
 // trait
 pub trait BorrowMut<Borrowed>: Borrow<Borrowed>
@@ -474,6 +483,6 @@ left and right :smile:
 [^2]: Pardon my example from the graph algorithms ;)
 [^3]: [`Neg`](https://doc.rust-lang.org/std/ops/trait.Neg.html) docs
 
-[_Advent of Code_]: https://adventofcode.com
+[_advent of code_]: https://adventofcode.com
 [`itertools`]: https://crates.io/crates/itertools
-[this Reddit post and the comment]: https://www.reddit.com/r/adventofcode/comments/zb98pn/comment/iyq0ono
+[this reddit post and the comment]: https://www.reddit.com/r/adventofcode/comments/zb98pn/comment/iyq0ono

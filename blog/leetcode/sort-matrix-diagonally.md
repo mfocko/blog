@@ -5,9 +5,9 @@ date: 2023-03-04T23:15
 slug: leetcode/sort-diagonally
 authors: mf
 tags:
-- cpp
-- leetcode
-- iterators
+  - cpp
+  - leetcode
+  - iterators
 hide_table_of_contents: false
 ---
 
@@ -16,7 +16,7 @@ same time.
 
 <!--truncate-->
 
-* Link to the problem: https://leetcode.com/problems/sort-the-matrix-diagonally/
+- Link to the problem: https://leetcode.com/problems/sort-the-matrix-diagonally/
 
 ## Problem description
 
@@ -41,7 +41,7 @@ We are given the following skeleton for the C++ and the given challenge:
 class Solution {
 public:
     vector<vector<int>> diagonalSort(vector<vector<int>>& mat) {
-        
+
     }
 };
 ```
@@ -131,6 +131,7 @@ advantage, given that you know how to “bend” the data structures accordingly
 
 What does that mean for us? Well, we have an `std::sort`, we can use it, right?
 Let's have a look at it:
+
 ```cpp
 template< class RandomIt >
 void sort( RandomIt first, RandomIt last );
@@ -162,6 +163,7 @@ up, i.e. “_compiler-assisted development_”[^2] if you will ;)
 Now we know that we can use `std::sort` to sort the diagonal itself, but we also
 need to get the diagonals somehow. I'm rather lazy, so I'll just delegate it to
 someone else[^3]. And that way we get
+
 ```cpp
 matrix diagonalSort(matrix mat)
 {
@@ -179,6 +181,7 @@ matrix diagonalSort(matrix mat)
 
 This solution looks very simple, doesn't it? Well, cause it is.
 Let's try compiling it:
+
 ```
 matrix-sort.cpp:11:23: error: use of undeclared identifier 'diagonals' [clang-diagnostic-error]
         for (auto d : diagonals(mat)) {
@@ -199,9 +202,10 @@ in our matrix. We use the _for-range_ loop, so whatever we get back from the
 do such functionality for a matrix of any type, not just the `int` from the challenge.
 
 As I said, we need to be able to
-* construct the object
-* get the beginning
-* get the end (the “sentinel”)
+
+- construct the object
+- get the beginning
+- get the end (the “sentinel”)
 
 ```cpp
 template <typename T>
@@ -295,10 +299,11 @@ public:
 
 In this case we will be implementing a “simple” forward iterator, so we don't
 need to implement a lot. Notably it will be:
-* inequality operator (we need to know when we reach the end and have nothing to
+
+- inequality operator (we need to know when we reach the end and have nothing to
   iterate over)
-* preincrementation operator (we need to be able to move around the iterable)
-* dereference operator (we need to be able to retrieve the objects we iterate
+- preincrementation operator (we need to be able to move around the iterable)
+- dereference operator (we need to be able to retrieve the objects we iterate
   over)
 
 ```cpp
@@ -376,6 +381,7 @@ After implementing the iterator over diagonals, we know that all we need to desc
 a diagonal is the matrix itself and the “start” of the diagonal (row and column).
 And we also know that the diagonal must provide some iterators for the `std::sort`
 function. We can start with the following skeleton:
+
 ```cpp
 template <typename T>
 class diagonal {
@@ -434,12 +440,13 @@ steps.
 Let's go through all of the functionality that our iterator needs to support to
 be used in `std::sort`. We need the usual operations like:
 
-* equality/inequality
-* incrementation
-* dereferencing
+- equality/inequality
+- incrementation
+- dereferencing
 
 We will also add all the types that our iterator uses with the category of the
 iterator, i.e. what interface it supports:
+
 ```cpp
 class diagonal_iter {
     // we need to keep reference to the matrix itself
@@ -486,13 +493,14 @@ public:
 This is pretty similar to the previous iterator, but now we need to implement the
 remaining requirements of the _random access iterator_. Let's see what those are:
 
-* decrementation - cause we need to be able to move backwards too, since _random _
+- decrementation - cause we need to be able to move backwards too, since _random _
   _access iterator_ extends the interface of _bidirectional iterator_
-* moving the iterator in either direction by steps given as an integer
-* being able to tell the distance between two iterators
-* define an ordering on the iterators
+- moving the iterator in either direction by steps given as an integer
+- being able to tell the distance between two iterators
+- define an ordering on the iterators
 
 Let's fill them in:
+
 ```cpp
 class diagonal_iter {
     // we need to keep reference to the matrix itself
@@ -575,6 +583,7 @@ public:
 
 At this point we could probably try and compile it, right? If we do so, we will
 get yelled at by a compiler for the following reasons:
+
 ```
 /usr/bin/../lib/gcc/x86_64-redhat-linux/12/../../../../include/c++/12/bits/stl_algo.h:1792:11: error: object of type 'diagonal<int>::diagonal_iter' cannot be assigned because its copy assignment operator is implicitly deleted [clang-diagnostic-error]
           __last = __next;
@@ -633,6 +642,7 @@ matrix-sort.cpp:17:19: note: copy assignment operator of 'diagonal_iter' is impl
 ```
 
 That's a lot of noise, isn't it? Let's focus on the important parts:
+
 ```
 /usr/bin/../lib/gcc/x86_64-redhat-linux/12/../../../../include/c++/12/bits/stl_algo.h:1792:11: error: object of type 'diagonal<int>::diagonal_iter' cannot be assigned because its copy assignment operator is implicitly deleted [clang-diagnostic-error]
 …
@@ -644,6 +654,7 @@ matrix-sort.cpp:17:19: note: copy assignment operator of 'diagonal_iter' is impl
 Ah! We have a reference in our iterator, and this prevents us from having a copy
 assignment operator (that is used “somewhere” in the sorting algorithm). Well…
 Let's just wrap it!
+
 ```diff
 # we need to keep a different type than reference
 -        matrix_t& m;

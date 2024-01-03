@@ -5,9 +5,9 @@ date: 2022-12-15T01:15
 slug: aoc-2022/1st-week
 authors: mf
 tags:
-- advent-of-code
-- advent-of-code-2022
-- rust
+  - advent-of-code
+  - advent-of-code-2022
+  - rust
 hide_table_of_contents: false
 ---
 
@@ -43,6 +43,7 @@ handle samples. With each puzzle you usually get a sample input and expected
 output. You can use them to verify that your solution works, or usually doesn't.
 
 At first I've decided to put asserts into my `main`, something like
+
 ```rust
 assert_eq!(part_1(&sample), 24000);
 info!("Part 1: {}", part_1(&input));
@@ -53,6 +54,7 @@ info!("Part 2: {}", part_2(&input));
 
 However, once you get further, the sample input may take some time to run itself.
 So in the end, I have decided to turn them into unit tests:
+
 ```rust
 #[cfg(test)]
 mod tests {
@@ -124,6 +126,7 @@ Fighting the compiler took me 30 minutes.
 
 We need to find a common item among 2 collections, that's an easy task, right?
 We can construct 2 sets and find an intersection:
+
 ```rust
 let top: HashSet<i32> = [1, 2, 3].iter().collect();
 let bottom: HashSet<i32> = [3, 4, 5].iter().collect();
@@ -133,6 +136,7 @@ Now, the first issue that we encounter is caused by the fact that we are using
 a slice (the `[…]`), iterator of that returns **references** to the numbers.
 And we get immediately yelled at by the compiler, because the numbers are discarded
 after running the `.collect`. To fix this, we can use `.into_iter`:
+
 ```rust
 let top: HashSet<i32> = [1, 2, 3].into_iter().collect();
 let bottom: HashSet<i32> = [3, 4, 5].into_iter().collect();
@@ -140,9 +144,11 @@ let bottom: HashSet<i32> = [3, 4, 5].into_iter().collect();
 
 This way the numbers will get copied instead of referenced. OK, let's find the
 intersection of those 2 collections:
+
 ```rust
 println!("Common elements: {:?}", top.intersection(&bottom));
 ```
+
 ```
 Common elements: [3]
 ```
@@ -161,6 +167,7 @@ that should be fairly easy, we have an intersection and we want to find intersec
 over all of them.
 
 Let's have a look at the type of the `.intersection`
+
 ```rust
 pub fn intersection<'a>(
     &'a self,
@@ -169,11 +176,13 @@ pub fn intersection<'a>(
 ```
 
 OK… Huh… But we have an example there!
+
 ```rust
 let intersection: HashSet<_> = a.intersection(&b).collect();
 ```
 
 Cool, that's all we need.
+
 ```rust
 let top: HashSet<i32> = [1, 2, 3, 4].into_iter().collect();
 let bottom: HashSet<i32> = [3, 4, 5, 6].into_iter().collect();
@@ -183,11 +192,13 @@ let bottom_2: HashSet<i32> = [4, 5, 6].into_iter().collect();
 let intersection: HashSet<_> = top.intersection(&bottom).collect();
 println!("Intersection: {:?}", intersection);
 ```
+
 ```
 Intersection: {3, 4}
 ```
 
 Cool, so let's do the intersection with the `top_2`:
+
 ```rust
 let top: HashSet<i32> = [1, 2, 3, 4].into_iter().collect();
 let bottom: HashSet<i32> = [3, 4, 5, 6].into_iter().collect();
@@ -200,6 +211,7 @@ println!("Intersection: {:?}", intersection);
 ```
 
 And we get yelled at by the compiler:
+
 ```
 error[E0308]: mismatched types
   --> src/main.rs:10:58
@@ -228,6 +240,7 @@ making sure you're not doing something naughty that may cause an **undefined**
 :::
 
 To resolve this we need to get an iterator that **clones** the elements:
+
 ```rust
 let top: HashSet<i32> = [1, 2, 3, 4].into_iter().collect();
 let bottom: HashSet<i32> = [3, 4, 5, 6].into_iter().collect();
@@ -239,6 +252,7 @@ let intersection: HashSet<_> = intersection.intersection(&top_2).cloned().collec
 let intersection: HashSet<_> = intersection.intersection(&bottom_2).cloned().collect();
 println!("Intersection: {:?}", intersection);
 ```
+
 ```
 Intersection: {4}
 ```
@@ -273,11 +287,12 @@ Let's play with stacks of crates.
 :::
 
 Very easy problem with very annoying input. You can judge yourself:
+
 ```
-    [D]    
-[N] [C]    
+    [D]
+[N] [C]
 [Z] [M] [P]
- 1   2   3 
+ 1   2   3
 
 move 1 from 2 to 1
 move 3 from 1 to 3
@@ -286,7 +301,6 @@ move 1 from 1 to 2
 ```
 
 Good luck transforming that into something reasonable :)
-
 
 :::tip Fun fact
 
@@ -300,6 +314,7 @@ For the initial solution I went with a manual solution (as in _I have done all_
 _the work_. Later on I have decided to explore the `std` and interface of the
 `std::vec::Vec` and found [`split_off`] which takes an index and splits (duh)
 the vector:
+
 ```rust
 let mut vec = vec![1, 2, 3];
 let vec2 = vec.split_off(1);
@@ -343,11 +358,12 @@ directories that take a lot of space and should be deleted.
 :::
 
 > I was waiting for this moment, and yet it got me!
-> *imagine me swearing for hours*
+> _imagine me swearing for hours_
 
 ### Solution
 
 We need to “_build_” a file system from the input that is given in a following form:
+
 ```
 $ cd /
 $ ls
@@ -417,6 +433,7 @@ to have `Rc<RefCell<T>>`.
 
 So, how are we going to represent the file system then? We will use an enumeration,
 hehe, which is an algebraic data type that can store some stuff in itself :weary:
+
 ```rust
 type FileHandle = Rc<RefCell<AocFile>>;
 
@@ -433,6 +450,7 @@ out the value of that enumeration, it's derived, so it's not as good as if we ha
 implemented it ourselves, but it's good enough for debugging, hence the name.
 
 Now to the fun part! `AocFile` value can be represented in two ways:
+
 - `File(usize)`, e.g. `AocFile::File(123)` and we can pattern match it, if we
   need to
 - `Directory(BTreeMap<String, FileHandle>)` will represent the directory and will
@@ -491,13 +509,13 @@ in Rust, we can say that
 You can easily see that they only differ in the mutability. (And even that is not
 as simple as it seems, because there is also `Cell<T>`)
 
-[_Advent of Code_]: https://adventofcode.com
-[GitLab]: https://gitlab.com/mfocko/advent-of-code-2022
+[_advent of code_]: https://adventofcode.com
+[gitlab]: https://gitlab.com/mfocko/advent-of-code-2022
 [`/src/bin/`]: https://gitlab.com/mfocko/advent-of-code-2022/-/tree/main/src/bin
 [`sccache`]: https://github.com/mozilla/sccache
-[`RangeInclusive`]: https://doc.rust-lang.org/std/ops/struct.RangeInclusive.html
+[`rangeinclusive`]: https://doc.rust-lang.org/std/ops/struct.RangeInclusive.html
 [`split_off`]: https://doc.rust-lang.org/std/vec/struct.Vec.html#method.split_off
 [`du`]: https://www.man7.org/linux/man-pages/man1/du.1.html
-[`HashMap`]: https://doc.rust-lang.org/std/collections/struct.HashMap.html
-[`BTreeMap`]: https://doc.rust-lang.org/std/collections/struct.BTreeMap.html
+[`hashmap`]: https://doc.rust-lang.org/std/collections/struct.HashMap.html
+[`btreemap`]: https://doc.rust-lang.org/std/collections/struct.BTreeMap.html
 [_tree catamorphism_]: https://en.wikipedia.org/wiki/Catamorphism#Tree_fold

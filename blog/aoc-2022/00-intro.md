@@ -5,9 +5,9 @@ date: 2022-12-14T21:45
 slug: aoc-2022/intro
 authors: mf
 tags:
-- advent-of-code
-- advent-of-code-2022
-- rust
+  - advent-of-code
+  - advent-of-code-2022
+  - rust
 hide_table_of_contents: false
 ---
 
@@ -58,6 +58,7 @@ Since we are using Rust, we are going to use a [Cargo] and more than likely VSCo
 with [`rust-analyzer`]. Because of my choice of libraries, we will also introduce
 a `.envrc` file that can be used by [`direnv`], which allows you to set specific
 environment variables when you enter a directory. In our case, we will use
+
 ```bash
 # to show nice backtrace when using the color-eyre
 export RUST_BACKTRACE=1
@@ -69,6 +70,7 @@ export RUST_LOG=trace
 And for the one of the most obnoxious things ever, we will use a script to download
 the inputs instead of “_clicking, opening and copying to a file_”[^1]. There is
 no need to be _fancy_, so we will adjust Python script by Martin[^2].
+
 ```py
 #!/usr/bin/env python3
 
@@ -116,6 +118,7 @@ if __name__ == "__main__":
 If the script is called without any arguments, it will deduce the day from the
 system, so we do not need to change the day every morning. It also requires a
 configuration file:
+
 ```yaml
 # env.yaml
 session: ‹your session cookie›
@@ -159,6 +162,7 @@ parsing and one for 2D vector (that gets used quite often during Advent of Code)
 
 Key part is, of course, processing the input and my library exports following
 functions that get used a lot:
+
 ```rust
 /// Reads file to the string.
 pub fn file_to_string<P: AsRef<Path>>(pathname: P) -> String;
@@ -195,6 +199,7 @@ need.
 We can also prepare a template to quickly bootstrap each of the days. We know
 that each puzzle has 2 parts, which means that we can start with 2 functions that
 will solve them.
+
 ```rust
 fn part1(input: &Input) -> Output {
     todo!()
@@ -210,6 +215,7 @@ of puzzles, it is the same type). `todo!()` can be used as a nice placeholder,
 it also causes a panic when reached and we could also provide some string with
 an explanation, e.g. `todo!("part 1")`. We have not given functions a specific
 type and to avoid as much copy-paste as possible, we will introduce type aliases.
+
 ```rust
 type Input = String;
 type Output = i32;
@@ -226,6 +232,7 @@ For each day we get a personalized input that is provided as a text file. Almost
 all the time, we would like to get some structured type out of that input, and
 therefore it makes sense to introduce a new function that will provide the parsing
 of the input.
+
 ```rust
 fn parse_input(path: &str) -> Input {
     todo!()
@@ -237,6 +244,7 @@ sample instead of input.
 
 OK, so now we can write a `main` function that will take all of the pieces and
 run them.
+
 ```rust
 fn main() {
     let input = parse_input("inputs/dayXX.txt");
@@ -249,6 +257,7 @@ fn main() {
 This would definitely do :) But we have installed a few libraries and we want to
 use them. In this part we are going to utilize _[`tracing`]_ (for tracing, duh…)
 and _[`color-eyre`]_ (for better error reporting, e.g. from parsing).
+
 ```rust
 fn main() -> Result<()> {
     tracing_subscriber::fmt()
@@ -274,11 +283,13 @@ The first statement will set up tracing and configure it to print out the logs t
 terminal, based on the environment variable. We also change the formatting a bit,
 since we do not need all the _fancy_ features of the logger. Pure initialization
 would get us logs like this:
+
 ```
 2022-12-11T19:53:19.975343Z  INFO day01: Part 1: 0
 ```
 
 However after running that command, we will get the following:
+
 ```
  INFO src/bin/day01.rs:35: Part 1: 0
 ```
@@ -296,6 +307,7 @@ at the end of the `::install` which _unwraps_ the **»result«** of the installa
 :::
 
 Overall we will get to a template like this:
+
 ```rust
 use aoc_2022::*;
 
@@ -338,15 +350,18 @@ fn main() -> Result<()> {
 }
 ```
 
-[^1]: Copy-pasting might be a relaxing thing to do, but you can also discover
-nasty stuff about your PC. See [this Reddit post and the comment].
-[^2]: [GitHub profile](https://github.com/martinjonas)
-[^3]: Even though you can use it even for libraries, but handling errors from
-libraries using `anyhow` is nasty… You will be the stinky one ;)
+[^1]:
+    Copy-pasting might be a relaxing thing to do, but you can also discover
+    nasty stuff about your PC. See [this Reddit post and the comment].
 
-[_Advent of Code_]: https://adventofcode.com
-[GitLab]: https://gitlab.com/mfocko/advent-of-code-2022
-[Cargo]: https://doc.rust-lang.org/cargo/
+[^2]: [GitHub profile](https://github.com/martinjonas)
+[^3]:
+    Even though you can use it even for libraries, but handling errors from
+    libraries using `anyhow` is nasty… You will be the stinky one ;)
+
+[_advent of code_]: https://adventofcode.com
+[gitlab]: https://gitlab.com/mfocko/advent-of-code-2022
+[cargo]: https://doc.rust-lang.org/cargo/
 [`rust-analyzer`]: https://rust-analyzer.github.io/
 [`direnv`]: https://direnv.net/
 [`tracing`]: https://crates.io/crates/tracing
@@ -357,4 +372,4 @@ libraries using `anyhow` is nasty… You will be the stinky one ;)
 [`regex`]: https://crates.io/crates/regex
 [`lazy_static`]: https://crates.io/crates/lazy_static
 [`itertools`]: https://crates.io/crates/itertools
-[this Reddit post and the comment]: https://www.reddit.com/r/adventofcode/comments/zb98pn/comment/iyq0ono
+[this reddit post and the comment]: https://www.reddit.com/r/adventofcode/comments/zb98pn/comment/iyq0ono

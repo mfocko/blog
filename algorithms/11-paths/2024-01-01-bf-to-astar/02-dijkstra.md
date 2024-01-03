@@ -5,10 +5,10 @@ title: Dijkstra's algorithm
 description: |
   Moving from Bellman-Ford into the Dijsktra's algorithm.
 tags:
-- cpp
-- dynamic programming
-- greedy
-- dijkstra
+  - cpp
+  - dynamic programming
+  - greedy
+  - dijkstra
 last_update:
   date: 2024-01-03
 ---
@@ -46,6 +46,7 @@ I'll start with a well-known meme about Dijkstra's algorithm:
 ![Dijkstra's algorithm meme](/img/algorithms/paths/bf-to-astar/dijkstra-meme.jpg)
 
 And then follow up on that with the actual backstory from Dijkstra himself:
+
 > What is the shortest way to travel from Rotterdam to Groningen, in general:
 > from given city to given city. It is the algorithm for the shortest path,
 > which I designed in about twenty minutes. One morning I was shopping in
@@ -75,6 +76,7 @@ monotonically non-decreasing changes in the costs of shortest paths.
 ## Short description
 
 Let's have a brief look at the pseudocode taken from the Wikipedia:
+
 ```
 function Dijkstra(Graph, source):
     for each vertex v in Graph.Vertices:
@@ -141,6 +143,7 @@ Firstly we need to have some priority queue wrappers. C++ itself offers
 functions that can be used for maintaining max heaps. They also have generalized
 version with any ordering, in our case we need reverse ordering, because we need
 the min heap.
+
 ```cpp
 using pqueue_item_t = std::pair<int, vertex_t>;
 using pqueue_t = std::vector<pqueue_item_t>;
@@ -165,6 +168,7 @@ auto popq(pqueue_t& q) -> std::optional<pqueue_item_t> {
 
 And now we can finally move to the actual implementation of the Dijkstra's
 algorithm:
+
 ```cpp
 auto dijkstra(const graph& g, const vertex_t& source)
     -> std::vector<std::vector<int>> {
@@ -220,6 +224,7 @@ structure.
 The original implementation doesn't leverage the heap which results in
 repetitive _look up_ of the “closest” vertex, hence we get the following
 worst-case time complexity in the _Bachmann-Landau_ notation:
+
 $$
 \Theta(\vert V \vert^2)
 $$
@@ -227,6 +232,7 @@ $$
 If we turn our attention to the backing data structure, we always want the
 “cheapest” vertex, that's why we can use the min heap, given that we use
 Fibonacci heap we can achieve the following amortized time complexity:
+
 $$
 \mathcal{O}(\vert E \vert + \vert V \vert \cdot \log{\vert V \vert})
 $$
@@ -242,6 +248,7 @@ min or max).
 ## Running the Dijkstra
 
 Let's run our code:
+
 ```
 Normal cost: 1
 Vortex cost: 5
@@ -273,6 +280,7 @@ infinitely when you have negative weights or loops in the graph. Well, if we use
 our _propelling vortices_, not only we have the negative weights, but also the
 negative loops. Let's run our code! Our first naïve approach was actually
 looping:
+
 ```
 Normal cost: 1
 Vortex cost: -1

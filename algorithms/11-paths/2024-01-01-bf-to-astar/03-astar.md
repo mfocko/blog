@@ -5,9 +5,9 @@ title: A* algorithm
 description: |
   Moving from Dijkstra's algorithm into the A* algorithm.
 tags:
-- cpp
-- dynamic programming
-- astar
+  - cpp
+  - dynamic programming
+  - astar
 last_update:
   date: 2024-01-03
 ---
@@ -15,6 +15,7 @@ last_update:
 ## Intro
 
 Let's start by the recap of what we've achieved so far:
+
 1. We have implemented a naïve brute-force algorithm that tries to relax paths
    as long as there are any paths to be relaxed.
 2. Then we have fixed an issue caused by negative loops that can result in
@@ -43,9 +44,9 @@ The important question here is how to _influence_ the algorithm, so that it does
 choose the path that _makes more sense_ rather than the one that costs the
 least.
 
-## A* description
+## A\* description
 
-The _A* algorithm_ can be considered a modification of Dijkstra's algorithm. The
+The _A\* algorithm_ can be considered a modification of Dijkstra's algorithm. The
 cost is still the same, we cannot change it, right? However when we pick the
 vertices from the heap, we can influence the order by some _heuristic_. In this
 case, we introduce a function that can suggest how feasible the vertex is.
@@ -66,6 +67,7 @@ road makes us 50 km away and using the other road we will be 200 km away.
 
 Our map is a bit simpler, but we can use a very similar principle. We will use
 the _Manhattan distance_, which is defined in a following way:
+
 $$
 \vert x_a - x_b \vert + \vert y_a - y_b \vert
 $$
@@ -81,6 +83,7 @@ calculate the shortest path and pass the heuristic as a parameter.
 ## Implementation
 
 Actual implementation is very easy once we have the Dijkstra's algorithm:
+
 ```cpp
 auto astar(const graph& g, const vertex_t& source, const auto& h)
     -> std::vector<std::vector<int>> {
@@ -132,6 +135,7 @@ auto astar(const graph& g, const vertex_t& source, const auto& h)
 ## Running on our map
 
 For this algorithm I will also show the example of a call:
+
 ```cpp
 distances = astar(g, std::make_pair(1, 9), [](const auto& u) {
   auto [x, y] = u;
@@ -145,6 +149,7 @@ source vertex where we start. And finally the lambda returns
 _Manhattan distance_ to the goal.
 
 And we get the following result:
+
 ```
 Normal cost: 1
 Vortex cost: 5
@@ -171,6 +176,7 @@ Graph:
 Now you may wonder how does it compare to the previous algorithms. Supposedly it
 should be faster. Let's add counters and debugging output when we update
 distance to our goal. And now if we run our code, we get the following output:
+
 ```
 Normal cost: 1
 Vortex cost: 5

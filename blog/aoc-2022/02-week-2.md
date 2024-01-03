@@ -5,9 +5,9 @@ date: 2022-12-25T23:15
 slug: aoc-2022/2nd-week
 authors: mf
 tags:
-- advent-of-code
-- advent-of-code-2022
-- rust
+  - advent-of-code
+  - advent-of-code-2022
+  - rust
 hide_table_of_contents: false
 ---
 
@@ -109,6 +109,7 @@ break in multiple places at once. I'll get back to it…
 :::
 
 Let's split it in multiple parts:
+
 - `v: &'a [Vec<U>]` represents the 2D `Vec`, we are indexing, `Vec` implements
   `Slice` trait and _clippy_ recommends using `&[T]` to `&Vec<T>`, exact details
   are unknown to me
@@ -128,6 +129,7 @@ Let's split it in multiple parts:
 First issue that our implementation has is the fact that we cannot get a mutable
 reference out of that function. This could be easily resolved by introducing new
 function, e.g. `index_mut`. Which I have actually done while writing this part:
+
 ```rust
 pub fn index_mut<'a, T, U>(v: &'a mut [Vec<U>], idx: &Vector2D<T>) -> &'a mut U
 where
@@ -153,6 +155,7 @@ types for indexing “built-in” types.
 
 Another part of this rabbit hole is trait `SliceIndex<T>` that is of a relevance
 because of
+
 ```rust
 impl<T, I> Index<I> for [T]
 where
@@ -177,6 +180,7 @@ and is marked as `unsafe`.
 Another problem is a requirement for indexing either `[Vec<T>]` or `Vec<Vec<T>>`.
 This requirement could be countered by removing inner type `Vec<T>` and constraining
 it by a trait `Index` (or `IndexMut` respectively) in a following way
+
 ```rust
 pub fn index<'a, C, T>(v: &'a [C], idx: &Vector2D<T>) -> &'a C::Output
 where
@@ -203,6 +207,7 @@ that you can use to your advantage; you can easily guess how).
 
 So how can we approach this then? Well… we will convert the bounds instead of
 the indices and that lead us to:
+
 ```rust
 pub fn in_range<T, U>(v: &[Vec<U>], idx: &Vector2D<T>) -> bool
 where
@@ -225,6 +230,7 @@ You can tell that it's definitely a shitty code. Let's improve it now! We will
 get back to the original idea, but do it better. We know that we cannot convert
 negative values into `usize`, **but** we also know that conversion like that
 returns a `Result<T, E>` which we can use to our advantage.
+
 ```rust
 pub fn in_range<T, U>(v: &[Vec<U>], idx: &Vector2D<T>) -> bool
 where
@@ -247,6 +253,7 @@ method returns `Result<T, E>`.
 
 We call `and_then` on that _result_, let's have a look at the type signature of
 `and_then`, IMO it explains more than enough:
+
 ```rust
 pub fn and_then<U, F>(self, op: F) -> Result<U, E>
 where
@@ -297,6 +304,7 @@ generates a lot of boilerplate. And even though it can be easily copied, it's
 just a waste of space and unnecessary code. Let's “simplify” this (on one end
 while creating monster on the other end). I've gone through what we need in the
 preparations for the AoC. Let's sum up our requirements:
+
 - parsing
 - part 1 & 2
 - running on sample / input
@@ -307,6 +315,7 @@ cannot do anything about it. However running and testing can be simplified!
 
 Let's introduce and export a new module `solution` that will take care of all of
 this. We will start by introducing a trait for each day.
+
 ```rust
 pub trait Solution<Input, Output: Display> {
     fn parse_input<P: AsRef<Path>>(pathname: P) -> Input;
@@ -322,6 +331,7 @@ implement the `Solution` trait.
 
 Now we need to get rid of the boilerplate, we can't get rid of the `main` function,
 but we can at least move out the functionality.
+
 ```rust
 fn run(type_of_input: &str) -> Result<()>
 where
@@ -382,6 +392,7 @@ advised to use it any production code.
 And now we can get to the nastiest stuff :weary: We will **generate** the tests!
 
 We want to be able to generate tests for sample input in a following way:
+
 ```rust
 test_sample!(day_01, Day01, 42, 69);
 ```
@@ -420,6 +431,7 @@ parameters have their name prefixed with `$` sign and you can define various “
 of your macro. Let's go through it!
 
 We have following parameters:
+
 - `$mod_name` which represents the name for the module with tests, it is typed
   with `ident` which means that we want a valid identifier to be passed in.
 - `$day_struct` represents the structure that will be used for tests, it is typed
@@ -429,6 +441,7 @@ We have following parameters:
 
 Apart from that we need to use `#[macro_export]` to mark the macro as exported
 for usage outside of the module. Now our skeleton looks like:
+
 ```rust
 use aoc_2022::*;
 
@@ -476,6 +489,7 @@ And the issue is caused by different types of `Output` for the part 1 and part 2
 
 Problem is relatively simple and consists of simulating a CPU, I have approached
 it in a following way:
+
 ```rust
 fn evaluate_instructions(instructions: &[Instruction], mut out: Output) -> Output {
     instructions
@@ -500,6 +514,7 @@ have an `enumeration` that can _bear_ some other values apart from the type itse
 
 We could've seen something like this with the `Result<T, E>` type that can be
 defined as
+
 ```rust
 enum Result<T, E> {
   Ok(T),
@@ -512,6 +527,7 @@ enum Result<T, E> {
 When we have an `Ok` value, it has the result itself, and when we get an `Err`
 value, it has the error. This also allows us to handle _results_ in a rather
 pretty way:
+
 ```rust
 match do_something(x) {
   Ok(y) => {
@@ -526,6 +542,7 @@ match do_something(x) {
 :::
 
 My solution has a following outline:
+
 ```rust
 fn execute(&self, i: &Instruction, output: &mut Output) -> State {
     // execute the instruction
@@ -586,6 +603,7 @@ also rolling down the hill…
 As I have said in the _tl;dr_, we are looking for the shortest path, but the start
 and goal differ for the part 1 and 2. So I have decided to refactor my solution
 to a BFS algorithm that takes necessary parameters via functions:
+
 ```rust
 fn bfs<F, G>(
     graph: &[Vec<char>], start: &Position, has_edge: F, is_target: G
@@ -621,6 +639,7 @@ Processing packets with structured data from the distress signal.
 You can implement a lot of traits if you want to. It is _imperative_ to implement
 ordering on the packets. I had a typo, so I also proceeded to implement a `Display`
 trait for debugging purposes:
+
 ```rust
 impl Display for Packet {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -765,13 +784,14 @@ Why? We have it implemented for the slices (`[C]`), why doesn't it work? Well,
 the fun part consists of the fact that in other place, where we were using it,
 we were passing the `&[Vec<T>]`, but this is coming from a helper functions that
 take `&Vec<Vec<T>>` instead. And… we don't implement `Index` and `IndexMut` for
-those. Just for the slices. :exploding_head: *What are we going to do about it?*
+those. Just for the slices. 🤯 _What are we going to do about it?_
 
 We can either start copy-pasting or be smarter about it… I choose to be smarter,
 so let's implement a macro! The only difference across the implementations are
 the types of the outer containers. Implementation doesn't differ **at all**!
 
 Implementing the macro can be done in a following way:
+
 ```rust
 macro_rules! generate_indices {
     ($container:ty) => {
@@ -807,6 +827,7 @@ macro_rules! generate_indices {
 ```
 
 And now we can simply do
+
 ```rust
 generate_indices!(VecDeque<C>);
 generate_indices!([C]);
@@ -830,6 +851,7 @@ copy-paste, cause the cost of this “monstrosity” outweighs the benefits of n
 This issue is relatively funny. If you don't use any type aliases, just the raw
 types, you'll get suggested certain changes by the _clippy_. For example if you
 consider the following piece of code
+
 ```rust
 fn get_sum(nums: &Vec<i32>) -> i32 {
     nums.iter().sum()
@@ -842,6 +864,7 @@ fn main() {
 ```
 
 and you run _clippy_ on it, you will get
+
 ```
 Checking playground v0.0.1 (/playground)
 warning: writing `&Vec` instead of `&[_]` involves a new object where a slice will do
@@ -858,6 +881,7 @@ warning: `playground` (bin "playground") generated 1 warning
 ```
 
 However, if you introduce a type alias, such as
+
 ```rust
 type Numbers = Vec<i32>;
 ```
@@ -865,5 +889,5 @@ type Numbers = Vec<i32>;
 Then _clippy_ won't say anything, cause there is literally nothing to suggest.
 However the outcome is not the same…
 
-[_Advent of Code_]: https://adventofcode.com
-[BFS above]: #day-12-hill-climbing-algorithm
+[_advent of code_]: https://adventofcode.com
+[bfs above]: #day-12-hill-climbing-algorithm

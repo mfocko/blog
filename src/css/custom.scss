@@ -16,7 +16,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #1d9bf0;
   --ifm-color-primary-dark: #0f8ee3;
   --ifm-color-primary-darker: #0e86d6;
@@ -32,11 +32,12 @@ kbd,
 var,
 tt,
 text {
-  font-family: 'Cascadia Code PL', 'JetBrains Mono', 'Iosevka', 'Fira Code', 'Hack', monospace;
+  font-family: "Cascadia Code PL", "JetBrains Mono", "Iosevka", "Fira Code",
+    "Hack", monospace;
 }
 
-[data-theme='light'] img[src$='#gh-dark-mode-only'],
-[data-theme='dark'] img[src$='#gh-light-mode-only'],
+[data-theme="light"] img[src$="#gh-dark-mode-only"],
+[data-theme="dark"] img[src$="#gh-light-mode-only"],
 [data-theme="light"] .dark-mode-only,
 [data-theme="dark"] .light-mode-only {
   display: none;

@@ -5,9 +5,9 @@ date: 2023-07-07T15:14
 slug: aoc-2022/4th-week
 authors: mf
 tags:
-- advent-of-code
-- advent-of-code-2022
-- rust
+  - advent-of-code
+  - advent-of-code-2022
+  - rust
 hide_table_of_contents: false
 ---
 
@@ -46,6 +46,7 @@ rows (cause each row is a `Vec` element), but not for the columns, since they
 span multiple rows.
 
 For this use case I have implemented my own _column iterator_:
+
 ```rust
 pub struct ColumnIterator<'a, T> {
     map: &'a [Vec<T>],
@@ -76,6 +77,7 @@ impl<'a, T> Iterator for ColumnIterator<'a, T> {
 
 Given this piece of an iterator, it is very easy to factor out the common
 functionality between the rows and columns into:
+
 ```rust
 let mut find_boundaries = |constructor: fn(usize) -> Orientation,
                            iterator: &mut dyn Iterator<Item = &char>,
@@ -92,6 +94,7 @@ let mut find_boundaries = |constructor: fn(usize) -> Orientation,
 ```
 
 And then use it as such:
+
 ```rust
 // construct all horizontal boundaries
 (0..map.len()).for_each(|row| {
@@ -119,6 +122,7 @@ And then use it as such:
 Once the 2nd part got introduced, you start to think about a way how not to
 copy-paste a lot of stuff (I haven't avoided it anyways…). In this problem, I've
 chosen to introduce a trait (i.e. _interface_) for 2D and 3D walker.
+
 ```rust
 trait Wrap: Clone {
     type State;
@@ -139,14 +143,16 @@ trait Wrap: Clone {
 
 Each walker maintains its own state and also provides the functions that are
 used during the simulation. The “promised” methods are separated into:
-* _simulation_-related: that are used during the simulation from the `.fold()`
-* _movement_-related: just a one method that holds most of the logic differences
+
+- _simulation_-related: that are used during the simulation from the `.fold()`
+- _movement_-related: just a one method that holds most of the logic differences
   between 2D and 3D
-* _final answer_: which extracts the _proof of solution_ from the
+- _final answer_: which extracts the _proof of solution_ from the
   implementation-specific walker
 
 Both 2D and 3D versions borrow the original input and therefore you must
 annotate the lifetime of it:
+
 ```rust
 struct Wrap2D<'a> {
     input: &'a Input,
@@ -179,6 +185,7 @@ When writing the parsing for this problem, the first thing I have spotted on the
 `char` was the `.is_digit()` function that takes a radix as a parameter. Clippy
 noticed that I use `radix = 10` and suggested switching to `.is_ascii_digit()`
 that does exactly the same thing:
+
 ```diff
 -                .take_while(|c| c.is_digit(10))
 +                .take_while(|c| c.is_ascii_digit())
@@ -189,6 +196,7 @@ to get the $n$-th element from it. You know the `.skip()`, you know the
 `.next()`, just “slap” them together and we're done for :grin: Well, I got
 suggested to use `.nth()` that does exactly the combination of the two mentioned
 methods on iterators:
+
 ```diff
 -            match it.clone().skip(skip).next().unwrap() {
 +            match it.clone().nth(skip).unwrap() {
@@ -214,6 +222,7 @@ minimum that are, of course, exactly the same except for initial values and
 comparators, it looks like a rather simple fix, but typing in Rust is something
 else, right? In the end I settled for a function that computes both boundaries
 without any duplication while using a closure:
+
 ```rust
 fn get_bounds(positions: &Input) -> (Vector2D<isize>, Vector2D<isize>) {
     let f = |init, cmp: &dyn Fn(isize, isize) -> isize| {
@@ -234,9 +243,11 @@ bounding rectangle of all elves.
 You might ask why would we need a closure and the answer is that `positions`
 cannot be captured from within the nested function, only via closure. One more
 fun fact on top of that is the type of the comparator
+
 ```rust
 &dyn Fn(isize, isize) -> isize
 ```
+
 Once we remove the `dyn` keyword, compiler yells at us and also includes a way
 how to get a more thorough explanation of the error by running
 
@@ -245,30 +256,30 @@ how to get a more thorough explanation of the error by running
 which shows us
 
     Trait objects must include the `dyn` keyword.
-    
+
     Erroneous code example:
-    
+
     ```
     trait Foo {}
     fn test(arg: Box<Foo>) {} // error!
     ```
-    
+
     Trait objects are a way to call methods on types that are not known until
     runtime but conform to some trait.
-    
+
     Trait objects should be formed with `Box<dyn Foo>`, but in the code above
     `dyn` is left off.
-    
+
     This makes it harder to see that `arg` is a trait object and not a
     simply a heap allocated type called `Foo`.
-    
+
     To fix this issue, add `dyn` before the trait name.
-    
+
     ```
     trait Foo {}
     fn test(arg: Box<dyn Foo>) {} // ok!
     ```
-    
+
     This used to be allowed before edition 2021, but is now an error.
 
 :::danger Rant
@@ -277,8 +288,9 @@ Not all of the explanations are helpful though, in some cases they might be even
 more confusing than helpful, since they address _very simple_ use cases.
 
 As you can see, even in this case there are two sides to the explanations:
-* it explains why you need to use `dyn`, but
-* it still mentions that trait objects need to be heap-allocated via `Box<T>`
+
+- it explains why you need to use `dyn`, but
+- it still mentions that trait objects need to be heap-allocated via `Box<T>`
   that, as you can see in my snippet, **does not** apply here :smile: IMO it's
   caused by the fact that we are borrowing it and therefore we don't need to
   care about the size or whereabouts of it.
@@ -352,6 +364,7 @@ more verbose.
 
 I'll skip the boring parts of checking bounds and entry/exit of the basin :wink:
 We can easily calculate positions of the blizzards using a modular arithmetics:
+
 ```rust
 impl Index<Position> for Basin {
     type Output = char;
@@ -428,12 +441,14 @@ that promotes vertices closer to the exit **and** with a minimum time taken.
 :::
 
 Cost function is, of course, a closure :wink:
+
 ```rust
 let cost = |p: Position| p.z() as usize + exit.y().abs_diff(p.y()) + exit.x().abs_diff(p.x());
 ```
 
 And also for checking the possible moves from the current vertex, I have
 implemented, yet another, closure that yields an iterator with the next moves:
+
 ```rust
 let next_positions = |p| {
     [(0, 0, 1), (0, -1, 1), (0, 1, 1), (-1, 0, 1), (1, 0, 1)]
@@ -461,6 +476,7 @@ popping the most prioritized elements yields values wrapped in the `Reverse`.
 
 For this purpose I have just taken the max-heap and wrapped it as a whole in a
 separate structure providing just the desired methods:
+
 ```rust
 use std::cmp::{Ord, Reverse};
 use std::collections::BinaryHeap;
@@ -509,14 +525,16 @@ with a rather easy solution, as the last day always seems to be.
 
 Implementing 2 functions, converting from the _SNAFU base_ and back to the _SNAFU_
 _base_ representation. Let's do a bit more though! I have implemented two functions:
-* `from_snafu`
-* `to_snafu`
+
+- `from_snafu`
+- `to_snafu`
 
 Now it is apparent that all I do is number to string and string to number. Hmm…
 that sounds familiar, doesn't it? Let's introduce a structure for the SNAFU numbers
 and implement the traits that we need.
 
 Let's start with a structure:
+
 ```rust
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
 struct SNAFU {
@@ -550,6 +568,7 @@ After those changes we need to adjust the code and tests.
 
 Parsing of the input is very easy, before we have used the lines, now we parse
 everything:
+
 ```diff
      fn parse_input<P: AsRef<Path>>(pathname: P) -> Input {
 -        file_to_lines(pathname)
@@ -558,6 +577,7 @@ everything:
 ```
 
 Part 1 needs to be adjusted a bit too:
+
 ```diff
      fn part_1(input: &Input) -> Output {
 -        to_snafu(input.iter().map(|s| from_snafu(s)).sum())
@@ -569,6 +589,7 @@ You can also see that it simplifies the meaning a bit and it is more explicit th
 the previous versions.
 
 And for the tests:
+
 ```diff
      #[test]
      fn test_from() {
@@ -578,7 +599,7 @@ And for the tests:
 +            assert_eq!(s.parse::<SNAFU>().unwrap().value, n);
          }
      }
- 
+
      #[test]
      fn test_to() {
 -        for (n, s) in EXAMPLES.iter() {
@@ -597,7 +618,7 @@ Let's wrap the whole thing up! Keeping in mind both AoC and the Rust…
 ### Advent of Code
 
 This year was quite fun, even though most of the solutions and posts came in
-later on (*cough* in '23 *cough*). Day 22 was the most obnoxious one… And also
+later on (_cough_ in '23 _cough_). Day 22 was the most obnoxious one… And also
 it feels like I used priority queues and tree data structures **a lot** :eyes:
 
 ### with Rust
@@ -634,8 +655,8 @@ tl;dr Relatively pleasant language until you hit brick wall :wink:
 
 See you next year! Maybe in Rust, maybe not :upside_down_face:
 
-[_Advent of Code_]: https://adventofcode.com
-[_A\*_]: https://en.wikipedia.org/wiki/A*_search_algorithm
-[`BinaryHeap`]: https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html
-[`Reverse`]: https://doc.rust-lang.org/std/cmp/struct.Reverse.html
-[docs of the `BinaryHeap`]: https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html#min-heap
+[_advent of code_]: https://adventofcode.com
+[_a\*_]: https://en.wikipedia.org/wiki/A*_search_algorithm
+[`binaryheap`]: https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html
+[`reverse`]: https://doc.rust-lang.org/std/cmp/struct.Reverse.html
+[docs of the `binaryheap`]: https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html#min-heap

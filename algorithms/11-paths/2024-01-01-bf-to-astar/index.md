@@ -5,13 +5,13 @@ title: From BF to A*
 description: |
   Figuring out shortest-path problem from the BF to the A* algorithm.
 tags:
-- cpp
-- brute force
-- bellman ford
-- dynamic programming
-- dijkstra
-- greedy
-- a star
+  - cpp
+  - brute force
+  - bellman ford
+  - dynamic programming
+  - dijkstra
+  - greedy
+  - a star
 last_update:
   date: 2024-01-01
 ---
@@ -24,6 +24,7 @@ algorithms, we will use a 2D map with some rules that will allow us to show cons
 and pros of the shown algorithms.
 
 Let's have a look at the example map:
+
 ```
 #############
 #..#..*.*.**#
@@ -39,22 +40,26 @@ Let's have a look at the example map:
 ```
 
 We can see three different kinds of cells:
+
 1. `#` which represent walls, that cannot be entered at all
 2. `*` which represent vortices that can be entered at the cost of 5 coins
 3. `.` which represent normal cells that can be entered for 1 coin (which is the
    base price of moving around the map)
 
 Let's dissect a specific position on the map to get a better grasp of the rules:
+
 ```
  .
 #S*
  .
 ```
+
 We are standing in the cell marked with `S` and we have the following options
-* move to the north (`.`) with the cost of 1 coin,
-* move to the west (`#`) **is not** allowed because of the wall,
-* move to the east (`*`) is allowed with the cost of 5 coins, and finally
-* move to the south (`.`) with the cost of 1 coin.
+
+- move to the north (`.`) with the cost of 1 coin,
+- move to the west (`#`) **is not** allowed because of the wall,
+- move to the east (`*`) is allowed with the cost of 5 coins, and finally
+- move to the south (`.`) with the cost of 1 coin.
 
 :::info
 
@@ -67,13 +72,15 @@ Further on I will follow the same scheme for marking cells with an addition of
 
 For working with this map I have prepared a basic structure for the graph in C++
 that will abstract some of the internal workings of our map, namely:
-* remembers the costs of moving around
-* provides a simple function that returns price for moving **directly** between
+
+- remembers the costs of moving around
+- provides a simple function that returns price for moving **directly** between
   two positions on the map
-* allows us to print the map out, just in case we'd need some adjustments to be
+- allows us to print the map out, just in case we'd need some adjustments to be
   made
 
 We can see the `graph` header here:
+
 ```cpp
 #ifndef _GRAPH_HPP
 #define _GRAPH_HPP

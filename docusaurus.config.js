@@ -131,7 +131,7 @@ const config = {
           for (let mapping of fallbackMapping) {
             if (existingPath.includes(`/${mapping.new}/`)) {
               return mapping.old.map((old) =>
-                existingPath.replace(`/${mapping.new}/`, `/${old}/`)
+                existingPath.replace(`/${mapping.new}/`, `/${old}/`),
               );
             }
           }
