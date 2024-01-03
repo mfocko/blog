@@ -37,5 +37,8 @@ auto main() -> int {
   auto distances = bellman_ford(g, std::make_pair(1, 9));
   std::cout << "[Bellman-Ford] Cost: " << distances[7][1] << "\n";
 
+  distances = dijkstra(g, std::make_pair(1, 9));
+  std::cout << "[Dijkstra] Cost: " << distances[7][1] << "\n";
+
   return 0;
 }
