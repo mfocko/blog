@@ -10,28 +10,6 @@
 
 #include "graph.hpp"
 
-namespace {
-using pqueue_item_t = std::pair<int, vertex_t>;
-using pqueue_t = std::vector<pqueue_item_t>;
-
-auto pushq(pqueue_t& q, pqueue_item_t v) -> void {
-  q.push_back(v);
-  std::push_heap(q.begin(), q.end(), std::greater<>{});
-}
-
-auto popq(pqueue_t& q) -> std::optional<pqueue_item_t> {
-  if (q.empty()) {
-    return {};
-  }
-
-  std::pop_heap(q.begin(), q.end(), std::greater<>{});
-  pqueue_item_t top = q.back();
-  q.pop_back();
-
-  return std::make_optional(top);
-}
-}  // namespace
-
 auto dijkstra(const graph& g, const vertex_t& source)
     -> std::vector<std::vector<int>> {
   // make sure that ‹source› exists

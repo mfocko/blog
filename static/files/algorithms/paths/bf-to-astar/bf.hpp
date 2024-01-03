@@ -8,10 +8,6 @@
 
 #include "graph.hpp"
 
-const static std::vector<vertex_t> DIRECTIONS =
-    std::vector{std::make_pair(0, 1), std::make_pair(0, -1),
-                std::make_pair(1, 0), std::make_pair(-1, 0)};
-
 static auto _check_vertex(const graph& g,
                           std::vector<std::vector<int>>& distances, int v,
                           bool check_only = false) -> bool {

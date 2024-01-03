@@ -81,4 +81,28 @@ std::ostream& operator<<(std::ostream& os, const graph& g) {
   return os;
 }
 
+const static std::vector<vertex_t> DIRECTIONS =
+    std::vector{std::make_pair(0, 1), std::make_pair(0, -1),
+                std::make_pair(1, 0), std::make_pair(-1, 0)};
+
+using pqueue_item_t = std::pair<int, vertex_t>;
+using pqueue_t = std::vector<pqueue_item_t>;
+
+auto pushq(pqueue_t& q, pqueue_item_t v) -> void {
+  q.push_back(v);
+  std::push_heap(q.begin(), q.end(), std::greater<>{});
+}
+
+auto popq(pqueue_t& q) -> std::optional<pqueue_item_t> {
+  if (q.empty()) {
+    return {};
+  }
+
+  std::pop_heap(q.begin(), q.end(), std::greater<>{});
+  pqueue_item_t top = q.back();
+  q.pop_back();
+
+  return std::make_optional(top);
+}
+
 #endif /* _GRAPH_HPP */
