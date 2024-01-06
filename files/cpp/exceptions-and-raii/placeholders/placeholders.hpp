@@ -14,7 +14,7 @@ class _todo : public std::exception {
 /**
  * @brief Indicates unfinished code.
  */
-void todo() { throw _todo(); }
+[[noreturn]] void todo() { throw _todo(); }
 
 /**
  * @brief Indicates unfinished code.
@@ -22,7 +22,7 @@ void todo() { throw _todo(); }
  * @param args arguments to be formatted
  */
 template <class... Args>
-void todo(std::format_string<Args...> fmt, Args&&... args) {
+[[noreturn]] void todo(std::format_string<Args...> fmt, Args&&... args) {
     throw _todo(std::format(fmt, args...));
 }
 
@@ -39,7 +39,7 @@ class _unimplemented : public std::exception {
 /**
  * @brief Indicates unimplemented code by throwing with a message of “not implemented”.
  */
-void unimplemented() { throw _unimplemented(); }
+[[noreturn]] void unimplemented() { throw _unimplemented(); }
 
 /**
  * @brief Indicates unimplemented code by throwing with a message of “not implemented”.
@@ -47,7 +47,7 @@ void unimplemented() { throw _unimplemented(); }
  * @param args arguments to be formatted
  */
 template <class... Args>
-void unimplemented(std::format_string<Args...> fmt, Args&&... args) {
+[[noreturn]] void unimplemented(std::format_string<Args...> fmt, Args&&... args) {
     throw _unimplemented(std::format(fmt, args...));
 }
 
@@ -64,7 +64,7 @@ class _unreachable : public std::exception {
 /**
  * @brief Indicates unreachable code.
  */
-void unreachable() { throw _unreachable(); }
+[[noreturn]] void unreachable() { throw _unreachable(); }
 
 /**
  * @brief Indicates unreachable code.
@@ -72,6 +72,6 @@ void unreachable() { throw _unreachable(); }
  * @param args arguments to be formatted
  */
 template <class... Args>
-void unreachable(std::format_string<Args...> fmt, Args&&... args) {
+[[noreturn]] void unreachable(std::format_string<Args...> fmt, Args&&... args) {
     throw _unreachable(std::format(fmt, args...));
 }
