@@ -203,3 +203,20 @@ void unreachable(std::format_string<Args...> fmt, Args&&... args) {
 Final source code: [`placeholders.hpp`](pathname:///files/cpp/exceptions-and-raii/placeholders/placeholders.hpp)
 
 :::
+
+## Post-mortem
+
+One of the things, I've forgotten about, is the fact that static analysis of
+your code has no way to know those helper functions we've created as shortcuts
+don't return and just throw the exception right away. Therefore we need to mark
+them with `[[noreturn]]` to let the static analysis know that we **never**
+return from such functions. For example:
+
+```cpp
+[[noreturn]] void unreachable() { throw _unreachable(); }
+
+template <class... Args>
+[[noreturn]] void unreachable(std::format_string<Args...> fmt, Args&&... args) {
+    throw _unreachable(std::format(fmt, args...));
+}
+```
