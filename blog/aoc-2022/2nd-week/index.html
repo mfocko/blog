@@ -14,7 +14,7 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.e1ac7597.css">
-<script src="/assets/js/runtime~main.65095f6f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.3f39a938.js" defer="defer"></script>
 <script src="/assets/js/main.2a166133.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -302,7 +302,7 @@ right? Yes… but actually no <!-- -->😦</p>
 the fun part consists of the fact that in other place, where we were using it,
 we were passing the <code>&amp;[Vec&lt;T&gt;]</code>, but this is coming from a helper functions that
 take <code>&amp;Vec&lt;Vec&lt;T&gt;&gt;</code> instead. And… we don&#x27;t implement <code>Index</code> and <code>IndexMut</code> for
-those. Just for the slices. <!-- -->🤯<!-- --> <em>What are we going to do about it?</em></p>
+those. Just for the slices. 🤯 <em>What are we going to do about it?</em></p>
 <p>We can either start copy-pasting or be smarter about it… I choose to be smarter,
 so let&#x27;s implement a macro! The only difference across the implementations are
 the types of the outer containers. Implementation doesn&#x27;t differ <strong>at all</strong>!</p>
