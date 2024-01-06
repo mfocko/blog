@@ -107,8 +107,8 @@ struct graph {
     auto [ux, uy] = u;
     auto [vx, vy] = v;
 
-    auto hd = std::abs(ux - vx) + std::abs(uy - vy);
-    switch (hd) {
+    auto md = std::abs(ux - vx) + std::abs(uy - vy);
+    switch (md) {
       // ‹u = v›; staying on the same cell
       case 0:
         return 0;
