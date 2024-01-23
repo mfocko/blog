@@ -1,0 +1,5 @@
+label: Pointers
+link:
+  type: generated-index
+  description: |
+    Materials related to the smart pointers in C++.

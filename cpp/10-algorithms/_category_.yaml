@@ -1,0 +1,5 @@
+label: Algorithms
+link:
+  type: generated-index
+  description: |
+    Materials related to the algorithm header in C++.
