@@ -10,10 +10,10 @@ const contributions: ContributionMetadata[] = [
     title: "tmt",
     description: (
       <p>
-        The `tmt` tool provides a user-friendly way to work with tests. You can
-        comfortably create new tests, safely and easily run tests across
-        different environments, review test results, debug test code and enable
-        tests in the CI using a consistent and concise config.
+        The <code>tmt</code> tool provides a user-friendly way to work with
+        tests. You can comfortably create new tests, safely and easily run tests
+        across different environments, review test results, debug test code and
+        enable tests in the CI using a consistent and concise config.
       </p>
     ),
     contribution: (
