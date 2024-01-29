@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[7959],{89266:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/memory-safety","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
