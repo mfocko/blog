@@ -1,7 +1,7 @@
 OUTPUT_DIR=public
 
 # Development
-dev: assets
+dev:
 	URL=http://localhost BASE_URL=/ yarn run start --no-open
 
 build-poincare: assets
