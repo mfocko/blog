@@ -19,7 +19,7 @@ hands dirty with it during _[Advent of Code]_ ‘22 and partially ‘23. I've al
 used it for few rounds of _[Codeforces]_ and I have to try very hard to maintain
 some variety of languages for LeetCode challenges along with the Rust. I'll
 disclaim up front that I won't be only positive, since this post is a result of
-multiple discussions about Rust and I stand behind
+multiple discussions about Rust and I stand by
 _“All that glitters is not gold”_, so if you can't stand your favorite language
 being criticized in any way, don't even proceed. :wink:
 
