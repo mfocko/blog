@@ -12,32 +12,29 @@ class AVL<T>(IComparer<T> comparator) : IEnumerable<T> {
 
     #region AVLSpecific
 
-    private static (bool correct, int depth) Check(Node<T>? node, int depth) {
+    private static (bool Correct, int Depth) Check(Node<T>? node, int depth) {
         if (node == null) {
             return (true, depth);
         }
 
-        var (leftCorrect, leftDepth) = Check(node.Left, 1 + depth);
-        if (!leftCorrect) {
-            return (false, leftDepth);
+        var left = Check(node.Left, 1 + depth);
+        if (!left.Correct) {
+            return (false, left.Depth);
         }
 
-        var (rightCorrect, rightDepth) = Check(node.Right, 1 + depth);
+        var right = Check(node.Right, 1 + depth);
 
-        var foundDepth = Math.Max(leftDepth, rightDepth);
-        return (rightCorrect && Math.Abs(leftDepth - rightDepth) <= 1, foundDepth);
+        var foundDepth = Math.Max(left.Depth, right.Depth);
+        return (right.Correct && Math.Abs(left.Depth - right.Depth) <= 1, foundDepth);
     }
 
-    public bool IsCorrect() {
-        var (correct, _) = Check(_root, 0);
-        return correct;
-    }
+    public bool IsCorrect() => Check(_root, 0).Correct;
 
-    private void InsertRebalance(List<Node<T>> nodes) {
+    private void InsertRebalance(List<Node<T>> nodes, T item) {
         // TODO
     }
 
-    private void DeleteRebalance(List<Node<T>> nodes) {
+    private void DeleteRebalance(List<Node<T>> nodes, T item) {
         // TODO
     }
 
@@ -79,10 +76,9 @@ class AVL<T>(IComparer<T> comparator) : IEnumerable<T> {
         } else {
             path[lastIdx].Left = newItem;
         }
-        path.Add(newItem);
 
         // rebalance
-        InsertRebalance(path);
+        InsertRebalance(path, item);
         return true;
     }
 
