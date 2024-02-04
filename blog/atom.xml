@@ -19,7 +19,7 @@ hands dirty with it during <em><a href="https://adventofcode.com/" target="_blan
 used it for few rounds of <em><a href="https://codeforces.com/" target="_blank" rel="noopener noreferrer">Codeforces</a></em> and I have to try very hard to maintain
 some variety of languages for LeetCode challenges along with the Rust. I'll
 disclaim up front that I won't be only positive, since this post is a result of
-multiple discussions about Rust and I stand behind
+multiple discussions about Rust and I stand by
 <em>“All that glitters is not gold”</em>, so if you can't stand your favorite language
 being criticized in any way, don't even proceed. <!-- -->😉</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="memory-safety">Memory safety<a href="https://blog.mfocko.xyz/blog/2024/01/28/rust-opinion#memory-safety" class="hash-link" aria-label="Direct link to Memory safety" title="Direct link to Memory safety">​</a></h2>
