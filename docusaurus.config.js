@@ -98,8 +98,8 @@ const config = {
         blog: false,
         theme: {
           customCss: [
-            require.resolve("./src/css/custom.scss"),
             require.resolve("./src/css/jetbrains_mono.css"),
+            require.resolve("./src/css/custom.scss"),
           ],
         },
       }),
