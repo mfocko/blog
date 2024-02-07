@@ -265,7 +265,7 @@ const config = {
       mermaid: {
         options: {
           fontFamily:
-            "Iosevka,'Iosevka Term','Cascadia Code','JetBrains Mono','Fira Code',monospace",
+            "'JetBrains Mono', 'Cascadia Code PL', 'Iosevka', 'Fira Code', 'Hack', monospace",
         },
       },
       algolia: {
