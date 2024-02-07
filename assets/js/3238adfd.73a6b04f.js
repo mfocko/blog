@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[7285],{16107:s=>{s.exports=JSON.parse('{"label":"lts","permalink":"/blog/tags/lts","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
