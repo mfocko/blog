@@ -21,7 +21,7 @@ Some corporations also profit from the support of the “big” distributions. L
 dive into the pros, cons and peculiarities of such _business_.
 
 This post is inspired/triggered by the following Mastodon post:
-[![Mastodon post about Ubuntu Pro](https://cdn.pawb.social/mastodon-fe/media_attachments/files/111/864/549/106/543/961/original/f4dac207fb93ffa8.png)](https://hackers.town/@antijingoist/111864760073049505)
+[![Mastodon post about Ubuntu Pro](https://i.imgur.com/mh5RAlV.png)](https://hackers.town/@antijingoist/111864760073049505)
 
 <!--truncate-->
 
@@ -259,7 +259,7 @@ Overall if you try to find what is included in the Ubuntu Pro:
 - (optional) 24/7 enterprise-grade support.
 
 If we get back to the screenshot all the way at the beginning of the post:
-[![Mastodon post about Ubuntu Pro](https://cdn.pawb.social/mastodon-fe/media_attachments/files/111/864/549/106/543/961/original/f4dac207fb93ffa8.png)](https://hackers.town/@antijingoist/111864760073049505)
+[![Mastodon post about Ubuntu Pro](https://i.imgur.com/mh5RAlV.png)](https://hackers.town/@antijingoist/111864760073049505)
 
 and try to look up to which repository the packages mentioned in the screenshot
 belong, we will find out that they belong to `universe` repository which is
