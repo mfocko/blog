@@ -20,7 +20,7 @@ variety of distributions, but on the servers majority is made by only a few.</p>
 <p>Some corporations also profit from the support of the “big” distributions. Let's
 dive into the pros, cons and peculiarities of such <em>business</em>.</p>
 <p>This post is inspired/triggered by the following Mastodon post:
-<a href="https://hackers.town/@antijingoist/111864760073049505" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" src="https://cdn.pawb.social/mastodon-fe/media_attachments/files/111/864/549/106/543/961/original/f4dac207fb93ffa8.png" alt="Mastodon post about Ubuntu Pro" class="img_ev3q"></a></p>
+<a href="https://hackers.town/@antijingoist/111864760073049505" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" src="https://i.imgur.com/mh5RAlV.png" alt="Mastodon post about Ubuntu Pro" class="img_ev3q"></a></p>
 <div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Disclaimer</div><div class="admonitionContent_BuS1"><p>You may take my opinion with a grain of salt, since I'm affiliated with Red Hat,
 but at the same time I've also seen the other side of the fence, so I know how
 it works from the perspective of the provider/maintainer.</p></div></div>
@@ -169,7 +169,7 @@ community <em>ambassadors</em> 50.</p></div></div>
 <li>(optional) 24/7 enterprise-grade support.</li>
 </ul>
 <p>If we get back to the screenshot all the way at the beginning of the post:
-<a href="https://hackers.town/@antijingoist/111864760073049505" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" src="https://cdn.pawb.social/mastodon-fe/media_attachments/files/111/864/549/106/543/961/original/f4dac207fb93ffa8.png" alt="Mastodon post about Ubuntu Pro" class="img_ev3q"></a></p>
+<a href="https://hackers.town/@antijingoist/111864760073049505" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" src="https://i.imgur.com/mh5RAlV.png" alt="Mastodon post about Ubuntu Pro" class="img_ev3q"></a></p>
 <p>and try to look up to which repository the packages mentioned in the screenshot
 belong, we will find out that they belong to <code>universe</code> repository which is
 maintained by the community. Not to mention nature of the packages: multimedia.</p>
