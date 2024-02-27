@@ -1,0 +1,50 @@
+[tool]
+[tool.commitizen]
+name = "cz_customize"
+tag_format = "$version"
+version_scheme = "semver"
+version = "0.0.1"
+update_changelog_on_bump = true
+major_version_zero = true
+
+[tool.commitizen.customize]
+message_template = """\
+  {{change_type}}{% if scope %}({{scope}}){% endif %}: {{subject}}\
+
+  {% if body %}\n\n{{body}}{% endif %}
+"""
+example = "seminar(01): add changes from seminar"
+schema = "‹type›‹optional scope›: ‹message›\n\n‹body›"
+schema_pattern = """\
+  (?s)\
+  (chore|feat|fix|ci|style|algorithms|automata|blog|c|cpp|foundations|functional)\
+  (\\(\\S+\\))?!?:\
+  ( [^\\n\\r]+)\
+  ((\\n\\n.*)|(\\s*))?$\
+"""
+
+[[tool.commitizen.customize.questions]]
+type = "list"
+name = "change_type"
+choices = [
+    "chore", "feat", "fix", "ci", "style",
+    "blog",
+    "algorithms", "automata", "functional",
+    "c", "cpp", "foundations",
+]
+message = "Select the type of change you are commiting"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "scope"
+message = "What is the scope of this change? (e.g., KB area, blog or area of change): (press [enter] to skip)"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "subject"
+message = "Write a short and imperative summary of the code changes: (lower case and no period)"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "body"
+message = "Provide additional contextual information about the code changes: (press [enter] to skip)"
