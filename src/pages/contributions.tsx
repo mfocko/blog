@@ -7,6 +7,22 @@ import Contribution, {
 
 const contributions: ContributionMetadata[] = [
   {
+    title: "flexmock",
+    description: (
+      <p>
+        Flexmock is a testing library for Python that makes it easy to create
+        mocks, stubs, and fakes.
+      </p>
+    ),
+    contribution: (
+      <p>
+        I've converted the interception for pytest after they've changed their
+        internal design to use pytest's hook system.
+      </p>
+    ),
+    repoURL: "https://github.com/flexmock/flexmock",
+  },
+  {
     title: "tmt",
     description: (
       <p>
