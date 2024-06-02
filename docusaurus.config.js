@@ -98,7 +98,7 @@ const config = {
         blog: false,
         theme: {
           customCss: [
-            require.resolve("./src/css/jetbrains_mono.css"),
+            require.resolve("./src/css/cascadia_code.css"),
             require.resolve("./src/css/custom.scss"),
           ],
         },
@@ -265,7 +265,7 @@ const config = {
       mermaid: {
         options: {
           fontFamily:
-            "'JetBrains Mono', 'Cascadia Code PL', 'Iosevka', 'Fira Code', 'Hack', monospace",
+            "'Cascadia Code PL', 'JetBrains Mono', 'Iosevka', 'Fira Code', 'Hack', monospace",
         },
       },
       algolia: {
