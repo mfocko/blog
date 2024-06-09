@@ -1,7 +1,7 @@
 ---
 id: breaking
 slug: /hash-tables/breaking
-title: Breaking Hash Table
+title: Breaking hash table
 description: |
   How to get the linear time complexity in a hash table.
 tags:
