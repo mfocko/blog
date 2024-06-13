@@ -7,6 +7,17 @@ import Contribution, {
 
 const contributions: ContributionMetadata[] = [
   {
+    title: "centpkg",
+    description: <p>A tool for working with CentOS dist-git.</p>,
+    contribution: (
+      <p>
+        I have fixed a bug that caused <code>centpkg-sig</code> to be unable to
+        clone the dist-git repos from SIGs.
+      </p>
+    ),
+    repoURL: "https://git.centos.org/centos/centpkg",
+  },
+  {
     title: "Fedora Messaging",
     description: (
       <p>
