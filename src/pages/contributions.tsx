@@ -7,6 +7,22 @@ import Contribution, {
 
 const contributions: ContributionMetadata[] = [
   {
+    title: "Fedora Messaging",
+    description: (
+      <p>
+        A library for sending AMQP messages with JSON schema in Fedora
+        infrastructure.
+      </p>
+    ),
+    contribution: (
+      <p>
+        I contributed a small packaging fix that has been introduced by a new
+        feature.
+      </p>
+    ),
+    repoURL: "https://github.com/fedora-infra/fedora-messaging",
+  },
+  {
     title: "flexmock",
     description: (
       <p>
