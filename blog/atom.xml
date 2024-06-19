@@ -2,11 +2,130 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.mfocko.xyz/blog</id>
     <title>mf Blog</title>
-    <updated>2024-02-07T00:00:00.000Z</updated>
+    <updated>2024-06-19T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.mfocko.xyz/blog"/>
     <subtitle>mf's blog</subtitle>
     <icon>https://blog.mfocko.xyz/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[DevConf.cz 2024]]></title>
+        <id>https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024</id>
+        <link href="https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024"/>
+        <updated>2024-06-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Sharing my experience on DevConf.cz 2024.
+]]></summary>
+        <content type="html"><![CDATA[<p>I'd like to share my experience and views on some of the talks that I've
+attended on the DevConf.cz 2024.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="day-1">Day 1<a href="https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024#day-1" class="hash-link" aria-label="Direct link to Day 1" title="Direct link to Day 1">​</a></h2>
+<p>Let's start with the first day which was Thursday this year as opposed to the
+previous years when the conference started on Friday and finished on Sunday.</p>
+<p>Let's start with the <em><a href="https://pretalx.com/devconf-cz-2024/talk/AD3HWR/" target="_blank" rel="noopener noreferrer">keynote</a></em>. The keynote wasn't very intersting, at some of
+the slides actually felt like advertisement for other talks on the topic of the
+AI…</p>
+<p>Next talk about <em><a href="https://pretalx.com/devconf-cz-2024/talk/3UKGLB/" target="_blank" rel="noopener noreferrer">event-driven Ansible</a></em> was way more interesting. It allows you
+to run Ansible playbooks after provisioning hosts, or on certain events, such as
+discovered vulnerabilities. On one hand it feels like a very nice thing, but on
+the other one I can't help but to think how you need to write the playbooks, so
+that they are generic enough. One more example that's been given comes from the
+possibility to react to tickets, e.g., outages and this feels like something
+that could be abused to cause DoS.</p>
+<p>Afterwards we've seen two lightning talks, one about
+<em><a href="https://pretalx.com/devconf-cz-2024/talk/KSDRWL/" target="_blank" rel="noopener noreferrer">choosing the right OpenShift size</a></em> which was a pretty quick, but detailly
+listed all of the possible ways you can deploy OpenShift. This lightning talk
+was followed by the first AI (lightning) talk I've attended about
+<em><a href="https://pretalx.com/devconf-cz-2024/talk/H9QFLM/" target="_blank" rel="noopener noreferrer">rapid prototyping</a></em> of the open-source AI models.</p>
+<p>As someone who's involved in the automation of the RPM packaging and testing, of
+course, we had to attend <em><a href="https://pretalx.com/devconf-cz-2024/talk/NNKT3F/" target="_blank" rel="noopener noreferrer">Learning from Nix</a></em>. Nix has a very intriguing
+concept which is pretty powerful, but painful at the same time. This can be
+summed up pretty nicely by <a href="https://twitch.tv/tsoding" target="_blank" rel="noopener noreferrer">Tsoding</a> who got asked about some tips &amp; tricks for
+someone who wants to try out NixOS:</p>
+<blockquote>
+<p>Just don't.</p>
+</blockquote>
+<p>And now we're moving into a section where everything revolves about the Packit
+Team :)</p>
+<p>First talk about <em><a href="https://pretalx.com/devconf-cz-2024/talk/ECU7QS/" target="_blank" rel="noopener noreferrer">changelogs</a></em> was an interactive session that was (probably)
+meant to share different approaches we take to handle this rather convoluted
+topic that involves changelogs on both upstream and also on downstream with no
+rules<sup><a href="https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024#user-content-fn-1-ba1b92" id="user-content-fnref-1-ba1b92" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup>.</p>
+<p><img decoding="async" loading="lazy" src="https://i.imgur.com/YHstMAt.jpg" alt="changelogs" class="img_ev3q"></p>
+<p>Next one was about <em><a href="https://pretalx.com/devconf-cz-2024/talk/7C38GJ/" target="_blank" rel="noopener noreferrer">static analysis</a></em> done by <a href="https://openscanhub.dev/" target="_blank" rel="noopener noreferrer">OpenScanHub</a>. I like the idea of
+running the static analysis that can uncover nasty bugs (as it has been even
+showed in the talk) at the same time as they are introduced. I gotta admit that
+after seeing the UI of the <a href="https://openscanhub.fedoraproject.org/" target="_blank" rel="noopener noreferrer">deployed OpenScanHub</a> on the Fedora Infra, I couldn't
+help but to think about the <a href="https://x.com/usgraphics" target="_blank" rel="noopener noreferrer">United States Graphics Company</a> <!-- -->😄<!-- --> The UI is
+to the point, no fancy annoying shit, you get what you need, it's hard to get
+lost. <strong>Just simplicity.</strong> Best kind of UI/UX in my opinion.</p>
+<p>After the OpenScanHub talk we're getting to talks that were taken in a totally
+different direction from the usual talks you're used to <!-- -->😉<!-- --> First one was
+given title of <em><a href="https://pretalx.com/devconf-cz-2024/talk/X8SYDG/" target="_blank" rel="noopener noreferrer">“Indiana Jones and obsoleted projects”</a></em> by <a href="https://rodina-sucha.cz/@mirek" target="_blank" rel="noopener noreferrer">Mirek</a>. He talked
+about projects that got obsoleted, but started with projects that had no
+relation to IT field at all. I'd mark this talk as a <em>stand up</em> without any
+hesitation.</p>
+<p>And finally we will wrap up the first day with the talk where speakers spoke the
+least… <em><a href="https://pretalx.com/devconf-cz-2024/talk/BDMWF3/" target="_blank" rel="noopener noreferrer">“Let the users speak!”</a></em> that involved users of both Packit and
+Testing Farm who spoke about their use case and benefits they gained from using
+both services in a symbiosis.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="day-2">Day 2<a href="https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024#day-2" class="hash-link" aria-label="Direct link to Day 2" title="Direct link to Day 2">​</a></h2>
+<p>On the second day I've attended less talks to not burn myself out :) I've
+started with an AI-related talk with title <em><a href="https://pretalx.com/devconf-cz-2024/talk/QSF9QQ/" target="_blank" rel="noopener noreferrer">“AI: Open source will save us!”</a></em>,
+even though this talk has been improvised, as the speakers from the schedule
+couldn't have attended, it provided a nice overview what <a href="https://github.com/instructlab/instructlab" target="_blank" rel="noopener noreferrer">InstructLab</a> can do
+and how can you “feed” the relevant info into the language models by yourself.</p>
+<p>After that I attended a <em>“coffee enthusiasts Meetup”</em> which was very nice and,
+of course, an organized chaos <!-- -->😉</p>
+<p>Before attending the social event I wrapped up the second day with a lightning
+talk about <em><a href="https://pretalx.com/devconf-cz-2024/talk/SXWE7K/" target="_blank" rel="noopener noreferrer">recent updates in Toolbx</a></em>. I've used both <a href="https://containertoolbx.org/" target="_blank" rel="noopener noreferrer">toolbx</a> and
+<a href="https://distrobox.it/" target="_blank" rel="noopener noreferrer">distrobox</a>, so it's nice to see the improvements in progress and also that both
+projects are well and lively.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="day-3">Day 3<a href="https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024#day-3" class="hash-link" aria-label="Direct link to Day 3" title="Direct link to Day 3">​</a></h2>
+<p>On the third day I've attended only in the afternoon. “Started” my day with
+a discussion <em><a href="https://pretalx.com/devconf-cz-2024/talk/8PARM8/" target="_blank" rel="noopener noreferrer">“Leadership: Where people skills meet programmers”</a></em> which was
+very nice for gaining an insight into how developer, manager and QE lead roles
+overlap.</p>
+<p>That talk has been followed up by a talk about <a href="https://pretalx.com/devconf-cz-2024/talk/8T88MT/" target="_blank" rel="noopener noreferrer">role rotation</a> in our Packit
+Team. I would say it is a nice “upgrade” to the agile process which allows you
+to not create a single point of failure in the mundane and repetitive processes
+within your team.</p>
+<p>And this day has been finished off with a talk about <a href="https://pretalx.com/devconf-cz-2024/talk/WVNJZS/" target="_blank" rel="noopener noreferrer">shifting left</a> in Podman.
+It's nice to see how other teams utilize our Packit Service and also the
+services we rely on, such as <a href="https://copr.fedorainfracloud.org/" target="_blank" rel="noopener noreferrer">Copr</a> or <a href="https://docs.testing-farm.io/Testing%20Farm/0.1/index.html" target="_blank" rel="noopener noreferrer">Testing Farm</a>. With the help of Cockpit
+tests they can catch breaking changes early on, or even bugs that have been
+introduced and break usage of the dependent projects.</p>
+<p><img decoding="async" loading="lazy" src="https://i.imgur.com/bp6FxT9.jpg" alt="shifting left" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="picks-from-the-packit-team">Picks from the Packit Team<a href="https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024#picks-from-the-packit-team" class="hash-link" aria-label="Direct link to Picks from the Packit Team" title="Direct link to Picks from the Packit Team">​</a></h2>
+<p>On the Tuesday, during our Packit stand up, I have managed to abuse my
+Kanban Lead role to collect some of the talks that each of us would recommend:</p>
+<ul>
+<li><a href="https://pretalx.com/devconf-cz-2024/talk/H9QFLM/" target="_blank" rel="noopener noreferrer">Rapid Prototyping</a> with Open Source AI Models</li>
+<li>Do you like your <a href="https://pretalx.com/devconf-cz-2024/talk/ECU7QS/" target="_blank" rel="noopener noreferrer">changelogs</a>?</li>
+<li>OpenScanHub - <a href="https://pretalx.com/devconf-cz-2024/talk/7C38GJ/" target="_blank" rel="noopener noreferrer">Static Analysis</a> of a Linux Distribution</li>
+<li>Creating a <a href="https://pretalx.com/devconf-cz-2024/talk/RXKMKA/" target="_blank" rel="noopener noreferrer">Language Server</a> for RPM Spec Files</li>
+<li>Containers and Kubernetes Made Easy: A 15-minute dive into <a href="https://pretalx.com/devconf-cz-2024/talk/HKWP7V/" target="_blank" rel="noopener noreferrer">Podman Desktop</a></li>
+<li><a href="https://pretalx.com/devconf-cz-2024/talk/8PARM8/" target="_blank" rel="noopener noreferrer">“Leadership: Where people skills meet programmers”</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="wrap-up">Wrap up<a href="https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024#wrap-up" class="hash-link" aria-label="Direct link to Wrap up" title="Direct link to Wrap up">​</a></h2>
+<p>I have to admit that these 3 days have been pretty exhaustive, including
+information overload <!-- -->😄<!-- --> but at the same time it was really nice to meet
+with the colleagues and at least some of our users who are not based in Brno.</p>
+<section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithStickyNavbar_LWe7 sr-only" id="footnote-label">Footnotes<a href="https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024#footnote-label" class="hash-link" aria-label="Direct link to Footnotes" title="Direct link to Footnotes">​</a></h2>
+<ol>
+<li id="user-content-fn-1-ba1b92">
+<p>except for the Fedora's downstream ;) <a href="https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024#user-content-fnref-1-ba1b92" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>]]></content>
+        <author>
+            <name>Matej Focko</name>
+            <email>me+blog@mfocko.xyz</email>
+            <uri>https://gitlab.com/mfocko</uri>
+        </author>
+        <category label="🏭" term="🏭"/>
+        <category label="red-hat" term="red-hat"/>
+        <category label="fedora" term="fedora"/>
+        <category label="devconf" term="devconf"/>
+        <category label="conferences" term="conferences"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[LTS distributions]]></title>
         <id>https://blog.mfocko.xyz/blog/2024/02/07/lts-distros</id>
