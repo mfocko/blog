@@ -20,7 +20,7 @@ attended on the DevConf.cz 2024.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="day-1">Day 1<a href="https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024#day-1" class="hash-link" aria-label="Direct link to Day 1" title="Direct link to Day 1">​</a></h2>
 <p>Let's start with the first day which was Thursday this year as opposed to the
 previous years when the conference started on Friday and finished on Sunday.</p>
-<p>Let's start with the <em><a href="https://pretalx.com/devconf-cz-2024/talk/AD3HWR/" target="_blank" rel="noopener noreferrer">keynote</a></em>. The keynote wasn't very intersting, at some of
+<p>Let's start with the <em><a href="https://pretalx.com/devconf-cz-2024/talk/AD3HWR/" target="_blank" rel="noopener noreferrer">keynote</a></em>. The keynote wasn't very interesting, at some of
 the slides actually felt like advertisement for other talks on the topic of the
 AI…</p>
 <p>Next talk about <em><a href="https://pretalx.com/devconf-cz-2024/talk/3UKGLB/" target="_blank" rel="noopener noreferrer">event-driven Ansible</a></em> was way more interesting. It allows you
@@ -31,8 +31,8 @@ that they are generic enough. One more example that's been given comes from the
 possibility to react to tickets, e.g., outages and this feels like something
 that could be abused to cause DoS.</p>
 <p>Afterwards we've seen two lightning talks, one about
-<em><a href="https://pretalx.com/devconf-cz-2024/talk/KSDRWL/" target="_blank" rel="noopener noreferrer">choosing the right OpenShift size</a></em> which was a pretty quick, but detailly
-listed all of the possible ways you can deploy OpenShift. This lightning talk
+<em><a href="https://pretalx.com/devconf-cz-2024/talk/KSDRWL/" target="_blank" rel="noopener noreferrer">choosing the right OpenShift size</a></em> which was a pretty quick, but listed all
+of the possible ways you can deploy OpenShift in detail. This lightning talk
 was followed by the first AI (lightning) talk I've attended about
 <em><a href="https://pretalx.com/devconf-cz-2024/talk/H9QFLM/" target="_blank" rel="noopener noreferrer">rapid prototyping</a></em> of the open-source AI models.</p>
 <p>As someone who's involved in the automation of the RPM packaging and testing, of
