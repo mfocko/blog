@@ -25,7 +25,7 @@ This post is inspired/triggered by the following Mastodon post:
 
 <!--truncate-->
 
-:::caution Disclaimer
+:::warning Disclaimer
 
 You may take my opinion with a grain of salt, since I'm affiliated with Red Hat,
 but at the same time I've also seen the other side of the fence, so I know how
@@ -175,7 +175,7 @@ that contain packages. The way you go around this is rather simple, you choose
 some set of _critical_ packages that you guarantee support for (like Linux
 kernel, openSSL, etc.) and maintain those with all the QA processes in place.
 
-:::caution Unpopular opinion
+:::warning Unpopular opinion
 
 This is also one of the reasons why I'm quite against packaging anything and
 everything into the Linux distribution. In my opinion it is impossible to

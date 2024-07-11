@@ -126,7 +126,7 @@ the pyramid:
    it will be interleaved with the next step, therefore it is easier to keep the
    retrievals in the following point.
 
-   :::caution
+   :::warning[caution]
 
    You might have noticed it's still not that easy, cause we're not having full
    cache right from the beginning, but the sum of those logarithms cannot be
@@ -141,7 +141,7 @@ the pyramid:
 2. We retrieve it from the cache. Same as in first point, but only twice, so we
    get $2 \cdot \log_2{n}$.
 
-   :::caution
+   :::warning[caution]
 
    It's done twice because of the `.containsKey()` in the `if` condition.
 
@@ -233,7 +233,7 @@ $$
 \sum_{y=0}^{\mathtt{pyramid.length} - 1} \mathtt{pyramid}\left[y\right]\mathtt{.length}
 $$
 
-:::caution
+:::warning[caution]
 
 If you're wondering whether it's correct because of the second `if` in our
 function, your guess is right. However we are expressing the complexity in the

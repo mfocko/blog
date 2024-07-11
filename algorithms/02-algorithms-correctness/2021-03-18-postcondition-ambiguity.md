@@ -232,7 +232,7 @@ Since it might seem a bit scary, I will disect it by parts.
 
    We pass to the sorting function **copy** of the numbers we got, this ensures that once we are checking the more strict postcondition, we can gather the necessary information even after sorting the list in-situ, i.e. we can check if the `result` is really a `permutation` of the `numbers` even though the sorting functions has modified the passed in list.
 
-:::caution
+:::warning[caution]
 
 Now we get to the more complicated part and it is the _decorators_.
 

@@ -24,7 +24,7 @@ the 2nd part…
 
 :::
 
-:::caution Rant
+:::danger Rant
 
 This was the most obnoxious problem of this year… and a lot of Rust issues have
 been hit.
@@ -251,36 +251,38 @@ fun fact on top of that is the type of the comparator
 Once we remove the `dyn` keyword, compiler yells at us and also includes a way
 how to get a more thorough explanation of the error by running
 
-    $ rustc --explain E0782
+```shell
+$ rustc --explain E0782
+```
 
 which shows us
 
-    Trait objects must include the `dyn` keyword.
-
-    Erroneous code example:
-
-    ```
-    trait Foo {}
-    fn test(arg: Box<Foo>) {} // error!
-    ```
-
-    Trait objects are a way to call methods on types that are not known until
-    runtime but conform to some trait.
-
-    Trait objects should be formed with `Box<dyn Foo>`, but in the code above
-    `dyn` is left off.
-
-    This makes it harder to see that `arg` is a trait object and not a
-    simply a heap allocated type called `Foo`.
-
-    To fix this issue, add `dyn` before the trait name.
-
-    ```
-    trait Foo {}
-    fn test(arg: Box<dyn Foo>) {} // ok!
-    ```
-
-    This used to be allowed before edition 2021, but is now an error.
+> Trait objects must include the `dyn` keyword.
+>
+> Erroneous code example:
+>
+> ```
+> trait Foo {}
+> fn test(arg: Box<Foo>) {} // error!
+> ```
+>
+> Trait objects are a way to call methods on types that are not known until
+> runtime but conform to some trait.
+>
+> Trait objects should be formed with `Box<dyn Foo>`, but in the code above
+> `dyn` is left off.
+>
+> This makes it harder to see that `arg` is a trait object and not a
+> simply a heap allocated type called `Foo`.
+>
+> To fix this issue, add `dyn` before the trait name.
+>
+> ```
+> trait Foo {}
+> fn test(arg: Box<dyn Foo>) {} // ok!
+> ```
+>
+> This used to be allowed before edition 2021, but is now an error.
 
 :::danger Rant
 
@@ -319,7 +321,7 @@ you as you move.
 
 :::
 
-:::caution
+:::warning[caution]
 
 It's second to last day and I went “_bonkers_” on the Rust :smile: Proceed to
 read _Solution_ part on your own risk.
@@ -343,7 +345,7 @@ and, well, let's use `z` for a timestamp, cause why not, right? :wink:
 
 #### Evaluating the blizzards
 
-:::caution
+:::warning[caution]
 
 I think that this is the most perverted abuse of the traits in the whole 4 weeks
 of AoC in Rust…

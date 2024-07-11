@@ -9,7 +9,7 @@ last_update:
 
 # Watching Cams
 
-:::caution Exam environment
+:::warning Exam environment
 
 - During the exam you will be provided with a barebone _exam session_ on the
   _faculty computers_.
@@ -61,7 +61,9 @@ Each “scan” (i.e. reading) of the cameras consists of the following data:
 
 And they are compiled into one reading such as:
 
-    camera_ID: plate timestamp
+```
+camera_ID: plate timestamp
+```
 
 There should be always **at least one** space in between each part of the
 reading. Readings are separated by the commas, which may, but don't have to, be
@@ -126,37 +128,41 @@ of the output.
 You can also have a look at example usage of your program. We can run your
 program from the shell like
 
-    $ ./cams example_1.txt
+```
+$ ./cams example_1.txt
+```
 
 And it will produce an output:
 
-    *** ABC-12-34 ***
-       25: Fri Oct  1 10:50:56 2021
+```
+*** ABC-12-34 ***
+    25: Fri Oct  1 10:50:56 2021
 
-       10: Sat Oct  1 09:18:32 2022
-       16: Sat Oct  1 09:23:32 2022
+    10: Sat Oct  1 09:18:32 2022
+    16: Sat Oct  1 09:23:32 2022
 
-       19: Sat Oct  1 23:27:29 2022
+    19: Sat Oct  1 23:27:29 2022
 
-    *** EL9-987 ***
-       11: Thu Mar 23 04:15:38 2023
+*** EL9-987 ***
+    11: Thu Mar 23 04:15:38 2023
 
-    *** Foo-666 ***
-       2: Thu May  4 05:14:42 2023
+*** Foo-666 ***
+    2: Thu May  4 05:14:42 2023
 
-    *** TryToCatchMe ***
-       42: Wed Dec 21 07:00:19 2022
-       42: Wed Dec 21 07:00:19 2022
-       1234: Wed Dec 21 07:00:19 2022
+*** TryToCatchMe ***
+    42: Wed Dec 21 07:00:19 2022
+    42: Wed Dec 21 07:00:19 2022
+    1234: Wed Dec 21 07:00:19 2022
 
-    *** XYZ-98-76 ***
-       289: Mon Oct 10 17:40:17 2022
+*** XYZ-98-76 ***
+    289: Mon Oct 10 17:40:17 2022
 
-    *** YouShould-not-pLaCe-4ny-expectations%on^the(input ***
-       69: Sat Apr  1 02:13:14 2023
+*** YouShould-not-pLaCe-4ny-expectations%on^the(input ***
+    69: Sat Apr  1 02:13:14 2023
 
-    *** YourMum ***
-       42: Thu May  4 05:14:42 2023
+*** YourMum ***
+    42: Thu May  4 05:14:42 2023
+```
 
 ## Requirements and notes
 

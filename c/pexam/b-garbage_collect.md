@@ -9,7 +9,7 @@ last_update:
 
 # Garbage Collection
 
-:::caution Exam environment
+:::warning Exam environment
 
 - During the exam you will be provided with a barebone _exam session_ on the
   _faculty computers_.
@@ -48,7 +48,7 @@ can see only two commands being used:
    - `..` that moves you up one level (in case you are in `/`, does nothing), or
    - is a valid directory in the current working directory.
 
-   :::caution
+   :::warning[caution]
 
    There are no guarantees or restrictions on the names of the files or
    directories!
@@ -144,13 +144,15 @@ $$
 You can have a look at the example usage of your program. We can run your
 program from the shell like
 
-    $ ./garbage_collect shell_history.txt -gt 10000000
-    24933642 /d
-    14848514 /b.txt
-    48381165 /
+```
+$ ./garbage_collect shell_history.txt -gt 10000000
+24933642 /d
+14848514 /b.txt
+48381165 /
 
-    $ ./garbage_collect shell_history.txt -f 70000000 30000000
-    24933642 /d
+$ ./garbage_collect shell_history.txt -f 70000000 30000000
+24933642 /d
+```
 
 ## Requirements and notes
 

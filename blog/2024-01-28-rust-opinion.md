@@ -32,7 +32,7 @@ Let's be honest here, majority of the checks rely on the static analysis, cause
 you can't do anything else during the compile-time, right? Therefore we can
 basically say that we are relying on the compiler to “solve” all of our issues.
 
-:::warning
+:::danger
 
 I'm not doubting the fact that compiler can prevent **a lot** of the memory
 errors, I'm just saying it's not realistic to cover **everything**.
@@ -249,7 +249,7 @@ just worse for me, part of this post may be also influenced by this fact.
 
 ### Rust in Linux
 
-:::caution
+:::warning[caution]
 
 As someone who has seen the way Linux kernel is built in the RHEL ecosystem, how
 complex the whole thing is and how much resources you need to proceed, I have

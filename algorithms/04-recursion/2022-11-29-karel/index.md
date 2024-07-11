@@ -49,7 +49,7 @@ You can control the robot using the following interface:
   - `robot.left_is_clear()` — to check if you can step to the left
     - analogically for `front` and `right`
 
-:::caution
+:::warning[caution]
 
 Helper functions / procedures are allowed. Return values are allowed.
 

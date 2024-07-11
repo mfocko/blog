@@ -34,7 +34,7 @@ way:
 - checking whether they are correct indices for the `Vec<Vec<T>>`
 - indexing `Vec<Vec<T>>` with them
 
-:::caution
+:::warning[caution]
 
 I'm getting familiar with Rust and starting to “abuse” it… While doing so, I'm
 also uncovering some “features” that I don't really like. Therefore I will mark
@@ -142,7 +142,7 @@ where
 }
 ```
 
-:::caution **«↯»** Why can't we use one function?
+:::warning **«↯»** Why can't we use one function?
 
 When we consider a `Vec<T>`, we don't need to consider containers as `T`, Rust
 implements indexing as traits `Index<T>` and `IndexMut<T>` that do the dirty work
@@ -382,7 +382,7 @@ fn day() -> String {
 }
 ```
 
-:::caution `type_name`
+:::warning `type_name`
 
 This feature is still experimental and considered to be internal, it is not
 advised to use it any production code.

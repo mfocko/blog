@@ -297,7 +297,7 @@ However after running that command, we will get the following:
 And the `color_eyre::install()?` is quite straightforward. We just initialize the
 error reporting by _color eyre_.
 
-:::caution
+:::warning[caution]
 
 Notice that we had to add `Ok(())` to the end of the function and adjust the
 return type of the `main` to `Result<()>`. It is caused by the _color eyre_ that

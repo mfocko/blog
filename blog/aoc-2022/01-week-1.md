@@ -153,7 +153,7 @@ println!("Common elements: {:?}", top.intersection(&bottom));
 Common elements: [3]
 ```
 
-:::caution
+:::warning[caution]
 
 Notice that we need to do `&bottom`. It explicitly specifies that `.intersection`
 **borrows** the `bottom`, i.e. takes an immutable reference to it.

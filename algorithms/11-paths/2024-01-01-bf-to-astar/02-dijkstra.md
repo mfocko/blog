@@ -64,7 +64,7 @@ And then follow up on that with the actual backstory from Dijkstra himself:
 > — Edsger Dijkstra, in an interview with Philip L. Frana, Communications of the
 > ACM, 2001
 
-:::caution Precondition
+:::warning Precondition
 
 As our own naïve algorithm, Dijkstra's algorithm has a precondition that places
 a requirement of _no edges with negative weights_ in the graph. This

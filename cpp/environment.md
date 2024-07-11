@@ -13,7 +13,7 @@ last_update:
 Most likely WSL, VM or VPS. If you consider setting up either of those PITA, then
 VSCode + SSH to _aisa_ might be the best option for you.
 
-:::caution VSCode @ aisa
+:::warning VSCode @ aisa
 
 Be careful when using VSCode on aisa, most notably:
 

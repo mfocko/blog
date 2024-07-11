@@ -419,7 +419,7 @@ I think that we can definitely agree on the fact that `RefMut<'_, T>` is not the
 than implementing the interface, because it **cannot** satisfy the type requirements
 of the trait.
 
-:::caution
+:::warning[caution]
 
 I wonder how are we expected to deal with this conflict, if and when, we need
 both the `.borrow_mut()` of the trait and `.borrow_mut()` of the `RefCell<T>`.

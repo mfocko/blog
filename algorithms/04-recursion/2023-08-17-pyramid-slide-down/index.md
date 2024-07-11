@@ -70,7 +70,7 @@ Slide down in this case is equal to `1074`.
 
 ## Solving the problem
 
-:::caution
+:::warning[caution]
 
 I will describe the following ways you can approach this problem and implement
 them in _Java_[^1].

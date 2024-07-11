@@ -140,7 +140,7 @@ If you wonder why, I'll try to describe it intuitively:
    binary tree of height `y`, in each node we do some work in constant time,
    therefore we can just sum the ones.
 
-:::warning
+:::danger
 
 It would've been more complicated to get an exact result. In the equation above
 we are assuming that the width of the pyramid is bound by the height.
