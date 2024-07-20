@@ -1,7 +1,7 @@
 ---
 title: Raspberry Alma
 description: |
-  My experience with running “gaming” desktop on Linux.
+  Finally migrating to a stable distro on Raspberry…
 date: 2024-07-20
 authors:
   - key: mf
