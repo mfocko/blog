@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[2389],{73435:s=>{s.exports=JSON.parse('{"label":"opensuse","permalink":"/blog/tags/opensuse","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -2,11 +2,153 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.mfocko.xyz/blog</id>
     <title>mf Blog</title>
-    <updated>2024-06-19T00:00:00.000Z</updated>
+    <updated>2024-07-20T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.mfocko.xyz/blog"/>
     <subtitle>mf's blog</subtitle>
     <icon>https://blog.mfocko.xyz/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Raspberry Alma]]></title>
+        <id>https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma</id>
+        <link href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma"/>
+        <updated>2024-07-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[My experience with running “gaming” desktop on Linux.
+]]></summary>
+        <content type="html"><![CDATA[<p>Every now and then I get angry at something not working on the Raspberry and so
+I decide to swap the OSs. Now it's time for something new and not expected.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="purpose-and-past">Purpose and past<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#purpose-and-past" class="hash-link" aria-label="Direct link to Purpose and past" title="Direct link to Purpose and past">​</a></h2>
+<p>After I've subscribed a VPS at vpsfree.cz for myself, I got an opportunity to
+drop using an old laptop for running a local “server”. At that point all I've
+had was self-hosted Gitea, some aliases on nginx and that was all. Out with the
+old laptop and let's begin experimenting with the Raspberry, right?</p>
+<p>The first OS that got on the Raspberry was <em>archLinux</em> (BTW…). I've been using
+it for a long time and had the best experience with. I haven't hit any issues,
+but at the same time, you need to keep in mind we're running it off the SD card
+and they are known to get worn out quickly, especially if you write <strong>a lot</strong>
+which… guess what, is quite common with rolling and bleeding-edge distribution
+<!-- -->😄<!-- --> And the worst part is keeping up with the updates.</p>
+<p>And that's how I migrated to openSUSE Leap :) I've been using openSUSE for at
+least 4 years during the high school and a bit more before and after… openSUSE
+is very user-friendly (YaST is amazing) distribution and honestly just works.
+However the cost lies in Cockpit not being available<sup><a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fn-1-930d69" id="user-content-fnref-1-930d69" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup> and some weird design
+decision, e.g., networking stack is very fragile<sup><a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fn-2-930d69" id="user-content-fnref-2-930d69" data-footnote-ref="true" aria-describedby="footnote-label">2</a></sup>.</p>
+<p>And I've got finished in the recent weeks with some issues during updates, but
+those can be, of course, blamed on me, cause I don't watch over it as I should
+:)</p>
+<p>I should probably sum up the latest state of what was running before I decided
+to go for a merciless wipe. So here it is:</p>
+<ul>
+<li>local Gitea instance, just in case and out of habit</li>
+<li>Wireguard connection for easy administration</li>
+<li>Certbot &amp; nginx; nginx is probably the biggest piece of work as it also
+provides reverse proxy for mikrotik router and Ubiquiti AP provided by ISP</li>
+<li>CUPS server that has joined the journey once the HP printer was too big of
+a pain in the <!-- -->🍑<!-- --> to handle via USB</li>
+<li>DDNS service, cause there's public, but dynamic IP from ISP</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="choosing-the-next-distro">Choosing the next distro<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#choosing-the-next-distro" class="hash-link" aria-label="Direct link to Choosing the next distro" title="Direct link to Choosing the next distro">​</a></h2>
+<p>I had the switch in mind for some time, but I couldn't decide on the
+distribution… In the ideal world, I'd just slap CentOS Stream on it, <strong>but</strong>
+there's no Raspberry “support” for CentOS<sup><a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fn-3-930d69" id="user-content-fnref-3-930d69" data-footnote-ref="true" aria-describedby="footnote-label">3</a></sup>. So the other choices were plain
+Debian and something else from the RHEL-family which could be either Fedora<sup><a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fn-4-930d69" id="user-content-fnref-4-930d69" data-footnote-ref="true" aria-describedby="footnote-label">4</a></sup>,
+AlmaLinux or Rocky Linux.</p>
+<p>I should admit that I'm not a big Debian fan <!-- -->😄<!-- --> Even though <em>12 bookworm</em>
+is relatively on the same terms as anything that tries to match RHEL9, it still
+feels weird. That might be caused by the fact that I've switched RPM-based
+distributions a long time ago (including screwing around with archLinux and
+<em>Jean Tux</em><sup><a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fn-5-930d69" id="user-content-fnref-5-930d69" data-footnote-ref="true" aria-describedby="footnote-label">5</a></sup>) and never looked back (except for the desktop with NVIDIA GPU
+that's pain in the <!-- -->🍑<!-- --> and only Ubuntu runs reasonably… well).</p>
+<p>Wearing the <em>red fedora</em> also ruled out the Rocky Linux <!-- -->:slightly<em>smiling_face:
+as I don't endorse nor support their _way of operation</em></p>
+<p>So AlmaLinux it is!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="installing-almalinux-9">Installing AlmaLinux 9<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#installing-almalinux-9" class="hash-link" aria-label="Direct link to Installing AlmaLinux 9" title="Direct link to Installing AlmaLinux 9">​</a></h2>
+<p>I'm going with AlmaLinux 9.4 on Raspberry Pi 3B. Opened the AlmaLinux's wiki and
+first thing I got slapped by is</p>
+<blockquote>
+<p>original Raspberry Pi 3 (without "+" models) are not supported</p>
+</blockquote>
+<p>GREAT! I took the risk, installed it. And it didn't boot <!-- -->😁<!-- --> It turns out
+that the WiFi kernel module caused a kernel panic on the boot. From some people
+on Reddit I found that it caused some issues, <strong>but</strong> worked, so I've just
+decided to pop the SD card back in a PC and deny the module from loading. Voilà!
+It boots!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="setting-up-the-local-server">Setting up the “local server”<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#setting-up-the-local-server" class="hash-link" aria-label="Direct link to Setting up the “local server”" title="Direct link to Setting up the “local server”">​</a></h2>
+<div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Public disclaimer</div><div class="admonitionContent_BuS1"><p>I suck as admin…</p></div></div>
+<p>Both the Raspberry and my VPS are maintained in the <em>caveman-style</em> <!-- -->😄<!-- --> And
+that's why I've decided to start with the less painful one (the Raspberry) to
+write the Ansible playbooks for :)</p>
+<p>I have already managed to migrate my dotfiles and “bootstrap” to be run via
+Ansible, so I've just proceeded to extend that and also reorganize it a bit,
+cause the roles grew in size <!-- -->👀</p>
+<p>And I have to admit that I've been mostly successful. Let's delve into details!</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="selinux">SELinux<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#selinux" class="hash-link" aria-label="Direct link to SELinux" title="Direct link to SELinux">​</a></h3>
+<p>Yeah… that's something that hasn't been running on the openSUSE and I totally
+forgot that hardening the SSHD config (including port change) requires notifying
+SELinux about the port change :) Of course I managed to cut myself off <!-- -->😄</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="certbot">Certbot<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#certbot" class="hash-link" aria-label="Direct link to Certbot" title="Direct link to Certbot">​</a></h3>
+<p>Certbot was the service I feared the most, as there is no reasonable way to
+automate this. You need to run it manually at least the first time. But in the
+end, it was quite OK.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cockpit">Cockpit<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#cockpit" class="hash-link" aria-label="Direct link to Cockpit" title="Direct link to Cockpit">​</a></h3>
+<p>One downside of <em>caveman-style</em> administration is the fact that you forget about
+the tweaking you do. Reverse proxy breaks Cockpit by default. I was reading
+through the documentation, but haven't managed to find the part that mentioned
+the specific settings I had to change. When I was about to open the PR with
+proposed changes, I noticed that it was in a different chapter <!-- -->🤦‍♂️</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cups">CUPS<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#cups" class="hash-link" aria-label="Direct link to CUPS" title="Direct link to CUPS">​</a></h3>
+<p>Cups went rather smoothly… except for the fact that it doesn't work on the one
+and only Ubuntu desktop and there are no logs with reason why it fails to add
+the printer <!-- -->🙂</p>
+<p>Additionally installing the HP printer via <code>hp-setup</code> is very interesting
+experience… I would've never expected the CLI to have a progress bar that opens
+up at 0% and then just switches into <em>terms &amp; conditions</em>… Yes, that progress
+bar stayed at 0% even though it was downloading a PPD file <strong>and progressing</strong>.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ddns">DDNS<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#ddns" class="hash-link" aria-label="Direct link to DDNS" title="Direct link to DDNS">​</a></h3>
+<p>I had smallish issue with deciding how to run the DDNS service. I went with
+dropping my own buggy script and had to choose a DDNS client. Found <em>inadyn</em>
+(that isn't built at all for Fedora and family) and <em>ddclient</em>. The <em>ddclient</em>
+had some not very nice feedback, and the version that introduced the Cloudflare
+support I need, was not included, so I dropped that. <em>inadyn</em> is not packaged,
+so I've set it up as systemd timer spawning a container :)</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="summary">Summary<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary">​</a></h2>
+<p>Overall I've had a very pleasant experience setting up the AlmaLinux on the
+Raspberry. Even though I took a gamble with the officially unsupported model of
+RPi, it works. And it also seems to be filling the purpose it has!</p>
+<section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithStickyNavbar_LWe7 sr-only" id="footnote-label">Footnotes<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#footnote-label" class="hash-link" aria-label="Direct link to Footnotes" title="Direct link to Footnotes">​</a></h2>
+<ol>
+<li id="user-content-fn-1-930d69">
+<p>AFAIK there was some issue with dependencies, so it is available on
+Tumbleweed and also in the latest Leap 15.6 <a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fnref-1-930d69" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2-930d69">
+<p>By default uses <em>wicked</em> and even when running it on desktop via
+<em>NetworkManager</em> I've hit some inconsistencies with DNS, but… DNS <strong>is</strong> the
+Devil, right? <!-- -->😁 <a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fnref-2-930d69" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-3-930d69">
+<p>And neither RHEL to be fair ;) <a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fnref-3-930d69" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-4-930d69">
+<p>6-month release cycle goes against the idea to have the least amount of
+updates as possible… and on top of that I think that we can safely agree on
+the fact that Fedora feels like <em>archLinux with extra steps</em> <a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fnref-4-930d69" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-5-930d69">
+<p>Gentoo… <a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fnref-5-930d69" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>]]></content>
+        <author>
+            <name>Matej Focko</name>
+            <email>me+blog@mfocko.xyz</email>
+            <uri>https://gitlab.com/mfocko</uri>
+        </author>
+        <category label="raspberry-pi" term="raspberry-pi"/>
+        <category label="opensuse" term="opensuse"/>
+        <category label="almalinux" term="almalinux"/>
+        <category label="ansible" term="ansible"/>
+        <category label="self-hosting" term="self-hosting"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[DevConf.cz 2024]]></title>
         <id>https://blog.mfocko.xyz/blog/2024/06/19/devconf-2024</id>
