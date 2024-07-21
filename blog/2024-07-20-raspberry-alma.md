@@ -69,8 +69,8 @@ distributions a long time ago (including screwing around with archLinux and
 _Jean Tux_[^5]) and never looked back (except for the desktop with NVIDIA GPU
 that's pain in the :peach: and only Ubuntu runs reasonably… well).
 
-Wearing the _red fedora_ also ruled out the Rocky Linux :slightly*smiling_face:
-as I don't endorse nor support their \_way of operation*
+Wearing the _red fedora_ also ruled out the Rocky Linux :slightly_smiling_face:
+as I don't endorse nor support their _way of operation_
 
 So AlmaLinux it is!
 
@@ -161,6 +161,7 @@ RPi, it works. And it also seems to be filling the purpose it has!
     Devil, right? :grin:
 
 [^3]: And neither RHEL to be fair ;)
+
 [^4]:
     6-month release cycle goes against the idea to have the least amount of
     updates as possible… and on top of that I think that we can safely agree on
