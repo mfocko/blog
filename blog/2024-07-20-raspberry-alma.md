@@ -2,6 +2,7 @@
 title: Raspberry Alma
 description: |
   Finally migrating to a stable distro on Raspberry…
+image: https://i.imgur.com/svLIfIg.png
 date: 2024-07-20
 authors:
   - key: mf
@@ -16,6 +17,8 @@ tags:
 
 Every now and then I get angry at something not working on the Raspberry and so
 I decide to swap the OSs. Now it's time for something new and not expected.
+
+![`fastfetch` on the Raspberry](https://i.imgur.com/svLIfIg.png)
 
 <!--truncate-->
 
