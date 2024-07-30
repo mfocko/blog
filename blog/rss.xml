@@ -17,6 +17,7 @@
 ]]></description>
             <content:encoded><![CDATA[<p>Every now and then I get angry at something not working on the Raspberry and so
 I decide to swap the OSs. Now it's time for something new and not expected.</p>
+<p><img loading="lazy" src="https://i.imgur.com/svLIfIg.png" alt="fastfetch on the Raspberry" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="purpose-and-past">Purpose and past<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#purpose-and-past" class="hash-link" aria-label="Direct link to Purpose and past" title="Direct link to Purpose and past">​</a></h2>
 <p>After I've subscribed a VPS at vpsfree.cz for myself, I got an opportunity to
 drop using an old laptop for running a local “server”. At that point all I've
@@ -59,8 +60,8 @@ feels weird. That might be caused by the fact that I've switched RPM-based
 distributions a long time ago (including screwing around with archLinux and
 <em>Jean Tux</em><sup><a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#user-content-fn-5-930d69" id="user-content-fnref-5-930d69" data-footnote-ref="true" aria-describedby="footnote-label">5</a></sup>) and never looked back (except for the desktop with NVIDIA GPU
 that's pain in the <!-- -->🍑<!-- --> and only Ubuntu runs reasonably… well).</p>
-<p>Wearing the <em>red fedora</em> also ruled out the Rocky Linux <!-- -->:slightly<em>smiling_face:
-as I don't endorse nor support their _way of operation</em></p>
+<p>Wearing the <em>red fedora</em> also ruled out the Rocky Linux <!-- -->🙂<!-- -->
+as I don't endorse nor support their <em>way of operation</em></p>
 <p>So AlmaLinux it is!</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="installing-almalinux-9">Installing AlmaLinux 9<a href="https://blog.mfocko.xyz/blog/2024/07/20/raspberry-alma#installing-almalinux-9" class="hash-link" aria-label="Direct link to Installing AlmaLinux 9" title="Direct link to Installing AlmaLinux 9">​</a></h2>
 <p>I'm going with AlmaLinux 9.4 on Raspberry Pi 3B. Opened the AlmaLinux's wiki and
