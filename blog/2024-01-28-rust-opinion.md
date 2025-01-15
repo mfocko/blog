@@ -17,11 +17,11 @@ hide_table_of_contents: false
 Rust has become a rather popular language these days. I've managed to get my
 hands dirty with it during _[Advent of Code]_ ‘22 and partially ‘23. I've also
 used it for few rounds of _[Codeforces]_ and I have to try very hard to maintain
-some variety of languages for LeetCode challenges along with the Rust. I'll
-disclaim up front that I won't be only positive, since this post is a result of
-multiple discussions about Rust and I stand by
-_“All that glitters is not gold”_, so if you can't stand your favorite language
-being criticized in any way, don't even proceed. :wink:
+some variety of languages for LeetCode challenges along with Rust. I'll disclaim
+up front that I won't be only positive, since this post is a result of multiple
+discussions about Rust and I stand by _“All that glitters is not gold”_, so if
+you can't stand your favorite language being criticized in any way, don't even
+proceed. :wink:
 
 <!--truncate-->
 
@@ -142,7 +142,7 @@ the bugs that have been found, but such is life.
 ### Fast development cycle
 
 One of the negatives of the fast development cycle is the fact that they're
-using the latest features already in the next release of the Rust. Yes, it is
+using the latest features already in the next release of Rust. Yes, it is
 something that you can use for verifying and testing your own changes, but at
 the same time it places a requirement of the latest release to compile the next
 one.
@@ -167,10 +167,10 @@ yields **2,224** open issues at the time of writing this post.
 
 ### RFCs
 
-You can find **a lot** of RFCs for the Rust. Some of them are more questionable
-than the others. Fun thing is that a lot of them make it to the nightly builds,
-so they can be tested and polished off. Even the questionable ones… I'll leave
-few examples for a better understanding.
+You can find **a lot** of RFCs for Rust. Some of them are more questionable than
+the others. Fun thing is that a lot of them make it to the nightly builds, so
+they can be tested and polished off. Even the questionable ones… I'll leave
+a few examples for a better understanding.
 
 One of such features is the `do yeet` expression:
 
@@ -259,7 +259,7 @@ very strong opinions on this topic.
 
 It took years of work to even “incorporate” Rust into the Linux codebase, just
 to get the “Hello World!”. I don't have anything against the idea of writing
-drivers in the Rust, I bet it can catch a lot of common mistakes, but still
+drivers in Rust, I bet it can catch a lot of common mistakes, but still
 introducing Rust to the kernel is another step to enlarge the monster.
 
 I have to admit though that the _Apple GPU_ driver for Linux written in Rust is
@@ -475,8 +475,8 @@ since you are guaranteed correct input.
 
 ### Macros
 
-Macros are a very strong pro of the Rust. And no, we're not going to talk about
-the procedural macros…
+Macros are a very strong pro of Rust. And no, we're not going to talk about the
+procedural macros…
 
 As I've shown above I've managed to “tame” a lot of copy-paste in the tests for
 the AoC by utilizing a macro that generated a very basic template for the tests.
