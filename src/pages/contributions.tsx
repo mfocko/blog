@@ -7,6 +7,44 @@ import Contribution, {
 
 const contributions: ContributionMetadata[] = [
   {
+    title: "PyGithub",
+    description: (
+      <p>
+        PyGitHub is a Python library to access the GitHub REST API. This library
+        enables you to manage GitHub resources such as repositories, user
+        profiles, and organizations in your Python applications.
+      </p>
+    ),
+    contribution: (
+      <p>
+        Added support for Python's built-in <code>reversed()</code> function.
+      </p>
+    ),
+    repoURL: "https://github.com/PyGithub/PyGithub",
+  },
+  {
+    title: "fedora-infra / koji-fedoramessaging-messages",
+    description: (
+      <p>
+        A schema package for koji-fedoramessaging, the fedora-messaging plugin
+        for Koji
+      </p>
+    ),
+    contribution: (
+      <p>
+        Small fix of Packit config, backward-compatibility fix for Python and
+        packaging adjustments.
+      </p>
+    ),
+    repoURL: "https://github.com/fedora-infra/koji-fedoramessaging-messages",
+  },
+  {
+    title: "fedora-infra / flask-oidc",
+    description: <p>OpenID Connect support for Flask</p>,
+    contribution: <p>Small fix of Packit config.</p>,
+    repoURL: "https://github.com/fedora-infra/flask-oidc",
+  },
+  {
     title: "centpkg",
     description: <p>A tool for working with CentOS dist-git.</p>,
     contribution: (
