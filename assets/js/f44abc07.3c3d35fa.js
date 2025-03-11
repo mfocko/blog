@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[2204],{39006:l=>{l.exports=JSON.parse('{"label":"cult","permalink":"/blog/tags/cult","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

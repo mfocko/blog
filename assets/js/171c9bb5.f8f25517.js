@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[5329],{27615:e=>{e.exports=JSON.parse('{"label":"devconf","permalink":"/blog/tags/devconf","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[2948],{17702:e=>{e.exports=JSON.parse('{"label":"hype","permalink":"/blog/tags/hype","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

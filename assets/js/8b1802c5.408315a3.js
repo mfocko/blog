@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[8480],{60832:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/advent-of-code","page":1,"postsPerPage":10,"totalPages":1,"totalCount":5,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

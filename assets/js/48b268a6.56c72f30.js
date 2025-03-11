@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[1648],{35067:e=>{e.exports=JSON.parse('{"title":"Bonuses","description":"Bonus assignments for Kontr Coins.\\n","slug":"/category/bonuses","permalink":"/c/category/bonuses","navigation":{"previous":{"title":"Introduction","permalink":"/c/"},"next":{"title":"3rd seminar","permalink":"/c/bonuses/seminar-03"}}}')}}]);

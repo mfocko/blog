@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[8404],{25240:e=>{e.exports=JSON.parse('{"label":"conferences","permalink":"/blog/tags/conferences","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

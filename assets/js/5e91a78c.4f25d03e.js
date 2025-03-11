@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[1033],{82547:s=>{s.exports=JSON.parse('{"label":"linux distributions","permalink":"/blog/tags/linux-distributions","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

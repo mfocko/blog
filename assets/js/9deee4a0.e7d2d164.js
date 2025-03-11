@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[1164],{99947:s=>{s.exports=JSON.parse('{"label":"self-hosting","permalink":"/blog/tags/self-hosting","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
