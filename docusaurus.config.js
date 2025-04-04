@@ -91,6 +91,14 @@ const config = {
         href: "https://www.threads.net/@m4tt_314",
       },
     },
+    /* For author attribution on Fosstodon */
+    {
+      tagName: "meta",
+      attributes: {
+        name: "fediverse:creator",
+        content: "@m4tt_314@fosstodon.org",
+      },
+    },
   ],
 
   // GitHub Pages deployment config.
