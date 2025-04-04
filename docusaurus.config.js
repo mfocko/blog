@@ -74,6 +74,24 @@ const config = {
 
   url: "https://blog.mfocko.xyz",
   baseUrl: "/",
+  headTags: [
+    /* For two-way link to the Fosstodon profile */
+    {
+      tagName: "link",
+      attributes: {
+        rel: "me",
+        href: "https://fosstodon.org/@m4tt_314",
+      },
+    },
+    /* For two-way link to the Threads profile */
+    {
+      tagName: "link",
+      attributes: {
+        rel: "me",
+        href: "https://www.threads.net/@m4tt_314",
+      },
+    },
+  ],
 
   // GitHub Pages deployment config.
   organizationName: "mfocko",
