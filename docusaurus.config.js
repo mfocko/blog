@@ -1,14 +1,15 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const { themes } = require("prism-react-renderer");
+import { themes } from "prism-react-renderer";
 const lightCodeTheme = themes.oneLight;
 const darkCodeTheme = themes.dracula;
 
-const math = require("remark-math");
-const katex = require("rehype-katex");
+import math from "remark-math";
+import katex from "rehype-katex";
 
-require("dotenv").config();
+import {config} from "dotenv";
+config();
 
 class Docs {
   constructor(path, description) {
@@ -68,7 +69,7 @@ const fallbackMapping = [
 ];
 
 /** @type {import('@docusaurus/types').Config} */
-const config = {
+const docusaurusConfig = {
   title: "mf",
   tagline: "blog and additional materials for courses at φ",
 
@@ -309,4 +310,4 @@ const config = {
   themes: ["@docusaurus/theme-mermaid"],
 };
 
-module.exports = config;
+export default docusaurusConfig;
