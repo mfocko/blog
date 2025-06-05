@@ -8,7 +8,7 @@ const darkCodeTheme = themes.dracula;
 import math from "remark-math";
 import katex from "rehype-katex";
 
-import {config} from "dotenv";
+import { config } from "dotenv";
 config();
 
 class Docs {
