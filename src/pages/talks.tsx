@@ -5,6 +5,32 @@ import Talk, { TalkMetadata } from "../components/talks/Talk";
 
 const talks: TalkMetadata[] = [
   {
+    title: "Even more release automation",
+    description: (
+      <>
+        Let's go through the most recent features and improvements that enable
+        you to automate boring and menial tasks you have to do regularly. We
+        will show you how you can automate releases even for upstreams that are
+        not based on git. You will get to see a demo of support for Koji
+        sidetags in Packit for downstream releases. And also we will go through
+        some of the recent internal changes that you can benefit from, e.g.,
+        customization for specific ecosystems (like Go), or distro aliases that
+        you can use even in your own projects. And many other subtle changes
+        that improve both user experience and the release workflow.
+      </>
+    ),
+    events: [
+      {
+        name: "Flock to Fedora 2025",
+        location: "Prague, Czechia",
+        date: new Date(2025, 5, 5),
+      },
+    ],
+    // recordingURL: "TODO",
+    slidesURL:
+      "https://cfp.fedoraproject.org/media/flock-to-fedora-2025/submissions/VZETQA/resources/Even_more_release_automation_hGzItYc.pdf",
+  },
+  {
     title: "Shift Left Testing with Packit and Testing Farm",
     description: (
       <>
