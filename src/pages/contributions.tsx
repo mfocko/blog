@@ -7,6 +7,17 @@ import Contribution, {
 
 const contributions: ContributionMetadata[] = [
   {
+    title: "Forgejo",
+    description: <p>Beyond coding. We forge. https://forgejo.org</p>,
+    contribution: (
+      <p>
+        Fixed the docs for commit statuses after revert has not been done very
+        well.
+      </p>
+    ),
+    repoURL: "https://codeberg.org/forgejo/forgejo",
+  },
+  {
     title: "PyGithub",
     description: (
       <p>
