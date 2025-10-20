@@ -22,7 +22,7 @@
 
     "blog:build" = {
       exec = "yarn run build";
-      before = [
+      after = [
         "assets:dots"
         "assets:archives"
       ];
