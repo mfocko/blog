@@ -26,4 +26,4 @@ jobs:
         run: devenv test
 
       - name: Build website
-        run: devenv tasks run blog:build
+        run: devenv tasks run -m all blog:build
