@@ -12,21 +12,19 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v16
         with:
-          node-version: 18
-          cache: yarn
+          name: devenv
+      - name: Install devenv.sh
+        run: nix profile install nixpkgs#devenv
 
-      - name: Install deps for archives and rendered graphs
-        run: |
-          sudo apt install make graphviz
-          make assets
+      - name: Build the devenv shell and run any pre-commit hooks
+        run: devenv test
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
       - name: Build website
-        run: yarn run build
+        run: devenv tasks run -m all blog:build
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
