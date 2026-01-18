@@ -1,4 +1,4 @@
-@import "../../css/mixins";
+@use "../../css/mixins";
 
 .card {
   margin-bottom: calc(var(--ifm-spacing-horizontal) * 2);
@@ -9,7 +9,7 @@
 .contributionsContainer {
   border-left: 1px solid var(--ifm-color-emphasis-300);
 
-  @include small-size {
+  @include mixins.small-size {
     border-left: 0;
     border-top: 1px solid var(--ifm-color-emphasis-300);
     padding-top: var(--ifm-spacing-vertical);
@@ -23,7 +23,7 @@
 
 .buttons {
   > a {
-    @include small-size {
+    @include mixins.small-size {
       width: 100%;
       margin-top: calc(var(--ifm-spacing-vertical) / 2);
     }
@@ -32,7 +32,7 @@
   a + a {
     margin-left: 0.5em;
 
-    @include small-size {
+    @include mixins.small-size {
       margin-left: 0;
     }
   }
