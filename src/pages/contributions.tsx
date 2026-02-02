@@ -7,6 +7,35 @@ import Contribution, {
 
 const contributions: ContributionMetadata[] = [
   {
+    title: "nixpkgs",
+    description: <p>Nix Packages collection & NixOS</p>,
+    contribution: (
+      <p>
+        Packaged <code>tft-cli</code> and co-maintaining it with @thrix
+      </p>
+    ),
+    repoURL: "https://github.com/NixOS/nixpkgs",
+  },
+  {
+    title: "devenv.sh",
+    description: (
+      <p>
+        Fast, Declarative, Reproducible, and Composable Developer Environments
+        using Nix
+      </p>
+    ),
+    contribution: <p>Added support for Hare programming language.</p>,
+    repoURL: "https://github.com/cachix/devenv",
+  },
+  {
+    title: "Hugo GitHub Action",
+    description: (
+      <p>📦 A GitHub Action to build and deploy a Hugo site to GitHub Pages</p>
+    ),
+    contribution: <p>Adjusted the working directory as "git safe".</p>,
+    repoURL: "https://github.com/benmatselby/hugo-deploy-gh-pages",
+  },
+  {
     title: "Forgejo",
     description: <p>Beyond coding. We forge. https://forgejo.org</p>,
     contribution: (
