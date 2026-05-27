@@ -26,7 +26,7 @@ const talks: TalkMetadata[] = [
         date: new Date(2025, 5, 5),
       },
     ],
-    // recordingURL: "TODO",
+    recordingURL: "https://www.youtube.com/live/8Ft2n0RyW1Y?t=3809",
     slidesURL:
       "https://cfp.fedoraproject.org/media/flock-to-fedora-2025/submissions/VZETQA/resources/Even_more_release_automation_hGzItYc.pdf",
   },
