@@ -8,6 +8,8 @@
 
   languages.javascript = {
     enable = true;
+
+    nodejs.enable = true;
     yarn = {
       enable = true;
       install.enable = true;
