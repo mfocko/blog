@@ -5,6 +5,38 @@ import Talk, { TalkMetadata } from "../components/talks/Talk";
 
 const talks: TalkMetadata[] = [
   {
+    title: "Packit and Fedora: The CI Story Continues",
+    description: (
+      <>
+        <p>
+          Earlier this year, Packit became the default CI system for Fedora
+          dist-git pull requests. This unification replaced the legacy
+          Jenkins-based Fedora CI and Zuul systems with a single service. In
+          this session, we will summarize the technical changes involved in this
+          transition and outline how the system now handles the automated heavy
+          lifting for the packages.
+        </p>
+        <p>
+          We will explore the current state of the CI and showcase recent
+          improvements, such as integration with Log Detective - an AI-driven
+          tool designed to analyze build logs. In the end, we will cover what
+          maintainers can expect from the project’s future roadmap.
+        </p>
+      </>
+    ),
+    events: [
+      {
+        name: "Flock to Fedora 2026",
+        location: "Prague, Czechia",
+        date: new Date(2026, 5, 15),
+      },
+    ],
+    recordingURL:
+      "https://www.youtube.com/live/-3Dt-2s82nk?si=petVUs5vs-ZPIQQ0&t=20683",
+    slidesURL:
+      "https://cfp.fedoraproject.org/media/flock-to-fedora-2026/submissions/33CKL3/resources/slides_Pa1mqSd.pdf",
+  },
+  {
     title: "Even more release automation",
     description: (
       <>
