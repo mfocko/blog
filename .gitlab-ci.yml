@@ -1,4 +1,4 @@
-image: node:20.5-alpine3.18
+image: node:25-alpine3.21
 
 cache:
   key:
