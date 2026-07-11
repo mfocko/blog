@@ -1,6 +1,10 @@
-{ pkgs, lib, config, inputs, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}: {
   packages = [
     # To be able to regenerate the graphs
     pkgs.graphviz-nox
@@ -29,5 +33,22 @@
         "assets:archives"
       ];
     };
+  };
+
+  git-hooks.hooks = {
+    commitizen.enable = true;
+
+    # Linting for Docusaurus pages
+    html-tidy.enable = true;
+    # biome.enable = true;
+
+    # Nix
+    alejandra.enable = true;
+
+    # Basic linting
+    check-yaml.enable = true;
+    check-added-large-files.enable = true;
+    end-of-file-fixer.enable = true;
+    trim-trailing-whitespace.enable = true;
   };
 }
