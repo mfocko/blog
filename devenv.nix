@@ -14,6 +14,7 @@
     enable = true;
 
     nodejs.enable = true;
+    npm.enable = true;
     yarn = {
       enable = true;
       install.enable = true;
