@@ -241,10 +241,10 @@ you that sometimes not everything is aligned as it's supposed to be…
 And the old _Advent of Parsing_ is back…
 
 ```
-123 328  51 64 
- 45 64  387 23 
+123 328  51 64
+ 45 64  387 23
   6 98  215 314
-*   +   *   +  
+*   +   *   +
 ```
 
 Surely that whitespace around the numbers has no meaning, right? RIGHT?!?!
