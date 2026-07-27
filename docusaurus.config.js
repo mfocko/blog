@@ -73,7 +73,7 @@ const docusaurusConfig = {
   title: "mf",
   tagline: "blog and additional materials for courses at φ",
 
-  url: "https://blog.mfocko.xyz",
+  url: "https://blog.mfocko.dev",
   baseUrl: "/",
   headTags: [
     /* For two-way link to the Fosstodon profile */
@@ -227,7 +227,7 @@ const docusaurusConfig = {
               },
               {
                 label: "Gitea (self-hosted)",
-                href: "https://git.mfocko.xyz/mfocko",
+                href: "https://git.mfocko.dev/mfocko",
               },
             ],
           },
