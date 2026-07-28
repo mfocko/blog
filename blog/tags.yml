@@ -1,0 +1,66 @@
+# Work-related tags
+work:
+  label: 🏭
+  description: Work-related posts
+
+red-hat:
+  label: Red Hat
+  description: Red Hat-related posts
+
+# Advent of Code tags
+aoc:
+  label: Advent of Code
+  description: Posts from participating in Advent of Code
+
+aoc-2022:
+  label: Advent of Code 2022
+  description: Posts from participating in Advent of Code 2022
+
+aoc-2025:
+  label: Advent of Code 2025
+  description: Posts from participating in Advent of Code 2025
+
+# Language tags
+java:
+  label: Java
+
+cpp:
+  label: C++
+
+rust:
+  label: Rust
+
+# Distributions
+opensuse:
+  label: openSUSE
+
+almalinux:
+  label: AlmaLinux
+
+fedora:
+  label: Fedora
+
+lts:
+  label: Long-term support
+
+# Administrator’s tags
+admin:
+  label: Administration
+
+rpi:
+  label: Raspberry Pi
+
+# Coding challenges
+leetcode:
+  label: LeetCode
+
+cf:
+  label: Codeforces
+
+# Events
+conferences:
+  label: Conferences
+
+# Types of posts
+opinion:
+  label: Opinion

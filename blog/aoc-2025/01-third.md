@@ -5,8 +5,8 @@ date: 2025-12-08T06:00
 slug: aoc-2025/third-01
 authors: mf
 tags:
-  - advent-of-code
-  - advent-of-code-2025
+  - aoc
+  - aoc-2025
   - java
 hide_table_of_contents: false
 ---

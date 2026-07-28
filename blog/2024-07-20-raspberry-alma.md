@@ -8,11 +8,10 @@ authors:
   - key: mf
     title: a.k.a. useless admin or “Sir Tweak-a-Lot”
 tags:
-  - raspberry-pi
-  - opensuse
+  - admin
   - almalinux
-  - ansible
-  - self-hosting
+  - opensuse
+  - rpi
 ---
 
 Every now and then I get angry at something not working on the Raspberry and so

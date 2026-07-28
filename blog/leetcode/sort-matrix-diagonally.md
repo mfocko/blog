@@ -7,7 +7,6 @@ authors: mf
 tags:
   - cpp
   - leetcode
-  - iterators
 hide_table_of_contents: false
 ---
 

@@ -8,9 +8,6 @@ authors:
     title: a.k.a. small Fedora maintainer
 tags:
   - lts
-  - linux distributions
-  - support
-  - paywall
 hide_table_of_contents: false
 ---
 

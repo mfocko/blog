@@ -7,10 +7,8 @@ authors:
   - key: mf
     title: a.k.a. passionate language hater
 tags:
+  - opinion
   - rust
-  - memory safety
-  - cult
-  - hype
 hide_table_of_contents: false
 ---
 
