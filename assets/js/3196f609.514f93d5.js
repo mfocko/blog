@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[8667],{41560:a=>{a.exports=JSON.parse('{"tag":{"label":"exchange","permalink":"/blog/tags/exchange","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/exchange","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

@@ -16,9 +16,8 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "🏭",
-                "red-hat",
-                "exchange"
+                "Red Hat",
+                "🏭"
             ]
         },
         {
@@ -33,9 +32,9 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "advent-of-code",
-                "advent-of-code-2025",
-                "java"
+                "Advent of Code",
+                "Advent of Code 2025",
+                "Java"
             ]
         },
         {
@@ -50,9 +49,9 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "advent-of-code",
-                "advent-of-code-2025",
-                "java"
+                "Advent of Code",
+                "Advent of Code 2025",
+                "Java"
             ]
         },
         {
@@ -67,9 +66,9 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "advent-of-code",
-                "advent-of-code-2025",
-                "java"
+                "Advent of Code",
+                "Advent of Code 2025",
+                "Java"
             ]
         },
         {
@@ -84,11 +83,10 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "raspberry-pi",
-                "opensuse",
-                "almalinux",
-                "ansible",
-                "self-hosting"
+                "Administration",
+                "AlmaLinux",
+                "openSUSE",
+                "Raspberry Pi"
             ]
         },
         {
@@ -103,11 +101,10 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "🏭",
-                "red-hat",
-                "fedora",
-                "devconf",
-                "conferences"
+                "Conferences",
+                "Fedora",
+                "Red Hat",
+                "🏭"
             ]
         },
         {
@@ -122,10 +119,7 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "lts",
-                "linux distributions",
-                "support",
-                "paywall"
+                "Long-term support"
             ]
         },
         {
@@ -140,10 +134,8 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "rust",
-                "memory safety",
-                "cult",
-                "hype"
+                "Opinion",
+                "Rust"
             ]
         },
         {
@@ -158,11 +150,9 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "🏭",
-                "red-hat",
-                "copr",
-                "admin",
-                "vps"
+                "Administration",
+                "Red Hat",
+                "🏭"
             ]
         },
         {
@@ -177,9 +167,9 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "advent-of-code",
-                "advent-of-code-2022",
-                "rust"
+                "Advent of Code",
+                "Advent of Code 2022",
+                "Rust"
             ]
         },
         {
@@ -194,9 +184,9 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "advent-of-code",
-                "advent-of-code-2022",
-                "rust"
+                "Advent of Code",
+                "Advent of Code 2022",
+                "Rust"
             ]
         },
         {
@@ -211,9 +201,8 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "cpp",
-                "leetcode",
-                "iterators"
+                "C++",
+                "LeetCode"
             ]
         },
         {
@@ -228,9 +217,9 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "advent-of-code",
-                "advent-of-code-2022",
-                "rust"
+                "Advent of Code",
+                "Advent of Code 2022",
+                "Rust"
             ]
         },
         {
@@ -245,9 +234,9 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "advent-of-code",
-                "advent-of-code-2022",
-                "rust"
+                "Advent of Code",
+                "Advent of Code 2022",
+                "Rust"
             ]
         },
         {
@@ -262,9 +251,9 @@
                 "url": "https://gitlab.com/mfocko"
             },
             "tags": [
-                "advent-of-code",
-                "advent-of-code-2022",
-                "rust"
+                "Advent of Code",
+                "Advent of Code 2022",
+                "Rust"
             ]
         }
     ]

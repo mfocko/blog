@@ -180,9 +180,8 @@ tests <a href="https://blog.mfocko.dev/blog/2026/07/12/dnf/#user-content-fnref-s
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
+        <category label="Red Hat" term="Red Hat"/>
         <category label="🏭" term="🏭"/>
-        <category label="red-hat" term="red-hat"/>
-        <category label="exchange" term="exchange"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Final third of Advent of Code ‘25 in Java]]></title>
@@ -341,9 +340,9 @@ javadoc is still… bit obscure format for me.</p>
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="advent-of-code" term="advent-of-code"/>
-        <category label="advent-of-code-2025" term="advent-of-code-2025"/>
-        <category label="java" term="java"/>
+        <category label="Advent of Code" term="Advent of Code"/>
+        <category label="Advent of Code 2025" term="Advent of Code 2025"/>
+        <category label="Java" term="Java"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Second third of Advent of Code ‘25 in Java]]></title>
@@ -525,9 +524,9 @@ distance and the distance squared.</p>]]></content>
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="advent-of-code" term="advent-of-code"/>
-        <category label="advent-of-code-2025" term="advent-of-code-2025"/>
-        <category label="java" term="java"/>
+        <category label="Advent of Code" term="Advent of Code"/>
+        <category label="Advent of Code 2025" term="Advent of Code 2025"/>
+        <category label="Java" term="Java"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[First third of Advent of Code ‘25 in Java]]></title>
@@ -726,9 +725,9 @@ the <code>Stream</code> <!-- -->😈<!-- --> so I did…</p>
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="advent-of-code" term="advent-of-code"/>
-        <category label="advent-of-code-2025" term="advent-of-code-2025"/>
-        <category label="java" term="java"/>
+        <category label="Advent of Code" term="Advent of Code"/>
+        <category label="Advent of Code 2025" term="Advent of Code 2025"/>
+        <category label="Java" term="Java"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Raspberry Alma]]></title>
@@ -868,11 +867,10 @@ the fact that Fedora feels like <em>archLinux with extra steps</em> <a href="htt
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="raspberry-pi" term="raspberry-pi"/>
-        <category label="opensuse" term="opensuse"/>
-        <category label="almalinux" term="almalinux"/>
-        <category label="ansible" term="ansible"/>
-        <category label="self-hosting" term="self-hosting"/>
+        <category label="Administration" term="Administration"/>
+        <category label="AlmaLinux" term="AlmaLinux"/>
+        <category label="openSUSE" term="openSUSE"/>
+        <category label="Raspberry Pi" term="Raspberry Pi"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[DevConf.cz 2024]]></title>
@@ -988,11 +986,10 @@ with the colleagues and at least some of our users who are not based in Brno.</p
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
+        <category label="Conferences" term="Conferences"/>
+        <category label="Fedora" term="Fedora"/>
+        <category label="Red Hat" term="Red Hat"/>
         <category label="🏭" term="🏭"/>
-        <category label="red-hat" term="red-hat"/>
-        <category label="fedora" term="fedora"/>
-        <category label="devconf" term="devconf"/>
-        <category label="conferences" term="conferences"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[LTS distributions]]></title>
@@ -1304,10 +1301,7 @@ since the cost outweighs the benefits at this point. <a href="https://blog.mfock
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="lts" term="lts"/>
-        <category label="linux distributions" term="linux distributions"/>
-        <category label="support" term="support"/>
-        <category label="paywall" term="paywall"/>
+        <category label="Long-term support" term="Long-term support"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Mixed feelings on Rust]]></title>
@@ -1586,10 +1580,8 @@ are essential things not present… <a href="https://blog.mfocko.dev/blog/2024/0
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="rust" term="rust"/>
-        <category label="memory safety" term="memory safety"/>
-        <category label="cult" term="cult"/>
-        <category label="hype" term="hype"/>
+        <category label="Opinion" term="Opinion"/>
+        <category label="Rust" term="Rust"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[How can Copr help with broken dependencies]]></title>
@@ -1678,11 +1670,9 @@ to live on the edge… <a href="https://blog.mfocko.dev/blog/2023/08/02/copr/#us
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
+        <category label="Administration" term="Administration"/>
+        <category label="Red Hat" term="Red Hat"/>
         <category label="🏭" term="🏭"/>
-        <category label="red-hat" term="red-hat"/>
-        <category label="copr" term="copr"/>
-        <category label="admin" term="admin"/>
-        <category label="vps" term="vps"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[4th week of Advent of Code '22 in Rust]]></title>
@@ -1941,9 +1931,9 @@ carry a lifetime for their own fields.</p>
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="advent-of-code" term="advent-of-code"/>
-        <category label="advent-of-code-2022" term="advent-of-code-2022"/>
-        <category label="rust" term="rust"/>
+        <category label="Advent of Code" term="Advent of Code"/>
+        <category label="Advent of Code 2022" term="Advent of Code 2022"/>
+        <category label="Rust" term="Rust"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[3rd week of Advent of Code '22 in Rust]]></title>
@@ -2152,9 +2142,9 @@ left and right <!-- -->😄</p>
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="advent-of-code" term="advent-of-code"/>
-        <category label="advent-of-code-2022" term="advent-of-code-2022"/>
-        <category label="rust" term="rust"/>
+        <category label="Advent of Code" term="Advent of Code"/>
+        <category label="Advent of Code 2022" term="Advent of Code 2022"/>
+        <category label="Rust" term="Rust"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Sort the matrix diagonally]]></title>
@@ -2373,9 +2363,8 @@ Let's just wrap it!</p>
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="cpp" term="cpp"/>
-        <category label="leetcode" term="leetcode"/>
-        <category label="iterators" term="iterators"/>
+        <category label="C++" term="C++"/>
+        <category label="LeetCode" term="LeetCode"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[2nd week of Advent of Code '22 in Rust]]></title>
@@ -2696,9 +2685,9 @@ However the outcome is not the same…</p>]]></content>
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="advent-of-code" term="advent-of-code"/>
-        <category label="advent-of-code-2022" term="advent-of-code-2022"/>
-        <category label="rust" term="rust"/>
+        <category label="Advent of Code" term="Advent of Code"/>
+        <category label="Advent of Code 2022" term="Advent of Code 2022"/>
+        <category label="Rust" term="Rust"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[1st week of Advent of Code '22 in Rust]]></title>
@@ -2919,9 +2908,9 @@ as simple as it seems, because there is also <code>Cell&lt;T&gt;</code>)</p>]]><
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="advent-of-code" term="advent-of-code"/>
-        <category label="advent-of-code-2022" term="advent-of-code-2022"/>
-        <category label="rust" term="rust"/>
+        <category label="Advent of Code" term="Advent of Code"/>
+        <category label="Advent of Code 2022" term="Advent of Code 2022"/>
+        <category label="Rust" term="Rust"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Advent of Code '22 in Rust]]></title>
@@ -3066,8 +3055,8 @@ libraries using <code>anyhow</code> is nasty… You will be the stinky one ;) <a
             <email>me+blog@mfocko.xyz</email>
             <uri>https://gitlab.com/mfocko</uri>
         </author>
-        <category label="advent-of-code" term="advent-of-code"/>
-        <category label="advent-of-code-2022" term="advent-of-code-2022"/>
-        <category label="rust" term="rust"/>
+        <category label="Advent of Code" term="Advent of Code"/>
+        <category label="Advent of Code 2022" term="Advent of Code 2022"/>
+        <category label="Rust" term="Rust"/>
     </entry>
 </feed>

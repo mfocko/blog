@@ -177,9 +177,8 @@ tests <a href="https://blog.mfocko.dev/blog/2026/07/12/dnf/#user-content-fnref-s
 </ol>
 </section>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
+            <category>Red Hat</category>
             <category>🏭</category>
-            <category>red-hat</category>
-            <category>exchange</category>
         </item>
         <item>
             <title><![CDATA[Final third of Advent of Code ‘25 in Java]]></title>
@@ -334,9 +333,9 @@ javadoc is still… bit obscure format for me.</p>
 </ol>
 </section>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>advent-of-code</category>
-            <category>advent-of-code-2025</category>
-            <category>java</category>
+            <category>Advent of Code</category>
+            <category>Advent of Code 2025</category>
+            <category>Java</category>
         </item>
         <item>
             <title><![CDATA[Second third of Advent of Code ‘25 in Java]]></title>
@@ -514,9 +513,9 @@ to the library. Funnily as part of the optimization I've used the squared
 Euclidean distance throughout this puzzle, so the interface includes both actual
 distance and the distance squared.</p>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>advent-of-code</category>
-            <category>advent-of-code-2025</category>
-            <category>java</category>
+            <category>Advent of Code</category>
+            <category>Advent of Code 2025</category>
+            <category>Java</category>
         </item>
         <item>
             <title><![CDATA[First third of Advent of Code ‘25 in Java]]></title>
@@ -711,9 +710,9 @@ initial solution, but then I thought that it might be possible to just “abuse�
 the <code>Stream</code> <!-- -->😈<!-- --> so I did…</p>
 <div class="language-java codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-java codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token keyword" style="color:hsl(301, 63%, 40%)">return</span><span class="token plain"> </span><span class="token class-name" style="color:hsl(35, 99%, 36%)">Stream</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token function" style="color:hsl(221, 87%, 60%)">iterate</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token function" style="color:hsl(221, 87%, 60%)">removableRoles</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token function" style="color:hsl(221, 87%, 60%)">toList</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  indices </span><span class="token operator" style="color:hsl(221, 87%, 60%)">-&gt;</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">!</span><span class="token plain">indices</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token function" style="color:hsl(221, 87%, 60%)">isEmpty</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  indices </span><span class="token operator" style="color:hsl(221, 87%, 60%)">-&gt;</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">    indices</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token function" style="color:hsl(221, 87%, 60%)">forEach</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token plain">idx </span><span class="token operator" style="color:hsl(221, 87%, 60%)">-&gt;</span><span class="token plain"> map</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">[</span><span class="token plain">idx</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token function" style="color:hsl(221, 87%, 60%)">first</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">]</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">[</span><span class="token plain">idx</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token function" style="color:hsl(221, 87%, 60%)">second</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">]</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token plain"> </span><span class="token char" style="color:hsl(119, 34%, 47%)">'x'</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">    </span><span class="token keyword" style="color:hsl(301, 63%, 40%)">return</span><span class="token plain"> </span><span class="token function" style="color:hsl(221, 87%, 60%)">removableRoles</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token function" style="color:hsl(221, 87%, 60%)">toList</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">}</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token function" style="color:hsl(221, 87%, 60%)">mapToLong</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token plain">roles </span><span class="token operator" style="color:hsl(221, 87%, 60%)">-&gt;</span><span class="token plain"> roles</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token function" style="color:hsl(221, 87%, 60%)">size</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token function" style="color:hsl(221, 87%, 60%)">sum</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">;</span><br></span></code></pre></div></div>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>advent-of-code</category>
-            <category>advent-of-code-2025</category>
-            <category>java</category>
+            <category>Advent of Code</category>
+            <category>Advent of Code 2025</category>
+            <category>Java</category>
         </item>
         <item>
             <title><![CDATA[Raspberry Alma]]></title>
@@ -849,11 +848,10 @@ the fact that Fedora feels like <em>archLinux with extra steps</em> <a href="htt
 </ol>
 </section>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>raspberry-pi</category>
-            <category>opensuse</category>
-            <category>almalinux</category>
-            <category>ansible</category>
-            <category>self-hosting</category>
+            <category>Administration</category>
+            <category>AlmaLinux</category>
+            <category>openSUSE</category>
+            <category>Raspberry Pi</category>
         </item>
         <item>
             <title><![CDATA[DevConf.cz 2024]]></title>
@@ -965,11 +963,10 @@ with the colleagues and at least some of our users who are not based in Brno.</p
 </ol>
 </section>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
+            <category>Conferences</category>
+            <category>Fedora</category>
+            <category>Red Hat</category>
             <category>🏭</category>
-            <category>red-hat</category>
-            <category>fedora</category>
-            <category>devconf</category>
-            <category>conferences</category>
         </item>
         <item>
             <title><![CDATA[LTS distributions]]></title>
@@ -1277,10 +1274,7 @@ since the cost outweighs the benefits at this point. <a href="https://blog.mfock
 </ol>
 </section>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>lts</category>
-            <category>linux distributions</category>
-            <category>support</category>
-            <category>paywall</category>
+            <category>Long-term support</category>
         </item>
         <item>
             <title><![CDATA[Mixed feelings on Rust]]></title>
@@ -1555,10 +1549,8 @@ are essential things not present… <a href="https://blog.mfocko.dev/blog/2024/0
 </ol>
 </section>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>rust</category>
-            <category>memory safety</category>
-            <category>cult</category>
-            <category>hype</category>
+            <category>Opinion</category>
+            <category>Rust</category>
         </item>
         <item>
             <title><![CDATA[How can Copr help with broken dependencies]]></title>
@@ -1643,11 +1635,9 @@ to live on the edge… <a href="https://blog.mfocko.dev/blog/2023/08/02/copr/#us
 </ol>
 </section>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
+            <category>Administration</category>
+            <category>Red Hat</category>
             <category>🏭</category>
-            <category>red-hat</category>
-            <category>copr</category>
-            <category>admin</category>
-            <category>vps</category>
         </item>
         <item>
             <title><![CDATA[4th week of Advent of Code '22 in Rust]]></title>
@@ -1902,9 +1892,9 @@ carry a lifetime for their own fields.</p>
 <hr>
 <p>See you next year! Maybe in Rust, maybe not <!-- -->🙃</p>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>advent-of-code</category>
-            <category>advent-of-code-2022</category>
-            <category>rust</category>
+            <category>Advent of Code</category>
+            <category>Advent of Code 2022</category>
+            <category>Rust</category>
         </item>
         <item>
             <title><![CDATA[3rd week of Advent of Code '22 in Rust]]></title>
@@ -2109,9 +2099,9 @@ left and right <!-- -->😄</p>
 </ol>
 </section>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>advent-of-code</category>
-            <category>advent-of-code-2022</category>
-            <category>rust</category>
+            <category>Advent of Code</category>
+            <category>Advent of Code 2022</category>
+            <category>Rust</category>
         </item>
         <item>
             <title><![CDATA[Sort the matrix diagonally]]></title>
@@ -2326,9 +2316,8 @@ Let's just wrap it!</p>
 </ol>
 </section>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>cpp</category>
-            <category>leetcode</category>
-            <category>iterators</category>
+            <category>C++</category>
+            <category>LeetCode</category>
         </item>
         <item>
             <title><![CDATA[2nd week of Advent of Code '22 in Rust]]></title>
@@ -2645,9 +2634,9 @@ consider the following piece of code</p>
 <p>Then <em>clippy</em> won't say anything, cause there is literally nothing to suggest.
 However the outcome is not the same…</p>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>advent-of-code</category>
-            <category>advent-of-code-2022</category>
-            <category>rust</category>
+            <category>Advent of Code</category>
+            <category>Advent of Code 2022</category>
+            <category>Rust</category>
         </item>
         <item>
             <title><![CDATA[1st week of Advent of Code '22 in Rust]]></title>
@@ -2864,9 +2853,9 @@ in Rust, we can say that</p>
 <p>You can easily see that they only differ in the mutability. (And even that is not
 as simple as it seems, because there is also <code>Cell&lt;T&gt;</code>)</p>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>advent-of-code</category>
-            <category>advent-of-code-2022</category>
-            <category>rust</category>
+            <category>Advent of Code</category>
+            <category>Advent of Code 2022</category>
+            <category>Rust</category>
         </item>
         <item>
             <title><![CDATA[Advent of Code '22 in Rust]]></title>
@@ -3007,9 +2996,9 @@ libraries using <code>anyhow</code> is nasty… You will be the stinky one ;) <a
 </ol>
 </section>]]></content:encoded>
             <author>me+blog@mfocko.xyz (Matej Focko)</author>
-            <category>advent-of-code</category>
-            <category>advent-of-code-2022</category>
-            <category>rust</category>
+            <category>Advent of Code</category>
+            <category>Advent of Code 2022</category>
+            <category>Rust</category>
         </item>
     </channel>
 </rss>

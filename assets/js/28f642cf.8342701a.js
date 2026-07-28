@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfi=self.webpackChunkfi||[]).push([[9144],{67910:a=>{a.exports=JSON.parse('{"tag":{"label":"Administration","permalink":"/blog/tags/admin","allTagsPath":"/blog/tags","count":2,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/admin","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
