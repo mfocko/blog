@@ -301,7 +301,7 @@ const docusaurusConfig = {
         // The application ID provided by Algolia
         appId: "0VXRFPR4QF",
         // Public API key: it is safe to commit it
-        apiKey: "9d4d452117cfaaae3e51b9568e22aa16",
+        apiKey: "63e987c87cd436f90de873fdfa51bd47",
         indexName: "mfocko",
       },
     }),
