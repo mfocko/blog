@@ -32,7 +32,7 @@ const talks: TalkMetadata[] = [
       },
     ],
     recordingURL:
-      "https://www.youtube.com/live/-3Dt-2s82nk?si=petVUs5vs-ZPIQQ0&t=20683",
+      "https://www.youtube.com/watch?v=6EGUsu-bEkI",
     slidesURL:
       "https://cfp.fedoraproject.org/media/flock-to-fedora-2026/submissions/33CKL3/resources/slides_Pa1mqSd.pdf",
   },
